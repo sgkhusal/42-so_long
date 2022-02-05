@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:22:28 by coder             #+#    #+#             */
-/*   Updated: 2022/02/04 21:28:42 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/05 04:09:57 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct		s_list
 size_t	ft_strlen(char *str);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif

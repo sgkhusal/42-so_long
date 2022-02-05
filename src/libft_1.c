@@ -1,16 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_libft.c                                    :+:      :+:    :+:   */
+/*   libft_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:15:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/04 21:27:57 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/05 03:05:44 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*ptr;
+
+	if (lst && new)
+	{
+		if (*lst)
+		{
+			ptr = ft_lstlast(*lst);
+			ptr->next = new;
+		}
+		else
+			*lst = new;
+	}
+}
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
@@ -70,4 +93,22 @@ char	*ft_strjoin(char *s1, char *s2)
 		join[i + j] = s2[j];
 	join[i + j] = '\0';
 	return (join);
+}
+
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n && (str1[i] || str2[i]))
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
 }
