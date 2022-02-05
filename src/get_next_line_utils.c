@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../headers/get_next_line.h"
 
 void	gnl_strjoin(char **next, char *buffer)
 {

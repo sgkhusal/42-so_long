@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../headers/get_next_line.h"
 
-void	gnl_next(char **next, char *aux, int only_next)
+static void	gnl_next(char **next, char *aux, int only_next)
 {
 	if (only_next == 0)
 	{
@@ -26,7 +26,7 @@ void	gnl_next(char **next, char *aux, int only_next)
 	}
 }
 
-int	gnl_split(char *str, char **next, char *tmp, int only_next)
+static int	gnl_split(char *str, char **next, char *tmp, int only_next)
 {
 	char	*aux;
 	int		i;
@@ -49,7 +49,7 @@ int	gnl_split(char *str, char **next, char *tmp, int only_next)
 	return (1);
 }
 
-int	check_new_line(char *str, char **next, char *tmp, int only_next)
+static int	check_new_line(char *str, char **next, char *tmp, int only_next)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ int	check_new_line(char *str, char **next, char *tmp, int only_next)
 	return (NO_LINE_FEED);
 }
 
-int	gnl_read(int fd, char *buf, char **next, char *tmp)
+static int	gnl_read(int fd, char *buf, char **next, char *tmp)
 {
 	int	nl;
 	int	n_read;
@@ -104,7 +104,7 @@ int	get_next_line(int fd, char **line)
 	nl = gnl_read(fd, buf, &next[fd], tmp);
 	ft_clean(&buf);
 	if (nl == 1 || (nl == 0 && next[fd]))
-		*line = ft_strdup(next[fd]);
+		*line = ft_strjoin(next[fd], "\n");
 	ft_clean(&next[fd]);
 	if (*line == NULL)
 		nl = MALLOC_ERROR;

@@ -32,6 +32,7 @@
 
 typedef struct s_map
 {
+	char	*linear_map;
 	char	**map;
 	int		total_c;
 	int		total_e;

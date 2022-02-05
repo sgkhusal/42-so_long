@@ -6,11 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:16 by coder             #+#    #+#             */
-/*   Updated: 2022/02/05 05:52:23 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/05 19:32:38 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../headers/so_long.h"
 
 int	sl_error(char *msg)//, t_game *sl)
 {
@@ -21,12 +21,20 @@ int	sl_error(char *msg)//, t_game *sl)
 
 void	sl_check_input(int argc, char *path)
 {
+	int	fd;
+	
 	if(argc == 1)
 		sl_error("Missing map file (*.ber format).");
 	if(argc > 2)
 		sl_error("To many arguments.");
 	if(ft_strncmp(&path[ft_strlen(path) - 4], ".ber", 4))
-		sl_error("Invalid map format - only supported .ber format.");
+		sl_error("Invalid map format. So_long game only supports .ber format.");
+	fd = open(path, O_RDONLY);
+	if (fd == OPEN_ERROR)
+	{
+		close(fd);
+		sl_error("File path or name nonexist.");
+	}	
 }
 
 void	sl_check_gnl_error(int gnl)
@@ -57,23 +65,20 @@ void	sl_check_map_limits(char *line, t_game *sl, int gnl)
 	else
 	{
 		sl_check_map_wall_char(line[0]);
-		sl_check_map_wall_char(line[ft_strlen(line) - 1]);
-	}
-	if(sl->map.total_lines == 1)
-		sl->map.line_size = ft_strlen(line);	
+		sl_check_map_wall_char(line[ft_strlen(line) - 2]);
+	}	
 }
 
 void	sl_check_map_line(char *line, t_game *sl, int gnl)
 {
-	size_t	size;
-	
-	size = ft_strlen(line);
-	if(sl->map.total_lines == 1 && size < 3)
+	if(sl->map.total_lines == 1 && ft_strlen(line) < 3)
 		sl_error("The map doesn't have enough columns.");
-	if(sl->map.total_lines > 1 && size != sl->map.line_size)
-		sl_error("The map must be rectangular.");
+	/* if(sl->map.total_lines == 1)
+		sl->map.line_size = ft_strlen(line);
+	else if(sl->map.total_lines > 1 && size != sl->map.line_size)
+		sl_error("The map must be rectangular."); */
 	sl_check_map_limits(line, sl, gnl);
-	/*if(sl->map.total_lines > 1 || gnl == GNL_READ_LINE)
+	/*if(sl->map.total_lines > 1)
 		sl_check_map_char(); */
 }
 
@@ -81,31 +86,29 @@ void	sl_read_map(char *path, t_game *sl)
 {
 	int		gnl;
 	int		fd;
-	t_list	new_line;
+	char	*aux;
 
 	fd = open(path, O_RDONLY);
-	if (fd == OPEN_ERROR) // pode tirar porque o gnl verifica, mas a mensagem de erro não fica personalizada
-		sl_error("File path/name nonexist or file open error.");
 	sl->map.total_lines = 0;
-	printf("%p\n", sl);
-	printf("%p\n", sl->map.line_list);
-	sl->map.line_list->content = (char	*)malloc(5 * sizeof(char));
-	sl->map.line_list->content = "test";
-	printf("%s\n", (char *)sl->map.line_list->content);
-	
 	gnl = GNL_READ_LINE;
 	while(gnl == GNL_READ_LINE)
 	{
-		gnl = get_next_line(fd, (char **)&(new_line.content));
+		gnl = get_next_line(fd, &aux);
 		sl_check_gnl_error(gnl);
 		if(gnl == GNL_READ_LINE || gnl == GNL_EOF)
 		{
 			sl->map.total_lines++;
-			sl_check_map_line(new_line.content, sl, gnl);
-			//ft_lstadd_back(sl->map.line_list, &new_line);
-			//free em new_line.content?
+			sl_check_map_line(aux, sl, gnl);
+			if(sl->map.linear_map == NULL)
+				sl->map.linear_map = ft_strdup(aux);
+			else
+				gnl_strjoin(&(sl->map.linear_map), aux);
+			//precisa verificar se retorna null!!
+			//free em aux?
 		}
 	}
+	printf("total lines = %i\n", sl->map.total_lines);
+	printf("linear map = %s\n", sl->map.linear_map);
 	if(sl->map.total_lines < 3)
 		sl_error("The map doesn't have enough lines.");
 	close(fd);
@@ -116,6 +119,7 @@ int	main(int argc, char **argv)
 	t_game	so_long;
 	
 	sl_check_input(argc, argv[1]);
+	so_long.map.linear_map = NULL;
 	sl_read_map(argv[1], &so_long);
 	return (0);
 }
