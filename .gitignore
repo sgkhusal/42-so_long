@@ -6,6 +6,8 @@
 *.ko
 *.obj
 *.elf
+# Object directory
+obj
 
 # Linker output
 *.ilk
