@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/05 19:29:39 by coder            ###   ########.fr        #
+#    Updated: 2022/02/06 02:55:19 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRC_PATH =				./src
 OBJ_PATH =				./obj
 HEADER_PATH = 			./headers
 
-SO_LONG_FILES =			1_so_long.c
-LIBFT_FILES =			libft_1.c
+SO_LONG_FILES =			1_so_long.c 2_read_map.c 3_check_map.c
+LIBFT_FILES =			libft_1.c ft_split.c libft_2.c
 GET_NEXT_LINE_FILES =	get_next_line.c get_next_line_utils.c
 SRC_FILES =				$(SO_LONG_FILES) $(LIBFT_FILES) $(GET_NEXT_LINE_FILES)
 HEADER_FILES =			libft.h get_next_line.h so_long.h

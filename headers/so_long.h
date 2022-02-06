@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/05 18:33:48 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/06 02:54:24 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 
 # define VALID_CHAR	"01CEP"
 # define WALL '1'
+# define SPACE '0'
+# define COLLECTIBLE 'C'
+# define EXIT 'E'
+# define PLAYER 'P'
 # define OPEN_ERROR -1
 # define GNL_ERROR -1
 # define GNL_EOF 0
@@ -63,7 +67,8 @@ typedef struct s_game
 so_long functions
 */
 
-
-
+void	sl_read_map(char *path, t_game *sl);
+int		sl_error(char *msg);
+void	sl_check_map(t_game *sl);
 
 #endif

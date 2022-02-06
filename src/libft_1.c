@@ -6,43 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:15:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/05 03:05:44 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/06 02:47:56 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/libft.h"
-
-t_list	*ft_lstlast(t_list *lst)
-{
-	while (lst && lst->next)
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*ptr;
-
-	if (lst && new)
-	{
-		if (*lst)
-		{
-			ptr = ft_lstlast(*lst);
-			ptr->next = new;
-		}
-		else
-			*lst = new;
-	}
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-}
 
 size_t	ft_strlen(char *str)
 {
@@ -111,4 +79,28 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char			*substring;
+	unsigned int	i;
+	size_t			buffer;
+
+	if (!s)
+		return (NULL);
+	if (ft_strlen((char *)s) < len)
+		buffer = ft_strlen((char *)s);
+	else
+		buffer = len;
+	if (!(substring = (char *)malloc((buffer + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (i < len && ((start + i) < ft_strlen((char *)s)))
+	{
+		substring[i] = s[start + i];
+		i++;
+	}
+	substring[i] = '\0';
+	return (substring);
 }

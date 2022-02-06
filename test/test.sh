@@ -3,13 +3,13 @@
 #cd ..
 #make
 
-gcc -Wall -Werror -Wextra src/1_so_long.c src/libft_1.c src/get_next_line.c src/get_next_line_utils.c -D BUFFER_SIZE=10 -o so_long
+#gcc -Wall -Werror -Wextra src/1_so_long.c src/libft_1.c src/get_next_line.c src/get_next_line_utils.c -D BUFFER_SIZE=10 -o so_long
 
 # input tests
-#./input_test.sh
+./invalid_input_test.sh
 
 # test invalid maps
-#./invalid_maps_test.sh
+./invalid_maps_test.sh
 
 #./so_long "maps/small.ber"
 #./so_long "maps/pdf_1.ber"
