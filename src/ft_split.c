@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 02:55:08 by sguilher          #+#    #+#             */
-/*   Updated: 2022/02/06 02:46:15 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/06 04:21:33 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static size_t	wcount(char const *s, char c)
 
 static size_t	lcount(const char *s, char c)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	while (s[count] != c && s[count])
@@ -42,13 +42,13 @@ static size_t	lcount(const char *s, char c)
 	return (count);
 }
 
-static void		free_pointer(char *p)
+static void	free_pointer(char *p)
 {
 	free(p);
 	p = NULL;
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	wc;
 	size_t	lc;

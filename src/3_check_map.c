@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 02:37:25 by coder             #+#    #+#             */
-/*   Updated: 2022/02/06 04:03:43 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/06 04:25:28 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	sl_check_map_wall_char(char c)
 {
-	if(c != WALL)
+	if (c != WALL)
 		sl_error("The map is not totally surrounded by '1' (walls).");
 }
 
@@ -52,11 +52,11 @@ static void	sl_check_map_line(char *line, t_game *sl, int index)
 
 static void	sl_check_map_cep_char(t_game *sl)
 {
-	if(sl->map.total_c == 0)
+	if (sl->map.total_c == 0)
 		sl_error("Map must contain at least one collectible.");
-	if(sl->map.total_e == 0)
+	if (sl->map.total_e == 0)
 		sl_error("Map must contain at least one exit.");
-	if(sl->map.total_p == 0)
+	if (sl->map.total_p == 0)
 		sl_error("Map must contain at least one starting position.");
 }
 
@@ -64,12 +64,12 @@ void	sl_check_map(t_game *sl)
 {
 	int	i;
 
-	if(sl->map.total_lines < 3)
+	if (sl->map.total_lines < 3)
 		sl_error("Map to small. The map doesn't have enough lines.");
-	if(sl->map.line_size < 3)
+	if (sl->map.line_size < 3)
 		sl_error("Map to small. The map doesn't have enough columns.");
 	i = 0;
-	while(sl->map.map[i])
+	while (sl->map.map[i])
 	{
 		sl_check_map_line(sl->map.map[i], sl, i);
 		i++;

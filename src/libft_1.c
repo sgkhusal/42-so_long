@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:15:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/06 02:47:56 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/06 04:23:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (join);
 }
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*str1;

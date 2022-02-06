@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/06 02:54:24 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/06 04:27:14 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_map
 	t_list	*e_list;
 	t_list	*p_list;
 	t_list	*line_list;
-	
+
 }				t_map;
 
 typedef struct s_mlx
