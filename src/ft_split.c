@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 02:55:08 by sguilher          #+#    #+#             */
-/*   Updated: 2022/02/11 19:21:07 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/11 19:43:06 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static void	free_pointer(char **p, int i)
 		p[i] = NULL;
 		i--;
 	}
+	free(p);
 	p = NULL;
 }
 

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:16 by coder             #+#    #+#             */
-/*   Updated: 2022/02/11 19:23:42 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/11 19:50:06 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ void	clean_map(t_game *sl)
 		ft_clean(&sl->map.map[i]);
 		i++;
 	}
-	sl = NULL;
+	if (sl->map.map)
+	{
+		free(sl->map.map);
+		sl->map.map = NULL;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -74,6 +78,13 @@ int	main(int argc, char **argv)
 	if (so_long.map.map == NULL)
 		sl_error("Map split error", &so_long);
 	sl_check_map(&so_long);
+
+	int i = 0;
+	while (so_long.map.map[i])
+	{
+		printf("%s\n", so_long.map.map[i]);
+		i++;
+	}
 	clean_map(&so_long);
 	return (0);
 }
