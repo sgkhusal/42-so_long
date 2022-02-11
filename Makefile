@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/06 02:55:19 by coder            ###   ########.fr        #
+#    Updated: 2022/02/11 18:52:27 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,10 +55,10 @@ $(NAME):	$(OBJ) $(HEADER)
 	@$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:
-		$(RM_DIR) $(OBJ_PATH)
+		@$(RM_DIR) $(OBJ_PATH)
 
 fclean:		clean
-		$(RM) $(NAME)
+		@$(RM) $(NAME)
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/06 04:27:14 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/11 19:05:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ typedef struct s_map
 	t_list	*c_list;
 	t_list	*e_list;
 	t_list	*p_list;
-	t_list	*line_list;
-
 }				t_map;
 
 typedef struct s_mlx
@@ -68,7 +66,8 @@ so_long functions
 */
 
 void	sl_read_map(char *path, t_game *sl);
-int		sl_error(char *msg);
+int		sl_error(char *msg, t_game *sl);
 void	sl_check_map(t_game *sl);
+void	clean_map(t_game *sl);
 
 #endif

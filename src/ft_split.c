@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 02:55:08 by sguilher          #+#    #+#             */
-/*   Updated: 2022/02/06 04:21:33 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/11 19:21:07 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,23 @@ static size_t	lcount(const char *s, char c)
 	return (count);
 }
 
-static void	free_pointer(char *p)
+static void	free_pointer(char **p, int i)
 {
-	free(p);
+	while (i <= 0)
+	{
+		free(p[i]);
+		p[i] = NULL;
+		i--;
+	}
 	p = NULL;
 }
 
-char	**ft_split(char const *s, char c)
+static void	ft_split_split(char const *s, char **words, char c, size_t wc)
 {
-	size_t	wc;
-	size_t	lc;
 	size_t	i;
 	int		k;
-	char	**words;
+	size_t	lc;
 
-	if (!s)
-		return (NULL);
-	wc = wcount(s, c);
-	if (!(words = (char **)malloc((wc + 1) * sizeof(char *))))
-		return (NULL);
 	i = 0;
 	k = 0;
 	while (i < wc)
@@ -68,11 +66,29 @@ char	**ft_split(char const *s, char c)
 		while (s[k] == c && s[k])
 			k++;
 		lc = lcount(&s[k], c);
-		if (!(words[i] = ft_substr(&s[k], 0, lc)))
-			free_pointer(words[i]);
+		words[i] = ft_substr(&s[k], 0, lc);
+		if (!words[i])
+		{
+			free_pointer(words, i);
+			return ;
+		}
 		k = k + lc;
 		i++;
 	}
 	words[i] = NULL;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	wc;
+	char	**words;
+
+	if (!s)
+		return (NULL);
+	wc = wcount(s, c);
+	words = (char **)malloc((wc + 1) * sizeof(char *));
+	if (!words)
+		return (NULL);
+	ft_split_split(s, words, c, wc);
 	return (words);
 }

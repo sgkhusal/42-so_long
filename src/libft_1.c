@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:15:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/06 04:23:35 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/11 19:10:09 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		buffer = ft_strlen((char *)s);
 	else
 		buffer = len;
-	if (!(substring = (char *)malloc((buffer + 1) * sizeof(char))))
+	substring = (char *)malloc((buffer + 1) * sizeof(char));
+	if (!substring)
 		return (NULL);
 	i = 0;
 	while (i < len && ((start + i) < ft_strlen((char *)s)))
