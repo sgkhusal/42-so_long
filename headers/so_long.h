@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/11 19:05:55 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/12 01:39:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <mlx.h>
 # include "get_next_line.h"
 # include "libft.h"
+# include <math.h>
 
 // printf
 # include <stdio.h>
@@ -33,6 +34,7 @@
 # define GNL_ERROR -1
 # define GNL_EOF 0
 # define GNL_READ_LINE 1
+# define TILE_SIZE 32
 
 typedef struct s_map
 {
@@ -43,31 +45,51 @@ typedef struct s_map
 	int		total_p;
 	int		total_lines;
 	size_t	line_size;
-	t_list	*c_list;
-	t_list	*e_list;
-	t_list	*p_list;
+	//t_list	*c_list;
+	//t_list	*e_list;
+	//t_list	*p_list;
 }				t_map;
+
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+}				t_image;
 
 typedef struct s_mlx
 {
 	void	*mlx;
-	void	*mlx_win;
+	void	*win;
+	int		width;
+	int		height;
 }				t_mlx;
 
 typedef struct s_game
 {
 	int		moves;
-	t_map	map;
 	t_mlx	mlx;
+	t_map	map;
+	t_image	static_map;
+	t_image	floor;
+	t_image	wall;
+	t_image	player;
+	t_image	collectible;
+	t_image	exit;
 }				t_game;
 
 /*
 so_long functions
 */
 
-void	sl_read_map(char *path, t_game *sl);
-int		sl_error(char *msg, t_game *sl);
+void	sl_map(char *path, t_game *sl);
 void	sl_check_map(t_game *sl);
+
+int		sl_error(char *msg, t_game *sl);
+
 void	clean_map(t_game *sl);
+void	clean_mlx(t_game *sl);
 
 #endif

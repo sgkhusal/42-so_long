@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_read_map.c                                       :+:      :+:    :+:   */
+/*   2_map.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 03:13:33 by coder             #+#    #+#             */
-/*   Updated: 2022/02/11 19:04:30 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/12 01:21:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	sl_check_gnl_error(int gnl, t_game *sl)
 		sl_error("Map read error.", sl);
 }
 
-void	sl_read_map(char *path, t_game *sl)
+static void	sl_read_map(char *path, t_game *sl)
 {
 	int		gnl;
 	int		fd;
@@ -43,4 +43,27 @@ void	sl_read_map(char *path, t_game *sl)
 	}
 	ft_clean(&aux);
 	close(fd);
+}
+
+static void	sl_map_init(t_game *sl)
+{
+	sl->map.total_lines = 0;
+	sl->map.line_size = 0;
+	sl->map.linear_map = ft_strdup("");
+	if (sl->map.linear_map == NULL)
+		sl_error("Memory allocation error", sl);
+	sl->map.map = NULL;
+	sl->map.total_c = 0;
+	sl->map.total_e = 0;
+	sl->map.total_p = 0;
+}
+
+void	sl_map(char *path, t_game *sl)
+{
+	sl_map_init(sl);
+	sl_read_map(path, sl);
+	sl->map.map = ft_split(sl->map.linear_map, '\n');
+	if (sl->map.map == NULL)
+		sl_error("Map split error", sl);
+	sl_check_map(sl);
 }

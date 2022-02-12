@@ -6,29 +6,23 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:16 by coder             #+#    #+#             */
-/*   Updated: 2022/02/11 19:50:06 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/12 01:52:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	sl_error(char *msg, t_game *sl)
+static void	sl_mlx_init(t_game *sl)
 {
-	printf("Error\n%s\n", msg);
-	clean_map(sl);
-	exit(EXIT_FAILURE);
-}
-
-static void	sl_map_init(t_game *sl)
-{
-	sl->map.total_lines = 0;
-	sl->map.linear_map = ft_strdup("");
-	if (sl->map.linear_map == NULL)
-		sl_error("Memory allocation error", sl);
-	sl->map.map = NULL;
-	sl->map.total_c = 0;
-	sl->map.total_e = 0;
-	sl->map.total_p = 0;
+	sl->mlx.mlx = mlx_init();
+	if (sl->mlx.mlx == NULL)
+		sl_error("Mlx init error", sl);
+	sl->mlx.width = sl->map.line_size * TILE_SIZE;
+	sl->mlx.height = sl->map.total_lines * TILE_SIZE;
+	sl->mlx.win = mlx_new_window(sl->mlx.mlx, sl->mlx.width, sl->mlx.height,
+			"So_long");
+	if (sl->mlx.win == NULL)
+		sl_error("Mlx window error", sl);
 }
 
 static void	sl_check_input(int argc, char *path, t_game *sl)
@@ -49,42 +43,16 @@ static void	sl_check_input(int argc, char *path, t_game *sl)
 	}	
 }
 
-void	clean_map(t_game *sl)
-{
-	int	i;
-
-	i = 0;
-	ft_clean(&sl->map.linear_map);
-	while (sl->map.map[i])
-	{
-		ft_clean(&sl->map.map[i]);
-		i++;
-	}
-	if (sl->map.map)
-	{
-		free(sl->map.map);
-		sl->map.map = NULL;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_game	so_long;
 
 	sl_check_input(argc, argv[1], &so_long);
-	sl_map_init(&so_long);
-	sl_read_map(argv[1], &so_long);
-	so_long.map.map = ft_split(so_long.map.linear_map, '\n');
-	if (so_long.map.map == NULL)
-		sl_error("Map split error", &so_long);
-	sl_check_map(&so_long);
-
-	int i = 0;
-	while (so_long.map.map[i])
-	{
-		printf("%s\n", so_long.map.map[i]);
-		i++;
-	}
+	sl_map(argv[1], &so_long);
+	sl_mlx_init(&so_long);
+	sl_render_map(&so_long);
+	mlx_loop(so_long.mlx.mlx);
 	clean_map(&so_long);
+	clean_mlx(&so_long);
 	return (0);
 }

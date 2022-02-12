@@ -6,17 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 02:37:25 by coder             #+#    #+#             */
-/*   Updated: 2022/02/11 19:05:18 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/12 00:58:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
-
-static void	sl_check_map_wall_char(char c, t_game *sl)
-{
-	if (c != WALL)
-		sl_error("The map is not totally surrounded by '1' (walls).", sl);
-}
 
 static void	sl_check_map_invalid_char(char c, t_game *sl)
 {
@@ -28,6 +22,12 @@ static void	sl_check_map_invalid_char(char c, t_game *sl)
 		sl->map.total_p++;
 	else if (c != SPACE && c != WALL)
 		sl_error("Invalid character in map file.", sl);
+}
+
+static void	sl_check_map_wall_char(char c, t_game *sl)
+{
+	if (c != WALL)
+		sl_error("The map is not totally surrounded by '1' (walls).", sl);
 }
 
 static void	sl_check_map_line(char *line, t_game *sl, int index)
