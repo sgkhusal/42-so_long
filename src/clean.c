@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:30:03 by coder             #+#    #+#             */
-/*   Updated: 2022/02/11 21:27:46 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/12 03:36:57 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	clean_map(t_game *sl)
 
 void	clean_mlx(t_game *sl)
 {
-	mlx_destroy_window(sl->mlx, sl->mlx_win);
-	mlx_destroy_display(sl->mlx);
-	free(sl->mlx);
+	mlx_destroy_window(sl->mlx.mlx, sl->mlx.win);
+	mlx_destroy_display(sl->mlx.mlx);
+	mlx_destroy_image(sl->mlx.mlx, sl->floor1.img);
+	mlx_destroy_image(sl->mlx.mlx, sl->floor2.img);
+	free(sl->mlx.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/12 01:39:40 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/12 05:02:09 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_image
 	int		bpp;
 	int		line_length;
 	int		endian;
+	int		width;
+	int		height;
 }				t_image;
 
 typedef struct s_mlx
@@ -72,9 +74,11 @@ typedef struct s_game
 	int		moves;
 	t_mlx	mlx;
 	t_map	map;
-	t_image	static_map;
-	t_image	floor;
+	t_image	floor1;
+	t_image	floor2;
+	t_image	corner;
 	t_image	wall;
+	t_image	mid_wall;
 	t_image	player;
 	t_image	collectible;
 	t_image	exit;
@@ -86,6 +90,7 @@ so_long functions
 
 void	sl_map(char *path, t_game *sl);
 void	sl_check_map(t_game *sl);
+void	sl_render_game(t_game *sl);
 
 int		sl_error(char *msg, t_game *sl);
 

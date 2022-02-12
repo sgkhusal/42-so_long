@@ -11,13 +11,13 @@
 # test invalid maps
 ./invalid_maps_test.sh
 
-#./so_long "maps/small.ber"
-#./so_long "maps/pdf_1.ber"
-#./so_long "maps/pdf_2.ber"
-#./so_long "maps/map_1.ber"
-#./so_long "maps/map_2.ber"
-#./so_long "maps/map_3.ber"
-#./so_long "maps/map_4.ber"
+#./so_long "assets/maps/small.ber"
+#./so_long "assets/maps/pdf_1.ber"
+#./so_long "assets/maps/pdf_2.ber"
+#./so_long "assets/maps/map_1.ber"
+#./so_long "assets/maps/map_2.ber"
+#./so_long "assets/maps/map_3.ber"
+#./so_long "assets/maps/map_4.ber"
 
 #make bonus
 #./so_long_bonus "maps/map_1.ber"
