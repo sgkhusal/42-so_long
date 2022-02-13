@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/12 02:04:24 by coder            ###   ########.fr        #
+#    Updated: 2022/02/13 00:39:52 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ SRC_PATH =				./src
 OBJ_PATH =				./obj
 HEADER_PATH = 			./headers
 
-SO_LONG_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_render_map.c \
+SO_LONG_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_game.c \
+						5_images_init.c 6_render_map.c \
 						clean.c so_long_utils.c
-LIBFT_FILES =			libft_1.c ft_split.c libft_2.c
+LIBFT_FILES =			libft_1.c libft_ft_split.c libft_2.c
 GET_NEXT_LINE_FILES =	get_next_line.c get_next_line_utils.c
 SRC_FILES =				$(SO_LONG_FILES) $(LIBFT_FILES) $(GET_NEXT_LINE_FILES)
 HEADER_FILES =			libft.h get_next_line.h so_long.h

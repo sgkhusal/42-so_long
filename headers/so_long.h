@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/12 05:02:09 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/13 00:35:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,9 @@ so_long functions
 
 void	sl_map(char *path, t_game *sl);
 void	sl_check_map(t_game *sl);
-void	sl_render_game(t_game *sl);
+void	sl_game(t_game *sl);
+void	sl_images_init(t_game *sl);
+void	sl_render_map(t_game *sl);
 
 int		sl_error(char *msg, t_game *sl);
 
