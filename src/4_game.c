@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/13 00:37:42 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/13 02:36:15 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ void	sl_game(t_game *sl)
 {
 	sl_mlx_init(sl);
 	sl_images_init(sl);
+	sl_set_collectibles(sl);
 	sl_render_map(sl);
+	sl_render_collectibles(sl);
 }
