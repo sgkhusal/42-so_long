@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:19:35 by coder             #+#    #+#             */
-/*   Updated: 2022/02/13 02:30:21 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/13 04:49:34 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	sl_images_init_collectible(t_game *sl)
 			&sl->item0.height);
 	if (!sl->item0.img)
 		sl_error("Mlx error loading tiger_eye item image.", sl);
+	//sl_set_transparence(sl->item0.img);
 	sl->item1.img = mlx_xpm_file_to_image(sl->mlx.mlx,
 			"assets/images/item1.xpm", &sl->item1.width,
 			&sl->item1.height);

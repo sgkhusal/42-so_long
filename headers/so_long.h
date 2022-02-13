@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/13 00:35:48 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/13 04:48:42 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	sl_map(char *path, t_game *sl);
 void	sl_check_map(t_game *sl);
 void	sl_game(t_game *sl);
 void	sl_images_init(t_game *sl);
+void	sl_set_transparence(t_image *img);
 void	sl_set_collectibles(t_game *sl);
 void	sl_render_map(t_game *sl);
 void	sl_set_collectible_id_floor(t_game *sl, int x, int y, int id_floor);
