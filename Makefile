@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/13 00:39:52 by coder            ###   ########.fr        #
+#    Updated: 2022/02/14 20:31:22 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ_PATH =				./obj
 HEADER_PATH = 			./headers
 
 SO_LONG_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_game.c \
-						6_render_map.c \
+						5_render_game.c 6_render_collectibles.c \
 						clean.c so_long_utils.c
 LIBFT_FILES =			libft_1.c libft_ft_split.c libft_2.c
 GET_NEXT_LINE_FILES =	get_next_line.c get_next_line_utils.c

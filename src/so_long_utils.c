@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:32:08 by coder             #+#    #+#             */
-/*   Updated: 2022/02/14 17:11:41 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/14 20:53:34 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y)
 		while (sprite_x < sprite->width)
 		{
 			color = get_pixel_color(sprite, sprite_x, sprite_y);
-			//printf("%u\n", color);
-			if (color != 1)
+			if (color != 0x0000FF)
 				put_pixel_color(&sl->img, x + sprite_x, y + sprite_y, color);
 			sprite_x++;
 		}
