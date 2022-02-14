@@ -34,7 +34,7 @@ void	clean_mlx(t_game *sl)
 {
 	mlx_destroy_window(sl->mlx.mlx, sl->mlx.win);
 	mlx_destroy_display(sl->mlx.mlx);
-	mlx_destroy_image(sl->mlx.mlx, sl->floor0.img);
-	mlx_destroy_image(sl->mlx.mlx, sl->floor1.img);
+	mlx_destroy_image(sl->mlx.mlx, sl->sprites.floor0.img);
+	mlx_destroy_image(sl->mlx.mlx, sl->sprites.floor1.img);
 	free(sl->mlx.mlx);
 }

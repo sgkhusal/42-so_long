@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/13 04:48:42 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/14 17:18:07 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define GNL_READ_LINE 1
 # define TILE_SIZE 32
 # define SMALL_IMG_OFFSET 8
-# define ITEM_NOT_COLLECT 1
-# define ITEM_COLLECT 0
+# define NOT_COLLECTED 1
+# define COLLECTED 0
 
 typedef struct s_map
 {
@@ -58,10 +58,10 @@ typedef struct s_image
 	void	*img;
 	char	*addr;
 	int		bpp;
-	int		line_length;
+	int		line_size;
 	int		endian;
-	int		width;
 	int		height;
+	int		width;
 }				t_image;
 
 typedef struct s_mlx
@@ -81,21 +81,34 @@ typedef struct s_item
 	int	y;
 }				t_item;
 
-typedef struct s_game
+typedef struct s_sprites
 {
-	int		moves;
-	t_mlx	mlx;
-	t_map	map;
 	t_image	floor0;
 	t_image	floor1;
 	t_image	corner;
 	t_image	wall;
 	t_image	mid_wall;
-	t_image	player;
+	t_image	front1;
+	t_image	back1;
+	t_image	left1;
+	t_image	right1;
 	t_image	item0;
 	t_image	item1;
+	t_image	item2;
+	t_image	item3;
+	t_image	item4;
+	t_image	item5;
 	t_image	exit;
-	t_item	**items;
+}				t_sprites;
+
+typedef struct s_game
+{
+	int			moves;
+	t_mlx		mlx;
+	t_map		map;
+	t_sprites	sprites;
+	t_image		img;
+	t_item		**items;
 }				t_game;
 
 /*
@@ -105,12 +118,13 @@ so_long functions
 void	sl_map(char *path, t_game *sl);
 void	sl_check_map(t_game *sl);
 void	sl_game(t_game *sl);
-void	sl_images_init(t_game *sl);
+void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size);
 void	sl_set_transparence(t_image *img);
 void	sl_set_collectibles(t_game *sl);
-void	sl_render_map(t_game *sl);
+void	sl_render_game(t_game *sl);
+void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y);
 void	sl_set_collectible_id_floor(t_game *sl, int x, int y, int id_floor);
-void	sl_render_collectibles(t_game *sl);
+void	sl_put_collectibles(t_game *sl);
 
 int		sl_error(char *msg, t_game *sl);
 

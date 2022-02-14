@@ -19,7 +19,7 @@ OBJ_PATH =				./obj
 HEADER_PATH = 			./headers
 
 SO_LONG_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_game.c \
-						5_images_init.c 6_render_map.c 7_render_collectible.c \
+						6_render_map.c \
 						clean.c so_long_utils.c
 LIBFT_FILES =			libft_1.c libft_ft_split.c libft_2.c
 GET_NEXT_LINE_FILES =	get_next_line.c get_next_line_utils.c

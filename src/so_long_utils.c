@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:32:08 by coder             #+#    #+#             */
-/*   Updated: 2022/02/13 04:50:02 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/14 17:11:41 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,66 @@ int	sl_error(char *msg, t_game *sl)
 	exit(EXIT_FAILURE);
 }
 
-void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
+void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size)
 {
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
+	char	*msg;
+	
+	sprite->img = mlx_xpm_file_to_image(sl->mlx.mlx, path, &sprite->line_size,
+			&sprite->height);
+	if (!sprite->img)
+	{
+		msg = ft_strjoin("Mlx error loading sprite: ", path);
+		sl_error(msg, sl);
+	}	
+	sprite->addr = mlx_get_data_addr(sprite->img, &sprite->bpp,
+			&sprite->line_size, &sprite->endian);
+	if (type_size == 1)
+	{
+		sprite->height = TILE_SIZE;
+		sprite->width = TILE_SIZE;
+	}
+	else if (type_size == 2)
+	{
+		sprite->height = TILE_SIZE / 2;
+		sprite->width = TILE_SIZE / 2;
+	}
 }
 
-void	sl_set_transparence(t_image *img)
+unsigned int	get_pixel_color(t_image *img, int x, int y)
 {
-	char	*dst;
-	int		x;
-	int		y;
+	char	*pixel_color;
 
-	y = 0;
-	while (y < img->height)
+	pixel_color = img->addr + (y * img->line_size + x * (img->bpp / 8));
+	return (*(unsigned int *)pixel_color);
+}
+
+void	put_pixel_color(t_image *img, int x, int y, int color)
+{
+	char	*pixel;
+
+	pixel = img->addr + (y * img->line_size + x * (img->bpp / 8));
+	*(unsigned int *)pixel = color;
+}
+
+void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y)
+{
+	unsigned int	color;
+	int				sprite_x;
+	int				sprite_y;
+
+	sprite_x = 0;
+	sprite_y = 0;
+	while (sprite_y < sprite->height)
 	{
-		x = 0;
-		while (x < img->width)
+		while (sprite_x < sprite->width)
 		{
-			dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
-			if (*(unsigned int *)dst == (int)0x000000FF)
-				*(unsigned int *)dst = (int)0x0000FF;
-			x++;
+			color = get_pixel_color(sprite, sprite_x, sprite_y);
+			//printf("%u\n", color);
+			if (color != 1)
+				put_pixel_color(&sl->img, x + sprite_x, y + sprite_y, color);
+			sprite_x++;
 		}
-		y++;
+		sprite_x = 0;
+		sprite_y++;
 	}
 }
