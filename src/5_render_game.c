@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:51:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/14 20:37:41 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/14 21:11:46 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void	sl_render_game(t_game *sl)
 		k++;
 	}
 	sl_put_collectibles(sl);
+	//sl_put_player(sl);
 	mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
 }

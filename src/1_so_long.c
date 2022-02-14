@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 	sl_game(&so_long);
 	mlx_loop(so_long.mlx.mlx);
 	clean_map(&so_long);
+	clean_items(&so_long);
 	clean_mlx(&so_long);
 	return (0);
 }

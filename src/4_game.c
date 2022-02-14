@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/14 20:33:55 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/14 21:15:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void	sl_load_sprites(t_game *sl)
 {
 	load_sprite(sl, &sl->sprites.wall, "assets/images/wall.xpm", 1);
 	load_sprite(sl, &sl->sprites.corner, "assets/images/corner.xpm", 1);
-	load_sprite(sl, &sl->sprites.mid_wall, "assets/images/wall2.xpm", 1);
 	load_sprite(sl, &sl->sprites.floor0, "assets/images/floor0.xpm", 1);
 	load_sprite(sl, &sl->sprites.floor1, "assets/images/floor1.xpm", 1);
 	load_sprite(sl, &sl->sprites.item0, "assets/images/tiger_eye.xpm", 2);
@@ -25,7 +24,7 @@ static void	sl_load_sprites(t_game *sl)
 	load_sprite(sl, &sl->sprites.item3, "assets/images/item3.xpm", 2);
 	load_sprite(sl, &sl->sprites.item4, "assets/images/item4.xpm", 2);
 	load_sprite(sl, &sl->sprites.item5, "assets/images/item5.xpm", 2);
-	/*load_sprite(sl, &sl->sprites.front1, "assets/images/player_front1.xpm", 2);
+	load_sprite(sl, &sl->sprites.front1, "assets/images/player_front1.xpm", 2);
 	load_sprite(sl, &sl->sprites.back1, "assets/images/player_back1.xpm", 2);
 	load_sprite(sl, &sl->sprites.left1, "assets/images/player_left1.xpm", 2);
 	//load_sprite(sl, &sl->sprites.right1, "assets/images/player_right1.xpm", 2);*/

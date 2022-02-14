@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/14 17:18:07 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/14 21:15:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@
 # define SMALL_IMG_OFFSET 8
 # define NOT_COLLECTED 1
 # define COLLECTED 0
+# define FRONT 0
+# define BACK 1
+# define LEFT 2
+# define RIGHT 3
 
 typedef struct s_map
 {
@@ -48,9 +52,6 @@ typedef struct s_map
 	int		total_p;
 	int		total_lines;
 	size_t	line_size;
-	//t_list	*c_list;
-	//t_list	*e_list;
-	//t_list	*p_list;
 }				t_map;
 
 typedef struct s_image
@@ -81,13 +82,21 @@ typedef struct s_item
 	int	y;
 }				t_item;
 
+typedef struct s_player
+{
+	int	status;
+	int	id_img;
+	int	id_floor;
+	int	x;
+	int	y;
+}				t_player;
+
 typedef struct s_sprites
 {
 	t_image	floor0;
 	t_image	floor1;
 	t_image	corner;
 	t_image	wall;
-	t_image	mid_wall;
 	t_image	front1;
 	t_image	back1;
 	t_image	left1;
@@ -109,6 +118,7 @@ typedef struct s_game
 	t_sprites	sprites;
 	t_image		img;
 	t_item		**items;
+	t_player	player;
 }				t_game;
 
 /*
@@ -129,6 +139,7 @@ void	sl_put_collectibles(t_game *sl);
 int		sl_error(char *msg, t_game *sl);
 
 void	clean_map(t_game *sl);
+void	clean_items(t_game *sl);
 void	clean_mlx(t_game *sl);
 
 #endif

@@ -12,55 +12,45 @@
 
 #include "../headers/so_long.h"
 
-/* static	void	sl_set_item(t_game *sl, int *nc, int *id_img, int ij[2])
+static	int	sl_set_item(t_game *sl, int nc, int id_img, int idx[2])
 {
-	sl->items[*nc] = (t_item *)malloc(sizeof(t_item));
-	if (!sl->items[*nc])
+	sl->items[nc] = (t_item *)malloc(sizeof(t_item));
+	if (!sl->items[nc])
 		sl_error("Malloc error 2 in sl_set_item function.", sl);
-	sl->items[*nc]->status = NOT_COLLECTED;
-	sl->items[*nc]->x = ij[1] * TILE_SIZE + SMALL_IMG_OFFSET;
-	sl->items[*nc]->y = ij[0] * TILE_SIZE + SMALL_IMG_OFFSET;
-	sl->items[*nc]->id_img = *id_img;
-	*id_img++;
-	*nc++;
-} */
+	sl->items[nc]->status = NOT_COLLECTED;
+	sl->items[nc]->x = idx[1] * TILE_SIZE + SMALL_IMG_OFFSET;
+	sl->items[nc]->y = idx[0] * TILE_SIZE + SMALL_IMG_OFFSET;
+	sl->items[nc]->id_img = id_img;
+	id_img++;
+	if (id_img == 6)
+		id_img = 0;
+	return id_img;
+}
 
 void	sl_set_collectibles(t_game *sl)
 {
-	int	i;
-	int	j;
+	int	idx[2];
 	int	nc;
 	int	id_img;
 	
 	sl->items = (t_item **)malloc((sl->map.total_c + 1) * sizeof(t_item));
 	if (!sl->items)
 		sl_error("Malloc error in sl_set_collectibles function.", sl);
-	i = 1;
+	idx[0] = 0;
 	nc = 0;
 	id_img = 0;
-	while (i < sl->map.total_lines - 1 && nc < sl->map.total_c)
+	while (++idx[0] < sl->map.total_lines - 1 && nc < sl->map.total_c)
 	{
-		j = 1;
-		while (j < (int)sl->map.line_size - 1)
+		idx[1] = 1;
+		while (idx[1] < (int)sl->map.line_size - 1)
 		{
-			if (sl->map.map[i][j] == COLLECTIBLE)
+			if (sl->map.map[idx[0]][idx[1]] == COLLECTIBLE)
 			{
-				sl->items[nc] = (t_item *)malloc(sizeof(t_item));
-				if (!sl->items[nc])
-					sl_error("Malloc error 2 in sl_set_item function.", sl);
-				sl->items[nc]->status = NOT_COLLECTED;
-				sl->items[nc]->x = j * TILE_SIZE + SMALL_IMG_OFFSET;
-				sl->items[nc]->y = i * TILE_SIZE + SMALL_IMG_OFFSET;
-				sl->items[nc]->id_img = id_img;
-				id_img++;
+				id_img = sl_set_item(sl, nc, id_img, idx);
 				nc++;
 			}
-				//sl_set_item(sl, &nc, &id_img, [i, j]);
-			if (id_img == 6)
-				id_img = 0;
-			j++;
+			idx[1]++;
 		}
-		i++;
 	}
 	sl->items[nc] = NULL;
 }
