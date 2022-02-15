@@ -15,9 +15,7 @@
 int	sl_error(char *msg, t_game *sl)
 {
 	printf("Error\n%s\n", msg);
-	clean_map(sl);
-	clean_items(sl);
-	clean_mlx(sl);
+	clean_game(sl);
 	exit(EXIT_FAILURE);
 }
 
