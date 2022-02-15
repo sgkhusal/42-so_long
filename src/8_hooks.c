@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:09:22 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 21:14:52 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/15 22:50:01 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-static int	close_game(t_game *sl)
+int	close_game(t_game *sl)
 {
 	mlx_destroy_window(sl->mlx.mlx, sl->mlx.win);
 	sl->mlx.win = NULL;
@@ -33,14 +33,14 @@ static int	sl_key_press(int key, t_game *sl)
 {
 	if (key == XK_Escape)
 		close_game(sl);
-	/* else if (key == XK_d || key == XK_Right)
+	else if (key == XK_d || key == XK_Right)
 		sl_move_right(sl);
 	else if (key == XK_a || key == XK_Left)
 		sl_move_left(sl);
 	else if (key == XK_w || key == XK_Up)
 		sl_move_up(sl);
 	else if (key == XK_s || key == XK_Down)
-		sl_move_down(sl); */
+		sl_move_down(sl);
 	return (0);
 }
 

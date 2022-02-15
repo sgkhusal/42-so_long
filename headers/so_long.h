@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 21:09:47 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/15 22:39:27 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define VALID_CHAR	"01CEP"
 # define WALL '1'
-# define SPACE '0'
+# define EMPTY '0'
 # define COLLECTIBLE 'C'
 # define EXIT 'E'
 # define PLAYER 'P'
@@ -82,7 +82,7 @@ typedef struct s_item
 {
 	int	status; // talvez não precise
 	int	id_img;
-	int	id_floor;
+	int	id_floor; // talvez não precise
 	int	x;
 	int	y;
 }				t_item;
@@ -126,6 +126,7 @@ typedef struct s_game
 	t_player	player;
 	int			player_set;
 	int			items_set;
+	int			collect_items;
 }				t_game;
 
 /*
@@ -144,13 +145,19 @@ void	sl_render_game(t_game *sl);
 void	sl_put_static_map(t_game *sl, int i, int j, int k);
 void	sl_put_collectibles(t_game *sl);
 void	sl_put_player(t_game *sl);
+void	put_player(t_game *sl, t_image *sprite);
 void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size);
 void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y);
 
 void	sl_mlx_hooks(t_game *sl);
+void	sl_move_right(t_game *sl);
+void	sl_move_left(t_game *sl);
+void	sl_move_up(t_game *sl);
+void	sl_move_down(t_game *sl);
 
 int		sl_error(char *msg, t_game *sl);
 void	clean_game(t_game *sl);
 void	clean_imgs(t_game *sl);
+int		close_game(t_game *sl);
 
 #endif

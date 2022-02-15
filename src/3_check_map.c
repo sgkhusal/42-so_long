@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 02:37:25 by coder             #+#    #+#             */
-/*   Updated: 2022/02/12 00:58:55 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/15 22:16:37 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	sl_check_map_invalid_char(char c, t_game *sl)
 		sl->map.total_e++;
 	else if (c == PLAYER)
 		sl->map.total_p++;
-	else if (c != SPACE && c != WALL)
+	else if (c != EMPTY && c != WALL)
 		sl_error("Invalid character in map file.", sl);
 }
 

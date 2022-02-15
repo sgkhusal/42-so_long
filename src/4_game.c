@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 20:49:15 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/15 22:48:28 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	sl_load_sprites(t_game *sl)
 	load_sprite(sl, &sl->sprites.front0, "assets/images/player_front0.xpm", 2);
 	load_sprite(sl, &sl->sprites.back0, "assets/images/player_back0.xpm", 2);
 	load_sprite(sl, &sl->sprites.left0, "assets/images/player_left0.xpm", 2);
-	//load_sprite(sl, &sl->sprites.right1, "assets/images/player_right1.xpm", 2);*/
+	load_sprite(sl, &sl->sprites.right0, "assets/images/player_right0.xpm", 2);
 	load_sprite(sl, &sl->sprites.exit, "assets/images/stair_exit.xpm", 1);
 }
 
@@ -82,4 +82,5 @@ void	sl_game_init(t_game *sl)
 	sl_render_game(sl);
 	sl->items_set = SET;
 	sl->moves = 0;
+	sl->collect_items = 0;
 }
