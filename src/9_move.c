@@ -1,45 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_2.c                                          :+:      :+:    :+:   */
+/*   9_move.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 21:15:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/06 02:47:48 by coder            ###   ########.fr       */
+/*   Created: 2022/02/15 20:42:55 by coder             #+#    #+#             */
+/*   Updated: 2022/02/15 20:52:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../headers/so_long.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	print_move(t_game *sl)
 {
-	while (lst && lst->next)
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*ptr;
-
-	if (lst && new)
-	{
-		if (*lst)
-		{
-			ptr = ft_lstlast(*lst);
-			ptr->next = new;
-		}
-		else
-			*lst = new;
-	}
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	sl->moves++;
+	printf("Moves: %i\n", sl->moves);
 }

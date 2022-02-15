@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 18:13:48 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/15 20:49:15 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	sl_game_init(t_game *sl)
 			&sl->img.line_size, &sl->img.endian);
 	sl_render_game(sl);
 	sl->items_set = SET;
+	sl->moves = 0;
 }

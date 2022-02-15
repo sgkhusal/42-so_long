@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 16:13:00 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/15 21:09:47 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ typedef struct s_mlx
 
 typedef struct s_item
 {
-	int	status;
+	int	status; // talvez não precise
 	int	id_img;
 	int	id_floor;
 	int	x;
@@ -148,9 +148,9 @@ void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size);
 void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y);
 
 void	sl_mlx_hooks(t_game *sl);
-int		sl_key_press(int keycode, t_game *game);
 
 int		sl_error(char *msg, t_game *sl);
 void	clean_game(t_game *sl);
+void	clean_imgs(t_game *sl);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/15 16:01:49 by coder            ###   ########.fr        #
+#    Updated: 2022/02/15 21:16:21 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ HEADER_PATH = 			./headers
 
 SO_LONG_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_game.c \
 						5_render_map.c 6_render_collectibles.c \
-						7_render_player.c 8_hooks.c \
-						clean.c so_long_utils.c
-LIBFT_FILES =			libft_1.c libft_ft_split.c libft_2.c
+						7_render_player.c 8_hooks.c 9_move.c \
+						so_long_utils.c clean.c clean_utils.c
+LIBFT_FILES =			libft_1.c libft_ft_split.c
 GET_NEXT_LINE_FILES =	get_next_line.c get_next_line_utils.c
 SRC_FILES =				$(SO_LONG_FILES) $(LIBFT_FILES) $(GET_NEXT_LINE_FILES)
 HEADER_FILES =			libft.h get_next_line.h so_long.h
