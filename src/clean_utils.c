@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:05:27 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 21:13:12 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:20:33 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	clean_imgs_player(t_game *sl)
 		mlx_destroy_image(sl->mlx.mlx, sl->sprites.back0.img);
 	if (sl->sprites.left0.img != NULL)
 		mlx_destroy_image(sl->mlx.mlx, sl->sprites.left0.img);
-		//if (sl->sprites.right0.img != NULL)
-	//mlx_destroy_image(sl->mlx.mlx, sl->sprites.right0.img);
+	if (sl->sprites.right0.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, sl->sprites.right0.img);
 }
 
 void	clean_imgs(t_game *sl)
