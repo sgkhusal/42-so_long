@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:32:08 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 21:12:51 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:00:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size)
 	else if (type_size == 2)
 	{
 		sprite->height = TILE_SIZE / 2;
+		sprite->width = TILE_SIZE / 2;
+	}
+	else if (type_size == 3)
+	{
+		sprite->height = TILE_SIZE / 2 + 3;
 		sprite->width = TILE_SIZE / 2;
 	}
 }
