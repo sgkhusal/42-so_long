@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/16 14:59:29 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:52:25 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@ void	sl_render_game(t_game *sl)
 {
 	int	i;
 	int	j;
-	int	k;
+	int	id_floor;
 
 	i = 0;
-	k = 0;
+	id_floor = 0;
 	while (i < sl->map.total_lines)
 	{
 		j = 0;
 		while (j < (int)sl->map.line_size)
 		{
-			sl_put_static_map(sl, i, j, k);
+			sl_put_static_map(sl, i, j, id_floor);
 			j++;
-			k++;
+			id_floor++;
 		}
 		i++;
-		k++;
+		if ((int)sl->map.line_size % 2 == 0)
+			id_floor++;
 	}		
 	sl_put_collectibles(sl);
 	sl_put_player(sl);
