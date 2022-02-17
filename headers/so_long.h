@@ -6,69 +6,32 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 22:39:27 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 18:32:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
-# include "get_next_line.h"
-# include "libft.h"
-//# include <math.h>
-# include <X11/keysym.h>
-# include <X11/X.h>
-
-// printf
+// printf///////////////////////////////////////////////////////
 # include <stdio.h>
 
-// open - O_RDONLY
-# include <fcntl.h>
+// -------------------------- GAME HEADERS ------------------------------ |
+# include "libs.h"
+# include "map.h"
+# include "imgs.h"
 
-# define VALID_CHAR	"01CEP"
-# define WALL '1'
-# define EMPTY '0'
-# define COLLECTIBLE 'C'
-# define EXIT 'E'
-# define PLAYER 'P'
-# define OPEN_ERROR -1
-# define GNL_ERROR -1
-# define GNL_EOF 0
-# define GNL_READ_LINE 1
-# define TILE_SIZE 32
-# define SMALL_IMG_OFFSET 8
+// ------------------------- GAME CONSTANTS ----------------------------- |
 # define SET 1
 # define NOT_SET 0
-# define NOT_COLLECTED 1
 # define COLLECTED 0
+# define NOT_COLLECTED 1
 # define FRONT 0
 # define BACK 1
 # define LEFT 2
 # define RIGHT 3
 
-
-typedef struct s_map
-{
-	char	*linear_map;
-	char	**map;
-	int		total_c;
-	int		total_e;
-	int		total_p;
-	int		total_lines;
-	size_t	line_size;
-}				t_map;
-
-typedef struct s_image
-{
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_size;
-	int		endian;
-	int		height;
-	int		width;
-}				t_image;
+// -------------------------- GAME STRUCTS ------------------------------ |
 
 typedef struct s_mlx
 {
@@ -96,25 +59,6 @@ typedef struct s_player
 	int	y;
 }				t_player;
 
-typedef struct s_sprites
-{
-	t_image	floor0;
-	t_image	floor1;
-	t_image	corner;
-	t_image	wall;
-	t_image	front0;
-	t_image	back0;
-	t_image	left0;
-	t_image	right0;
-	t_image	item0;
-	t_image	item1;
-	t_image	item2;
-	t_image	item3;
-	t_image	item4;
-	t_image	item5;
-	t_image	exit;
-}				t_sprites;
-
 typedef struct s_game
 {
 	int			moves;
@@ -129,9 +73,7 @@ typedef struct s_game
 	int			collect_items;
 }				t_game;
 
-/*
-so_long functions
-*/
+// ------------------------- GAME FUNCTIONS ----------------------------- |
 
 void	sl_map(char *path, t_game *sl);
 void	sl_check_map(t_game *sl);

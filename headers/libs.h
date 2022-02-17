@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/14 16:57:23 by sguilher          #+#    #+#             */
-/*   Updated: 2022/02/05 03:23:52 by coder            ###   ########.fr       */
+/*   Created: 2022/02/17 17:55:29 by coder             #+#    #+#             */
+/*   Updated: 2022/02/17 18:17:04 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef LIBS_H
+# define LIBS_H
 
-# include "libft.h"
-# include <limits.h>
+// my libraries and functions
+# include "../my_libraries/libft/src/libft.h"
+# include "../my_libraries/gnl/get_next_line.h"
+# include "../my_libraries/ft_printf/ft_printf.h"
 
-# define READ_OK 1
-# define MALLOC_ERROR -1
-# define MALLOC_ERROR2 -2
-# define INPUT_ERROR -1
-# define NO_LINE_FEED -1
+// Minilibx
+# include <mlx.h>
 
-# define OPEN_MAX 256
+// Xlib and Xlib keycode - keysymbol mapping + events and masks
+# include <X11/X.h>
+# include <X11/keysym.h>
 
-int		get_next_line(int fd, char **line);
-void	gnl_strjoin(char **next, char *buffer);
-void	ft_clean(char **str);
+// function open - macro O_RDONLY
+# include <fcntl.h>
 
 #endif
