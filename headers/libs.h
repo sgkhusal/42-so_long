@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:55:29 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 18:17:04 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:33:57 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define LIBS_H
 
 // my libraries and functions
-# include "../my_libraries/libft/src/libft.h"
-# include "../my_libraries/gnl/get_next_line.h"
-# include "../my_libraries/ft_printf/ft_printf.h"
+# include "../my_libs/libft/src/libft.h"
+# include "../my_libs/gnl/get_next_line.h"
+# include "../my_libs/ft_printf/ft_printf.h"
 
 // Minilibx
 # include <mlx.h>

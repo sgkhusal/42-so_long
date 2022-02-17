@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/17 19:21:55 by coder            ###   ########.fr        #
+#    Updated: 2022/02/17 19:34:28 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME =					so_long
 
 # **************************************************************************** #
 # MY LIBRARIES - libft.a and libftprintf.a
-PRINTF_PATH =	./my_libraries/ft_printf/
-LIBFT_PATH =	./my_libraries/libft/
+PRINTF_PATH =	./my_libs/ft_printf/
+LIBFT_PATH =	./my_libs/libft/
 
 PRINTF =		$(PRINTF_PATH)libftprintf.a
 LIBFT =			$(LIBFT_PATH)libft.a
