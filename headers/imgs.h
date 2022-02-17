@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:54:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 18:20:39 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 21:45:33 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_sprites
 	t_image	floor1;
 	t_image	corner;
 	t_image	wall;
+	t_image	exit;
 	t_image	front0;
 	t_image	back0;
 	t_image	left0;
@@ -43,7 +44,6 @@ typedef struct s_sprites
 	t_image	item3;
 	t_image	item4;
 	t_image	item5;
-	t_image	exit;
 }				t_sprites;
 
 #endif
