@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:49:59 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 22:48:41 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:26:29 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sl_init_player(t_game *sl, int x, int y, int id_floor)
 	sl->player.id_floor = id_floor;
 	sl->player.x = x;
 	sl->player.y = y;
-	sl->player_set = SET;	
+	sl->player_set = SET;
 }
 
 void	put_player(t_game *sl, t_image *sprite)

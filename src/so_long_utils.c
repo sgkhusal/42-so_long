@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:32:08 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 18:38:21 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:26:44 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	sl_error(char *msg, t_game *sl)
 void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size)
 {
 	char	*msg;
-	
+
 	sprite->img = mlx_xpm_file_to_image(sl->mlx.mlx, path, &sprite->line_size,
 			&sprite->height);
 	if (!sprite->img)

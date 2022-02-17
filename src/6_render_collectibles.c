@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 02:35:12 by coder             #+#    #+#             */
-/*   Updated: 2022/02/14 20:50:57 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:26:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	int	sl_set_item(t_game *sl, int nc, int id_img, int idx[2])
 	id_img++;
 	if (id_img == 6)
 		id_img = 0;
-	return id_img;
+	return (id_img);
 }
 
 void	sl_set_collectibles(t_game *sl)
@@ -32,7 +32,7 @@ void	sl_set_collectibles(t_game *sl)
 	int	idx[2];
 	int	nc;
 	int	id_img;
-	
+
 	sl->items = (t_item **)malloc((sl->map.total_c + 1) * sizeof(t_item));
 	if (!sl->items)
 		sl_error("Malloc error in sl_set_collectibles function.", sl);
@@ -79,7 +79,7 @@ static void	sl_put_item(t_game *sl, t_image *sprite, int nc)
 void	sl_put_collectibles(t_game *sl)
 {
 	int	nc;
-	
+
 	nc = 0;
 	while (nc < sl->map.total_c)
 	{
@@ -100,5 +100,4 @@ void	sl_put_collectibles(t_game *sl)
 		}
 		nc++;
 	}
-	
 }

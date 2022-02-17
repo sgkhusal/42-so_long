@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:30:03 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 21:06:34 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:25:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	clean_items(t_game *sl)
 	int	i;
 
 	i = 0;
-	while(sl->items[i])
+	while (sl->items[i])
 	{
 		free(sl->items[i]);
 		sl->items[i] = NULL;

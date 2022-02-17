@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 18:39:19 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 19:28:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	sl_move_right(t_game *sl)
 		sl->player.status = RIGHT;
 	}
 	else
-	{ 
+	{
 		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE;
 		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE + 1;
 		if (sl->map.map[i][j] == EXIT && sl->collect_items == sl->map.total_c)
@@ -82,7 +82,7 @@ void	sl_move_left(t_game *sl)
 {
 	int	i;
 	int	j;
-	
+
 	if (sl->player.status != LEFT)
 	{
 		put_floor_player(sl);
@@ -90,7 +90,7 @@ void	sl_move_left(t_game *sl)
 		sl->player.status = LEFT;
 	}
 	else
-	{ 
+	{
 		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE;
 		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE - 1;
 		if (sl->map.map[i][j] == EXIT && sl->collect_items == sl->map.total_c)
@@ -99,7 +99,7 @@ void	sl_move_left(t_game *sl)
 		{
 			put_floor_player(sl);
 			sl->player.id_floor++;
-			sl->player.x -= 32; ///
+			sl->player.x -= 32;
 			check_collectible(sl, i, j);
 			put_player(sl, &sl->sprites.left0);
 			print_move(sl);
@@ -111,7 +111,7 @@ void	sl_move_up(t_game *sl)
 {
 	int	i;
 	int	j;
-	
+
 	if (sl->player.status != BACK)
 	{
 		put_floor_player(sl);
@@ -119,7 +119,7 @@ void	sl_move_up(t_game *sl)
 		sl->player.status = BACK;
 	}
 	else
-	{ 
+	{
 		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE - 1;
 		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE;
 		if (sl->map.map[i][j] == EXIT && sl->collect_items == sl->map.total_c)
@@ -140,7 +140,7 @@ void	sl_move_down(t_game *sl)
 {
 	int	i;
 	int	j;
-	
+
 	if (sl->player.status != FRONT)
 	{
 		put_floor_player(sl);
@@ -148,7 +148,7 @@ void	sl_move_down(t_game *sl)
 		sl->player.status = FRONT;
 	}
 	else
-	{ 
+	{
 		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE + 1;
 		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE;
 		if (sl->map.map[i][j] == EXIT && sl->collect_items == sl->map.total_c)
