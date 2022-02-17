@@ -40,9 +40,7 @@ typedef struct s_mlx
 
 typedef struct s_item
 {
-	int	status; // talvez não precise
 	int	id_img;
-	int	id_floor; // talvez não precise
 	int	x;
 	int	y;
 }				t_item;
@@ -77,7 +75,6 @@ void	sl_check_map(t_game *sl);
 
 void	sl_game_init(t_game *sl);
 void	sl_set_collectibles(t_game *sl);
-void	sl_set_collectible_id_floor(t_game *sl, int x, int y, int id_floor);
 void	sl_init_player(t_game *sl, int x, int y, int id_floor);
 
 void	sl_render_game(t_game *sl);

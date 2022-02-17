@@ -17,7 +17,6 @@ static	int	sl_set_item(t_game *sl, int nc, int id_img, int idx[2])
 	sl->items[nc] = (t_item *)malloc(sizeof(t_item));
 	if (!sl->items[nc])
 		sl_error("Malloc error 2 in sl_set_item function.", sl);
-	sl->items[nc]->status = NOT_COLLECTED;
 	sl->items[nc]->x = idx[1] * TILE_SIZE + SMALL_IMG_OFFSET;
 	sl->items[nc]->y = idx[0] * TILE_SIZE + SMALL_IMG_OFFSET;
 	sl->items[nc]->id_img = id_img;
@@ -55,22 +54,6 @@ void	sl_set_collectibles(t_game *sl)
 	sl->items[nc] = NULL;
 }
 
-void	sl_set_collectible_id_floor(t_game *sl, int x, int y, int id_floor)
-{
-	int	nc;
-
-	nc = 0;
-	while (nc < sl->map.total_c)
-	{
-		if (sl->items[nc]->x == x && sl->items[nc]->y == y)
-		{
-			sl->items[nc]->id_floor = id_floor;
-			return ;
-		}
-		nc++;
-	}
-}
-
 static void	sl_put_item(t_game *sl, t_image *sprite, int nc)
 {
 	put_sprite_in_game_img(sl, sprite, sl->items[nc]->x, sl->items[nc]->y);
@@ -83,21 +66,18 @@ void	sl_put_collectibles(t_game *sl)
 	nc = 0;
 	while (nc < sl->map.total_c)
 	{
-		if (sl->items[nc]->status == NOT_COLLECTED)
-		{
-			if (sl->items[nc]->id_img == 0)
-				sl_put_item(sl, &sl->sprites.item0, nc);
-			else if (sl->items[nc]->id_img == 1)
-				sl_put_item(sl, &sl->sprites.item1, nc);
-			else if (sl->items[nc]->id_img == 2)
-				sl_put_item(sl, &sl->sprites.item2, nc);
-			else if (sl->items[nc]->id_img == 3)
-				sl_put_item(sl, &sl->sprites.item3, nc);
-			else if (sl->items[nc]->id_img == 4)
-				sl_put_item(sl, &sl->sprites.item4, nc);
-			else if (sl->items[nc]->id_img == 5)
-				sl_put_item(sl, &sl->sprites.item5, nc);
-		}
+		if (sl->items[nc]->id_img == 0)
+			sl_put_item(sl, &sl->sprites.item0, nc);
+		else if (sl->items[nc]->id_img == 1)
+			sl_put_item(sl, &sl->sprites.item1, nc);
+		else if (sl->items[nc]->id_img == 2)
+			sl_put_item(sl, &sl->sprites.item2, nc);
+		else if (sl->items[nc]->id_img == 3)
+			sl_put_item(sl, &sl->sprites.item3, nc);
+		else if (sl->items[nc]->id_img == 4)
+			sl_put_item(sl, &sl->sprites.item4, nc);
+		else if (sl->items[nc]->id_img == 5)
+			sl_put_item(sl, &sl->sprites.item5, nc);
 		nc++;
 	}
 }

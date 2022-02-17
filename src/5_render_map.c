@@ -20,9 +20,6 @@ static void	put_floor(t_game *sl, int i, int j, int id_floor)
 	else
 		put_sprite_in_game_img(sl, &sl->sprites.floor1, j * TILE_SIZE,
 			i * TILE_SIZE);
-	if (sl->items_set == NOT_SET && sl->map.map[i][j] == COLLECTIBLE)
-		sl_set_collectible_id_floor(sl, i + SMALL_IMG_OFFSET,
-			j + SMALL_IMG_OFFSET, id_floor % 2);
 	if (sl->player_set == NOT_SET && sl->map.map[i][j] == PLAYER)
 		sl_init_player(sl, j * TILE_SIZE + SMALL_IMG_OFFSET,
 			i * TILE_SIZE + SMALL_IMG_OFFSET, id_floor % 2);

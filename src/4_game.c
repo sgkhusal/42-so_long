@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 19:52:25 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 20:29:26 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,11 @@ void	sl_game_init(t_game *sl)
 	sl_mlx_init(sl);
 	sl_load_sprites(sl);
 	sl->player_set = NOT_SET;
-	sl->items_set = NOT_SET;
 	sl_set_collectibles(sl);
 	sl->img.img = mlx_new_image(sl->mlx.mlx, sl->mlx.width, sl->mlx.height);
 	sl->img.addr = mlx_get_data_addr(sl->img.img, &sl->img.bpp,
 			&sl->img.line_size, &sl->img.endian);
 	sl_render_game(sl);
-	sl->items_set = SET;
 	sl->moves = 0;
 	sl->collect_items = 0;
 }
