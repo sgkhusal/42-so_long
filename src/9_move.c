@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/15 23:04:13 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 18:39:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_move(t_game *sl)
 {
 	sl->moves++;
-	printf("Moves: %i\n", sl->moves);
+	ft_printf("Moves: %i\n", sl->moves);
 }
 
 void	put_floor_again(t_game *sl, int x, int y, int id_floor)
@@ -35,7 +35,7 @@ void	put_floor_player(t_game *sl)
 void	sl_move_exit(t_game *sl)
 {
 	print_move(sl);
-	printf("YOU WON!!\n");
+	ft_printf("YOU WON!!\n");
 	close_game(sl);
 }
 

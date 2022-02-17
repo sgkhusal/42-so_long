@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:32:08 by coder             #+#    #+#             */
-/*   Updated: 2022/02/16 15:00:16 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/17 18:38:21 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	sl_error(char *msg, t_game *sl)
 {
-	printf("Error\n%s\n", msg);
+	ft_printf("Error\n%s\n", msg);
 	clean_game(sl);
 	exit(EXIT_FAILURE);
 }

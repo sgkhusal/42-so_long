@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/17 17:50:01 by coder            ###   ########.fr        #
+#    Updated: 2022/02/17 19:21:55 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,20 +19,21 @@ LIBFT_PATH =	./my_libraries/libft/
 
 PRINTF =		$(PRINTF_PATH)libftprintf.a
 LIBFT =			$(LIBFT_PATH)libft.a
+LIBFT_HEADER =	$(LIBFT_PATH)src/libft.h
 # **************************************************************************** #
 
 # INPUTS
 
-SRC_PATH =				./src
-OBJ_PATH =				./obj
+SRC_PATH =			./src
+OBJ_PATH =			./obj
 
 SRC_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_game.c \
 						5_render_map.c 6_render_collectibles.c \
 						7_render_player.c 8_hooks.c 9_move.c \
 						so_long_utils.c clean.c clean_utils.c
 
-SRC =					$(addprefix $(SRC_PATH)/, $(SRC_FILES))
-OBJ =					$(SRC:$(SRC_PATH)/%.c=$(OBJ_PATH)/%.o)
+SRC =				$(addprefix $(SRC_PATH)/, $(SRC_FILES))
+OBJ =				$(SRC:$(SRC_PATH)/%.c=$(OBJ_PATH)/%.o)
 
 # **************************************************************************** #
 
@@ -58,7 +59,7 @@ $(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	$(LIBFT) $(PRINTF) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) $(LIBFT) $(PRINTF) -o $@
+	@$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) $(PRINTF) $(LIBFT) -o $@
 
 $(LIBFT):
 	@cd $(LIBFT_PATH) && $(MAKE)
