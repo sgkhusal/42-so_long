@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:16 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:05:37 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/18 22:43:01 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	sl_check_input(argc, argv[1], &so_long);
 	sl_map(argv[1], &so_long);
 	sl_game_init(&so_long);
-	//sl_mlx_hooks(&so_long);
+	sl_mlx_hooks(&so_long);
 	mlx_loop(so_long.mlx.mlx);
 	return (0);
 }

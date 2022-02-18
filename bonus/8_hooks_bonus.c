@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:09:22 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:06:08 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/18 22:46:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	close_game(t_game *sl)
 	exit(0);
 }
 
-/* static int	render_game_again(t_game *sl)
+/*static int	render_game_again(t_game *sl)
 {
-	static int	count;
+	 static int	count;
 
 	count++;
 	if (count % 500 == 0)
@@ -39,7 +39,16 @@ int	close_game(t_game *sl)
 	else
 		sl_error("Not possible to render game. Mlx window is set as NULL.", sl);
 	return (0);
-} */
+}*/
+
+static int	render_game_again(t_game *sl)
+{
+	if (sl->mlx.win != NULL)
+		mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
+	else
+		sl_error("Not possible to render game. Mlx window is set as NULL.", sl);
+	return (0);
+}
 
 static int	sl_key_press(int key, t_game *sl)
 {
@@ -58,8 +67,8 @@ static int	sl_key_press(int key, t_game *sl)
 
 void	sl_mlx_hooks(t_game *sl)
 {
-	//mlx_expose_hook(sl->mlx.win, &render_game_again, sl);
+	mlx_expose_hook(sl->mlx.win, &render_game_again, sl);
 	mlx_hook(sl->mlx.win, DestroyNotify, NoEventMask, &close_game, sl);
 	mlx_hook(sl->mlx.win, KeyPress, KeyPressMask, &sl_key_press, sl);
-	//mlx_loop_hook(sl->mlx.mlx, &render_game_again, sl);
+	mlx_loop_hook(sl->mlx.mlx, &render_game_again, sl);
 }
