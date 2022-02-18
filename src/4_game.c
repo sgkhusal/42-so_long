@@ -44,17 +44,17 @@ static void	sl_load_sprites(t_game *sl)
 	load_sprite(sl, &sl->sprites.corner, "assets/images/corner.xpm", 1);
 	load_sprite(sl, &sl->sprites.floor0, "assets/images/floor0.xpm", 1);
 	load_sprite(sl, &sl->sprites.floor1, "assets/images/floor1.xpm", 1);
+	load_sprite(sl, &sl->sprites.exit, "assets/images/stair_exit.xpm", 1);
 	load_sprite(sl, &sl->sprites.item0, "assets/images/tiger_eye.xpm", 2);
 	load_sprite(sl, &sl->sprites.item1, "assets/images/item1.xpm", 2);
 	load_sprite(sl, &sl->sprites.item2, "assets/images/item2.xpm", 2);
 	load_sprite(sl, &sl->sprites.item3, "assets/images/item3.xpm", 2);
 	load_sprite(sl, &sl->sprites.item4, "assets/images/item4.xpm", 2);
 	load_sprite(sl, &sl->sprites.item5, "assets/images/item5.xpm", 2);
-	load_sprite(sl, &sl->sprites.front0, "assets/images/player_front0.xpm", 3);
-	load_sprite(sl, &sl->sprites.back0, "assets/images/player_back0.xpm", 3);
-	load_sprite(sl, &sl->sprites.left0, "assets/images/player_left0.xpm", 3);
-	load_sprite(sl, &sl->sprites.right0, "assets/images/player_right0.xpm", 3);
-	load_sprite(sl, &sl->sprites.exit, "assets/images/stair_exit.xpm", 1);
+	load_sprite(sl, &sl->sprites.front0, "assets/images/player_front1.xpm", 3);
+	load_sprite(sl, &sl->sprites.back0, "assets/images/player_back1.xpm", 3);
+	load_sprite(sl, &sl->sprites.left0, "assets/images/player_left1.xpm", 3);
+	load_sprite(sl, &sl->sprites.right0, "assets/images/player_right1.xpm", 3);
 }
 
 static void	sl_mlx_init(t_game *sl)
