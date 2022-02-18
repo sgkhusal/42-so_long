@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/17 19:34:28 by coder            ###   ########.fr        #
+#    Updated: 2022/02/17 22:08:33 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,9 @@ OBJ_PATH =			./obj
 
 SRC_FILES =			1_so_long.c 2_map.c 3_check_map.c 4_game.c \
 						5_render_map.c 6_render_collectibles.c \
-						7_render_player.c 8_hooks.c 9_move.c \
-						so_long_utils.c clean.c clean_utils.c
+						7_render_player.c 8_hooks.c 9_move.c 9_move_utils.c\
+						so_long_utils_1.c so_long_utils_2.c \
+						clean.c clean_utils.c
 
 SRC =				$(addprefix $(SRC_PATH)/, $(SRC_FILES))
 OBJ =				$(SRC:$(SRC_PATH)/%.c=$(OBJ_PATH)/%.o)
