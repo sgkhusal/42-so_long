@@ -10,6 +10,7 @@ static char *result[] = {
 "@ c #AAAAAA",
 "# c white",
 /* pixels */
+"      OOOO      ",
 "     OOOOOO     ",
 "    OO++++OO    ",
 "  OOO++++++OOO  ",
@@ -21,13 +22,12 @@ static char *result[] = {
 " OOO........OOO ",
 "  OO..#..#..OO  ",
 "  OOO.@..@.OOO  ",
-"  OOOO....OOOO  ",
-"   +OOOOOOOO+   ",
+"   OOO.....OO   ",
+"   OOOOOOOOO+   ",
 "   +++OOOO+++   ",
-"   ++++++++++   ",
 "   ++++XX++++   ",
-"   ++.....X++   ",
-"   OOOO++OOOO   ",
-"    ..    ..    ",
-"                "
+"   +++.....++   ",
+"      +++...+   ",
+"         OOOO   ",
+"         ...    "
 };
