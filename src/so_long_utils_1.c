@@ -33,22 +33,17 @@ static void	set_sprite_size(t_image *sprite, int type_size)
 	}
 	else if (type_size == 3)
 	{
-		sprite->height = TILE_SIZE / 2 + 3;
+		sprite->height = TILE_SIZE / 2 + 4;
 		sprite->width = TILE_SIZE / 2;
 	}
 }
 
 void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size)
 {
-	char	*msg;
-
 	sprite->img = mlx_xpm_file_to_image(sl->mlx.mlx, path, &sprite->line_size,
 			&sprite->height);
 	if (!sprite->img)
-	{
-		msg = ft_strjoin("Mlx error loading sprite: ", path);
-		sl_error(msg, sl);
-	}	
+		sl_error(ft_strjoin("Mlx error loading sprite: ", path), sl);
 	sprite->addr = mlx_get_data_addr(sprite->img, &sprite->bpp,
 			&sprite->line_size, &sprite->endian);
 	set_sprite_size(sprite, type_size);

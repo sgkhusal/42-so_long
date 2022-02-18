@@ -80,7 +80,10 @@ void	sl_render_game(t_game *sl);
 void	sl_put_static_map(t_game *sl, int i, int j, int k);
 void	sl_put_collectibles(t_game *sl);
 void	sl_put_player(t_game *sl);
+
 void	put_player(t_game *sl, t_image *sprite);
+void	update_player_sprite(t_game *sl);
+
 void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size);
 void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y);
 

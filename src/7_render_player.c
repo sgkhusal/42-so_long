@@ -37,3 +37,10 @@ void	sl_put_player(t_game *sl)
 	else if (sl->player.status == RIGHT)
 		put_player(sl, &sl->sprites.right0);
 }
+
+void	update_player_sprite(t_game *sl)
+{
+	put_floor_player(sl);
+	sl_put_player(sl);
+}
+

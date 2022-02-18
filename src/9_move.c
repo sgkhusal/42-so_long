@@ -19,9 +19,8 @@ void	sl_move_right(t_game *sl)
 
 	if (sl->player.status != RIGHT)
 	{
-		put_floor_player(sl);
-		put_player(sl, &sl->sprites.right0);
 		sl->player.status = RIGHT;
+		update_player_sprite(sl);
 	}
 	else
 	{
@@ -48,9 +47,8 @@ void	sl_move_left(t_game *sl)
 
 	if (sl->player.status != LEFT)
 	{
-		put_floor_player(sl);
-		put_player(sl, &sl->sprites.left0);
 		sl->player.status = LEFT;
+		update_player_sprite(sl);
 	}
 	else
 	{
@@ -77,9 +75,8 @@ void	sl_move_up(t_game *sl)
 
 	if (sl->player.status != BACK)
 	{
-		put_floor_player(sl);
-		put_player(sl, &sl->sprites.back0);
 		sl->player.status = BACK;
+		update_player_sprite(sl);
 	}
 	else
 	{
@@ -106,9 +103,8 @@ void	sl_move_down(t_game *sl)
 
 	if (sl->player.status != FRONT)
 	{
-		put_floor_player(sl);
-		put_player(sl, &sl->sprites.front0);
 		sl->player.status = FRONT;
+		update_player_sprite(sl);
 	}
 	else
 	{
