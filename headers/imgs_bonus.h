@@ -21,7 +21,7 @@
 # define PLAYER_SIZE_X 16
 # define PLAYER_SIZE_Y 20
 # define SMALL_IMG_OFFSET 8
-# define PLAYER_FRAMES 3
+# define PLAYER_FRAMES 4
 
 typedef struct s_img
 {
@@ -58,6 +58,7 @@ typedef struct s_frames
 	t_img	img0;
 	t_img	img1;
 	t_img	img2;
+	t_img	img3;
 }				t_frames;
 
 typedef struct s_frames_player
@@ -66,27 +67,22 @@ typedef struct s_frames_player
 	t_frames	idle_back;
 	t_frames	idle_left;
 	t_frames	idle_right;
-	t_frames	*run_front; //
-	t_frames	*run_back; //
-	t_frames	*run_left; //
-	t_frames	*run_right; //
 }				t_frames_player;
 
-/* typedef struct s_frames_enemy
+typedef struct s_frames_enemy
 {
-	t_img	idle_left;
-	t_img	idle_right;
 	t_img	walk__left;
 	t_img	walk__right;
-	t_img	attack__left;
-	t_img	attack__right;
+	//t_img	attack__left;
+	//t_img	attack__right;
 	int		frames;
-}				t_frames_enemy; */
+}				t_frames_enemy;
 
 typedef struct s_sprites
 {
 	t_items_imgs	items;
 	t_frames_player	player;
+	t_frames_enemy	enemy;
 }				t_sprites;
 
 #endif

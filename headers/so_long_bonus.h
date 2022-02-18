@@ -54,13 +54,14 @@ typedef struct s_player
 	int	y;
 }				t_player;
 
-/* typedef struct s_enemy
+typedef struct s_enemy
 {
 	int	status;
+	int	frame;
 	int	id_floor;
 	int	x;
 	int	y;
-}				t_enemy; */
+}				t_enemy;
 
 typedef struct s_game
 {
@@ -71,7 +72,7 @@ typedef struct s_game
 	t_map		map;
 	t_item		**items;
 	t_player	player;
-	//t_enemy		enemy;
+	t_enemy		enemy;
 	t_img		img;
 	t_tiles		tiles;
 	t_sprites	sprites;
