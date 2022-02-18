@@ -30,7 +30,7 @@ void	check_collectible(t_game *sl, int i, int j)
 	if (sl->map.map[i][j] == COLLECTIBLE)
 	{
 		put_floor_player(sl);
-		sl->collect_items++;
+		sl->collected_items++;
 		sl->map.map[i][j] = EMPTY;
 	}
 }
@@ -38,9 +38,9 @@ void	check_collectible(t_game *sl, int i, int j)
 void	put_floor_again(t_game *sl, int x, int y, int id_floor)
 {
 	if (id_floor == 0)
-		put_sprite_in_game_img(sl, &sl->sprites.floor0, x, y);
+		put_sprite_in_game_img(sl, &sl->tiles.floor0, x, y);
 	else
-		put_sprite_in_game_img(sl, &sl->sprites.floor1, x, y);
+		put_sprite_in_game_img(sl, &sl->tiles.floor1, x, y);
 }
 
 void	put_floor_player(t_game *sl)

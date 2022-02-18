@@ -12,7 +12,7 @@
 
 #include "../headers/so_long_bonus.h"
 
-unsigned int	get_pixel_color(t_image *img, int x, int y)
+unsigned int	get_pixel_color(t_img *img, int x, int y)
 {
 	char	*pixel_color;
 
@@ -20,7 +20,7 @@ unsigned int	get_pixel_color(t_image *img, int x, int y)
 	return (*(unsigned int *)pixel_color);
 }
 
-void	put_pixel_color(t_image *img, int x, int y, int color)
+void	put_pixel_color(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 
@@ -28,7 +28,7 @@ void	put_pixel_color(t_image *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y)
+void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y)
 {
 	unsigned int	color;
 	int				sprite_x;

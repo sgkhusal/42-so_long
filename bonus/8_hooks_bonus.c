@@ -20,7 +20,7 @@ int	close_game(t_game *sl)
 	exit(0);
 }
 
-static int	render_game_again(t_game *sl)
+/* static int	render_game_again(t_game *sl)
 {
 	static int	count;
 
@@ -39,7 +39,7 @@ static int	render_game_again(t_game *sl)
 	else
 		sl_error("Not possible to render game. Mlx window is set as NULL.", sl);
 	return (0);
-}
+} */
 
 static int	sl_key_press(int key, t_game *sl)
 {
@@ -58,8 +58,8 @@ static int	sl_key_press(int key, t_game *sl)
 
 void	sl_mlx_hooks(t_game *sl)
 {
-	mlx_expose_hook(sl->mlx.win, &render_game_again, sl);
+	//mlx_expose_hook(sl->mlx.win, &render_game_again, sl);
 	mlx_hook(sl->mlx.win, DestroyNotify, NoEventMask, &close_game, sl);
 	mlx_hook(sl->mlx.win, KeyPress, KeyPressMask, &sl_key_press, sl);
-	mlx_loop_hook(sl->mlx.mlx, &render_game_again, sl);
+	//mlx_loop_hook(sl->mlx.mlx, &render_game_again, sl);
 }

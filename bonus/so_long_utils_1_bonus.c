@@ -19,26 +19,26 @@ int	sl_error(char *msg, t_game *sl)
 	exit(EXIT_FAILURE);
 }
 
-static void	set_sprite_size(t_image *sprite, int type_size)
+static void	set_sprite_size(t_img *sprite, int type)
 {
-	if (type_size == 1)
+	if (type == TILE)
 	{
-		sprite->height = TILE_SIZE;
+		sprite->height = TILE_SIZE;// talvez não precise...
 		sprite->width = TILE_SIZE;
 	}
-	else if (type_size == 2)
+	else if (type == ITEM)
 	{
-		sprite->height = TILE_SIZE / 2;
-		sprite->width = TILE_SIZE / 2;
+		sprite->height = ITEM_SIZE;//
+		sprite->width = ITEM_SIZE;
 	}
-	else if (type_size == 3)
+	else if (type == PLAYER)
 	{
-		sprite->height = TILE_SIZE / 2 + 4;
-		sprite->width = TILE_SIZE / 2;
+		sprite->height = PLAYER_SIZE_X;//
+		sprite->width = PLAYER_SIZE_Y;
 	}
 }
 
-void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size)
+void	load_sprite(t_game *sl, t_img *sprite, char *path, int type)
 {
 	sprite->img = mlx_xpm_file_to_image(sl->mlx.mlx, path, &sprite->line_size,
 			&sprite->height);
@@ -46,5 +46,5 @@ void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size)
 		sl_error(ft_strjoin("Mlx error loading sprite: ", path), sl);
 	sprite->addr = mlx_get_data_addr(sprite->img, &sprite->bpp,
 			&sprite->line_size, &sprite->endian);
-	set_sprite_size(sprite, type_size);
+	set_sprite_size(sprite, type);
 }

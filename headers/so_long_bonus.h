@@ -51,35 +51,29 @@ typedef struct s_player
 	int	id_floor;
 	int	x;
 	int	y;
-	t_player_frames	sprites;
 }				t_player;
 
-typedef struct s_enemy
+/* typedef struct s_enemy
 {
 	int	status;
 	int	id_floor;
 	int	x;
 	int	y;
-	t_animation	idle_left;
-	t_animation	idle_right;
-	t_animation	walk_left;
-	t_animation	walk_right;
-	t_animation	atack_left;
-	t_animation	atack_right;
-}				t_enemy;
+}				t_enemy; */
 
 typedef struct s_game
 {
 	int			moves;
+	int			player_set;
+	int			collected_items;
 	t_mlx		mlx;
 	t_map		map;
-	t_sprites	sprites;
-	t_image		img;
 	t_item		**items;
 	t_player	player;
-	int			player_set;
-	int			items_set;
-	int			collect_items;
+	//t_enemy		enemy;
+	t_img		img;
+	t_tiles		tiles;
+	t_sprites	sprites;
 }				t_game;
 
 // ------------------------- GAME FUNCTIONS ----------------------------- |
@@ -96,13 +90,13 @@ void	sl_render_game(t_game *sl);
 void	sl_load_sprites(t_game *sl);
 void	sl_put_static_map(t_game *sl, int i, int j, int k);
 void	sl_put_collectibles(t_game *sl);
-void	sl_put_player(t_game *sl, t_player_frames *sprites);
+void	sl_put_player(t_game *sl, t_frames_player *sprites, int frame);
 
-void	put_player(t_game *sl, t_image *sprite);
+void	put_player(t_game *sl, t_img *sprite);
 void	update_player_sprite(t_game *sl);
 
-void	load_sprite(t_game *sl, t_image *sprite, char *path, int type_size);
-void	put_sprite_in_game_img(t_game *sl, t_image *sprite, int x, int y);
+void	load_sprite(t_game *sl, t_img *sprite, char *path, int type_size);
+void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y);
 
 void	sl_mlx_hooks(t_game *sl);
 void	sl_move_right(t_game *sl);

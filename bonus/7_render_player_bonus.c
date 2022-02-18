@@ -19,28 +19,28 @@ void	sl_init_player(t_game *sl, int x, int y, int id_floor)
 	sl->player.x = x;
 	sl->player.y = y;
 	sl->player_set = SET;
-	sl->player.sprites.frame = 0;
+	sl->sprites.player.frame = 0;
 }
 
-void	put_player(t_game *sl, t_image *sprite)
+void	put_player(t_game *sl, t_img *sprite)
 {
 	put_sprite_in_game_img(sl, sprite, sl->player.x, sl->player.y);
 }
 
-void	sl_put_player(t_game *sl, t_player_frames *sprites)
+void	sl_put_player(t_game *sl, t_frames_player *sprites, int frame)
 {
 	if (sl->player.status == FRONT)
-		put_player(sl, &sprites->idle_front[sprites->frame]);
+		put_player(sl, &sprites->idle_front[frame]);
 	else if (sl->player.status == BACK)
-		put_player(sl, &sprites->idle_back[sprites->frame]);
+		put_player(sl, &sprites->idle_back[frame]);
 	else if (sl->player.status == LEFT)
-		put_player(sl, &sprites->idle_left[sprites->frame]);
+		put_player(sl, &sprites->idle_left[frame]);
 	else if (sl->player.status == RIGHT)
-		put_player(sl, &sprites->idle_right[sprites->frame]);
+		put_player(sl, &sprites->idle_right[frame]);
 }
 
 void	update_player_sprite(t_game *sl)
 {
 	put_floor_player(sl);
-	sl_put_player(sl, &sl->player.sprites);
+	sl_put_player(sl, &sl->sprites.player, sl->sprites.player.frame);
 }

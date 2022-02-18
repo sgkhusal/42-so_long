@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	sl_check_input(argc, argv[1], &so_long);
 	sl_map(argv[1], &so_long);
 	sl_game_init(&so_long);
-	sl_mlx_hooks(&so_long);
+	//sl_mlx_hooks(&so_long);
 	mlx_loop(so_long.mlx.mlx);
 	return (0);
 }
