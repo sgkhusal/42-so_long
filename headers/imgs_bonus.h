@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:54:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:38:12 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/18 21:19:45 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ typedef struct s_items_imgs
 
 typedef struct s_frames_player
 {
-	t_img	*idle_front;
-	t_img	*idle_back;
-	t_img	*idle_left;
-	t_img	*idle_right;
+	t_img	idle_front[PLAYER_FRAMES];
+	t_img	idle_back[PLAYER_FRAMES];
+	t_img	idle_left[PLAYER_FRAMES];
+	t_img	idle_right[PLAYER_FRAMES];
 	t_img	*run_front; //
 	t_img	*run_back; //
 	t_img	*run_left; //
@@ -68,12 +68,12 @@ typedef struct s_frames_player
 
 /* typedef struct s_frames_enemy
 {
-	t_img	**idle_left;
-	t_img	**idle_right;
-	t_img	**walk__left;
-	t_img	**walk__right;
-	t_img	**attack__left;
-	t_img	**attack__right;
+	t_img	idle_left;
+	t_img	idle_right;
+	t_img	walk__left;
+	t_img	walk__right;
+	t_img	attack__left;
+	t_img	attack__right;
 	int		frames;
 }				t_frames_enemy; */
 
