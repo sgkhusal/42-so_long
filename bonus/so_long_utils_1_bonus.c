@@ -31,10 +31,10 @@ static void	set_sprite_size(t_img *sprite, int type)
 		sprite->height = ITEM_SIZE;//
 		sprite->width = ITEM_SIZE;
 	}
-	else if (type == PLAYER)
+	else if (type == PLAYER_IMG)
 	{
-		sprite->height = PLAYER_SIZE_X;//
-		sprite->width = PLAYER_SIZE_Y;
+		sprite->height = PLAYER_SIZE_Y;//
+		sprite->width = PLAYER_SIZE_X;
 	}
 }
 

@@ -29,9 +29,9 @@ int	close_game(t_game *sl)
 	{
 		if (sl->mlx.win != NULL)
 		{
-			sl->player.sprites.frame++;
-			if (sl->player.sprites.frame == PLAYER_FRAMES)
-				sl->player.sprites.frame = 0;
+			sl->player.frame++;
+			if (sl->player.frame == PLAYER_FRAMES)
+				sl->player.frame = 0;
 			update_player_sprite(sl);
 			mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
 		}

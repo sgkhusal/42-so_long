@@ -53,17 +53,23 @@ typedef struct s_items_imgs
 	t_img	item5;
 }				t_items_imgs;
 
+typedef struct s_frames
+{
+	t_img	img0;
+	t_img	img1;
+	t_img	img2;
+}				t_frames;
+
 typedef struct s_frames_player
 {
-	t_img	idle_front[PLAYER_FRAMES];
-	t_img	idle_back[PLAYER_FRAMES];
-	t_img	idle_left[PLAYER_FRAMES];
-	t_img	idle_right[PLAYER_FRAMES];
-	t_img	*run_front; //
-	t_img	*run_back; //
-	t_img	*run_left; //
-	t_img	*run_right; //
-	int		frame;
+	t_frames	idle_front;
+	t_frames	idle_back;
+	t_frames	idle_left;
+	t_frames	idle_right;
+	t_frames	*run_front; //
+	t_frames	*run_back; //
+	t_frames	*run_left; //
+	t_frames	*run_right; //
 }				t_frames_player;
 
 /* typedef struct s_frames_enemy

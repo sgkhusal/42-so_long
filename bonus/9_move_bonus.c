@@ -34,7 +34,7 @@ void	sl_move_right(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.x += 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl, &sl->sprites.player, sl->sprites.player.frame);
+			sl_put_player(sl);
 			print_move(sl);
 		}
 	}
@@ -62,7 +62,7 @@ void	sl_move_left(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.x -= 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl, &sl->sprites.player, sl->sprites.player.frame);
+			sl_put_player(sl);
 			print_move(sl);
 		}
 	}
@@ -90,7 +90,7 @@ void	sl_move_up(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.y -= 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl, &sl->sprites.player, sl->sprites.player.frame);
+			sl_put_player(sl);
 			print_move(sl);
 		}
 	}
@@ -118,7 +118,7 @@ void	sl_move_down(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.y += 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl, &sl->sprites.player, sl->sprites.player.frame);
+			sl_put_player(sl);
 			print_move(sl);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:49:59 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 21:25:25 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/18 21:36:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sl_init_player(t_game *sl, int x, int y, int id_floor)
 	sl->player.x = x;
 	sl->player.y = y;
 	sl->player_set = SET;
-	sl->sprites.player.frame = 0;
+	sl->player.frame = 1;
 }
 
 void	put_player(t_game *sl, t_img *sprite)
@@ -27,20 +27,30 @@ void	put_player(t_game *sl, t_img *sprite)
 	put_sprite_in_game_img(sl, sprite, sl->player.x, sl->player.y);
 }
 
-void	sl_put_player(t_game *sl, t_frames_player *sprites, int frame)
+void	put_player_frame(t_game *sl, t_frames *frames)
+{
+	if (sl->player.frame == 0)
+		put_player(sl, &frames->img0);
+	else if (sl->player.frame == 1)
+		put_player(sl, &frames->img1);
+	else if (sl->player.frame == 2)
+		put_player(sl, &frames->img2);
+}
+
+void	sl_put_player(t_game *sl)
 {
 	if (sl->player.status == FRONT)
-		put_player(sl, &sprites->idle_front[frame]);
+		put_player_frame(sl, &sl->sprites.player.idle_front);
 	else if (sl->player.status == BACK)
-		put_player(sl, &sprites->idle_back[frame]);
+		put_player_frame(sl, &sl->sprites.player.idle_back);
 	else if (sl->player.status == LEFT)
-		put_player(sl, &sprites->idle_left[frame]);
+		put_player_frame(sl, &sl->sprites.player.idle_left);
 	else if (sl->player.status == RIGHT)
-		put_player(sl, &sprites->idle_right[frame]);
+		put_player_frame(sl, &sl->sprites.player.idle_right);
 }
 
 void	update_player_sprite(t_game *sl)
 {
 	put_floor_player(sl);
-	sl_put_player(sl, &sl->sprites.player, sl->sprites.player.frame);
+	sl_put_player(sl);
 }

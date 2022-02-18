@@ -48,6 +48,7 @@ typedef struct s_item
 typedef struct s_player
 {
 	int	status;
+	int	frame;
 	int	id_floor;
 	int	x;
 	int	y;
@@ -90,7 +91,7 @@ void	sl_render_game(t_game *sl);
 void	sl_load_sprites(t_game *sl);
 void	sl_put_static_map(t_game *sl, int i, int j, int k);
 void	sl_put_collectibles(t_game *sl);
-void	sl_put_player(t_game *sl, t_frames_player *sprites, int frame);
+void	sl_put_player(t_game *sl);
 
 void	put_player(t_game *sl, t_img *sprite);
 void	update_player_sprite(t_game *sl);

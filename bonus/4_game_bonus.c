@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 21:18:33 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/18 21:29:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	sl_render_game(t_game *sl)
 			id_floor++;
 	}		
 	sl_put_collectibles(sl);
-	//sl_put_player(sl, &sl->player.sprites);
+	sl_put_player(sl);
+	ft_printf("Chegou aqui\n");
 	//sl_put_enemy(sl);
 	mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
 }
@@ -65,5 +66,6 @@ void	sl_game_init(t_game *sl)
 			&sl->img.line_size, &sl->img.endian);
 	sl_load_sprites(sl);
 	sl_set_collectibles(sl);
+	ft_printf("Chegou aqui\n");
 	sl_render_game(sl);
 }
