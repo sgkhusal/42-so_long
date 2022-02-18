@@ -38,6 +38,7 @@ obj
 *.x86_64
 *.hex
 so_long
+so_long_bonus
 
 # Debug files
 *.dSYM/
