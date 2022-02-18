@@ -72,14 +72,16 @@ static void	sl_mlx_init(t_game *sl)
 
 void	sl_game_init(t_game *sl)
 {
-	sl_mlx_init(sl);
-	sl_load_sprites(sl);
-	sl->player_set = NOT_SET;
-	sl_set_collectibles(sl);
-	sl->img.img = mlx_new_image(sl->mlx.mlx, sl->mlx.width, sl->mlx.height);
-	sl->img.addr = mlx_get_data_addr(sl->img.img, &sl->img.bpp,
-			&sl->img.line_size, &sl->img.endian);
-	sl_render_game(sl);
 	sl->moves = 0;
 	sl->collect_items = 0;
+	sl->player_set = NOT_SET;
+	sl_mlx_init(sl);
+	sl->img.img = mlx_new_image(sl->mlx.mlx, sl->mlx.width, sl->mlx.height);
+	if (!sl->img.img)
+		sl_error("Mlx error creating sl->img.img", sl);
+	sl->img.addr = mlx_get_data_addr(sl->img.img, &sl->img.bpp,
+			&sl->img.line_size, &sl->img.endian);
+	sl_load_sprites(sl);
+	sl_set_collectibles(sl);
+	sl_render_game(sl);
 }
