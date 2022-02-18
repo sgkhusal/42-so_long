@@ -35,6 +35,8 @@ void	put_player_frame(t_game *sl, t_frames *frames)
 		put_player(sl, &frames->img1);
 	else if (sl->player.frame == 2)
 		put_player(sl, &frames->img2);
+	else if (sl->player.frame == 3)
+		put_player(sl, &frames->img3);
 }
 
 void	sl_put_player(t_game *sl)

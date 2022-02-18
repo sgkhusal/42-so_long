@@ -29,10 +29,7 @@ int	close_game(t_game *sl)
 	{
 		if (sl->mlx.win != NULL)
 		{
-			sl->player.frame++;
-			if (sl->player.frame == PLAYER_FRAMES)
-				sl->player.frame = 0;
-			update_player_sprite(sl);
+			
 			mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
 		}
 	}
@@ -43,6 +40,16 @@ int	close_game(t_game *sl)
 
 static int	render_game_again(t_game *sl)
 {
+	static int	count;
+
+	count++;
+	if (count % 1000 == 0)
+	{
+		sl->player.frame++;
+		if (sl->player.frame == PLAYER_FRAMES)
+			sl->player.frame = 0;
+		update_player_sprite(sl);
+	}
 	if (sl->mlx.win != NULL)
 		mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
 	else
