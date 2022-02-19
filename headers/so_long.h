@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 22:05:27 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:39:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_item
 
 typedef struct s_player
 {
-	int	status;
+	int	view;
 	int	id_floor;
 	int	x;
 	int	y;

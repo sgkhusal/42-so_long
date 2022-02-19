@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:49:59 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 19:26:29 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:39:44 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sl_init_player(t_game *sl, int x, int y, int id_floor)
 {
-	sl->player.status = FRONT;
+	sl->player.view = FRONT;
 	sl->player.id_floor = id_floor;
 	sl->player.x = x;
 	sl->player.y = y;
@@ -28,13 +28,13 @@ void	put_player(t_game *sl, t_image *sprite)
 
 void	sl_put_player(t_game *sl)
 {
-	if (sl->player.status == FRONT)
+	if (sl->player.view == FRONT)
 		put_player(sl, &sl->sprites.front0);
-	else if (sl->player.status == BACK)
+	else if (sl->player.view == BACK)
 		put_player(sl, &sl->sprites.back0);
-	else if (sl->player.status == LEFT)
+	else if (sl->player.view == LEFT)
 		put_player(sl, &sl->sprites.left0);
-	else if (sl->player.status == RIGHT)
+	else if (sl->player.view == RIGHT)
 		put_player(sl, &sl->sprites.right0);
 }
 
