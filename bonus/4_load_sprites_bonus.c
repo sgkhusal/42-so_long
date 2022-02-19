@@ -6,13 +6,33 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 03:08:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 15:44:03 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:08:21 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long_bonus.h"
 
-static void	sl_load_sprites_enemy(t_game *sl, t_frames_enemy *ef, int e)
+static void	sl_load_sprites_enemy_at(t_game *sl, t_frames_enemy *ef, int e)
+{	
+	load_sprite(sl, &ef->attack_right.img0, "assets/images/attack_right01.xpm", e);
+	load_sprite(sl, &ef->attack_right.img1, "assets/images/attack_right02.xpm", e);
+	load_sprite(sl, &ef->attack_right.img2, "assets/images/attack_right03.xpm", e);
+	load_sprite(sl, &ef->attack_right.img3, "assets/images/attack_right04.xpm", e);
+  	load_sprite(sl, &ef->attack_right.img4, "assets/images/attack_right05.xpm", e);
+	load_sprite(sl, &ef->attack_right.img5, "assets/images/attack_right06.xpm", e);
+	load_sprite(sl, &ef->attack_right.img6, "assets/images/attack_right07.xpm", e);
+	load_sprite(sl, &ef->attack_right.img7, "assets/images/attack_right08.xpm", e);
+	/* load_sprite(sl, &ef->attack_left.img0, "assets/images/attack_left01.xpm", e);
+	load_sprite(sl, &ef->attack_left.img1, "assets/images/attack_left02.xpm", e);
+	load_sprite(sl, &ef->attack_left.img2, "assets/images/attack_left03.xpm", e);
+	load_sprite(sl, &ef->attack_left.img3, "assets/images/attack_left04.xpm", e);
+	load_sprite(sl, &ef->attack_left.img4, "assets/images/attack_left05.xpm", e);
+	load_sprite(sl, &ef->attack_left.img5, "assets/images/attack_left06.xpm", e);
+	load_sprite(sl, &ef->attack_left.img6, "assets/images/attack_left07.xpm", e);
+	load_sprite(sl, &ef->attack_left.img7, "assets/images/attack_left08.xpm", e); */
+}
+
+static void	sl_load_sprites_enemy_walk(t_game *sl, t_frames_enemy *ef, int e)
 {	
 	load_sprite(sl, &ef->walk_right.img0, "assets/images/walk_right01.xpm", e);
 	load_sprite(sl, &ef->walk_right.img1, "assets/images/walk_right02.xpm", e);
@@ -66,5 +86,6 @@ void	sl_load_sprites(t_game *sl)
 	load_sprite(sl, &sl->sprites.items.item4, "assets/images/item4.xpm", ITEM);
 	load_sprite(sl, &sl->sprites.items.item5, "assets/images/item5.xpm", ITEM);
 	sl_load_sprites_player(sl, &sl->sprites.player, PLAYER_IMG);
-	sl_load_sprites_enemy(sl, &sl->sprites.enemy, ENEMY_IMG);
+	sl_load_sprites_enemy_walk(sl, &sl->sprites.enemy, ENEMY_IMG);
+	sl_load_sprites_enemy_at(sl, &sl->sprites.enemy, ENEMY_IMG);
 }

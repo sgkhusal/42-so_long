@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:09:22 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 22:46:16 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:11:36 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	put_floor_enemy_walk(t_game *sl, t_enemy *e)
 	id_floor = e->id_floor;
 	while (i < e->walk_size)
 	{
-		put_floor_again(sl, x, e->y - ENEMY_IMG_OFFSET, id_floor);
+		put_floor_again(sl, x, e->y, id_floor);
 		id_floor = (id_floor + 1) % 2;
 		x += TILE_SIZE;
 		i++;

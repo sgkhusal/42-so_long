@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:52:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 02:53:12 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:10:52 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	sl_init_enemy(t_enemy *e, int x, int y, int id_floor)
 	e->status = RIGHT;
 	e->id_floor = id_floor;
 	e->x = x * TILE_SIZE;
-	e->y = y * TILE_SIZE + ENEMY_IMG_OFFSET;
+	e->y = y * TILE_SIZE;
 	e->frame = 0;
 	e->walk_pos = e->x;
 	e->walk_init = e->x;
-	e->walk_final = e->x + ENEMY_TILE_DELTA;
+	e->walk_final = e->x;
 	e->walk_size = 1;
 }
 

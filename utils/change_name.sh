@@ -1,6 +1,10 @@
 #!/bin/bash
 
-mv "walk_right05 copy.xpm" "walk_left05.xpm"
-mv "walk_right06 copy.xpm" "walk_left06.xpm"
-mv "walk_right07 copy.xpm" "walk_left07.xpm"
-mv "walk_right08 copy.xpm" "walk_left04.xpm"
+mv "attack_right01 copy.xpm" "attack_left01.xpm"
+mv "attack_right02 copy.xpm" "attack_left02.xpm"
+mv "attack_right03 copy.xpm" "attack_left03.xpm"
+mv "attack_right04 copy.xpm" "attack_left04.xpm"
+mv "attack_right05 copy.xpm" "attack_left05.xpm"
+mv "attack_right06 copy.xpm" "attack_left06.xpm"
+mv "attack_right07 copy.xpm" "attack_left07.xpm"
+mv "attack_right08 copy.xpm" "attack_left08.xpm"

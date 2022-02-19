@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:54:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 15:33:40 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:10:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@
 # define ITEM_SIZE 16
 # define PLAYER_SIZE_X 16
 # define PLAYER_SIZE_Y 20
-# define ENEMY_SIZE_X 22
-# define ENEMY_SIZE_Y 20
+# define ENEMY_SIZE_X 32
+# define ENEMY_SIZE_Y 32
 # define SMALL_IMG_OFFSET 8
-# define ENEMY_IMG_OFFSET 6
 # define PLAYER_FRAMES 4
 # define ENEMY_FRAMES 8
 # define WALK_DELTA 2
-# define ENEMY_TILE_DELTA 10
 
 typedef struct s_img
 {
@@ -84,8 +82,8 @@ typedef struct s_frames_enemy
 {
 	t_frames	walk_left;
 	t_frames	walk_right;
-	t_frames	attack__left;
-	t_frames	attack__right;
+	t_frames	attack_left;
+	t_frames	attack_right;
 }				t_frames_enemy;
 
 typedef struct s_sprites
