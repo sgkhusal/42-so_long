@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 17:02:36 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 19:48:17 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	sl_move_right(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE;
-		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE + 1;
+		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE;
+		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE + 1;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
 		else if (sl->map.map[i][j] != WALL && sl->map.map[i][j] != EXIT)
@@ -36,7 +36,6 @@ void	sl_move_right(t_game *sl)
 			check_collectible(sl, i, j);
 			sl_put_player(sl);
 			print_move(sl);
-			check_enemy(sl, i, j);
 		}
 	}
 }
@@ -53,8 +52,8 @@ void	sl_move_left(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE;
-		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE - 1;
+		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE;
+		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE - 1;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
 		else if (sl->map.map[i][j] != WALL && sl->map.map[i][j] != EXIT)
@@ -81,8 +80,8 @@ void	sl_move_up(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE - 1;
-		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE;
+		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE - 1;
+		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
 		else if (sl->map.map[i][j] != WALL && sl->map.map[i][j] != EXIT)
@@ -109,8 +108,8 @@ void	sl_move_down(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - SMALL_IMG_OFFSET) / TILE_SIZE + 1;
-		j = (sl->player.x - SMALL_IMG_OFFSET) / TILE_SIZE;
+		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE + 1;
+		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
 		else if (sl->map.map[i][j] != WALL && sl->map.map[i][j] != EXIT)

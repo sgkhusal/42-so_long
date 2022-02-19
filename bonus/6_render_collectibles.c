@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 02:35:12 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:06:00 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 19:38:01 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static	int	sl_set_item(t_game *sl, int nc, int id_img, int idx[2])
 	sl->items[nc] = (t_item *)malloc(sizeof(t_item));
 	if (!sl->items[nc])
 		sl_error("Malloc error for set item.", sl);
-	sl->items[nc]->x = idx[1] * TILE_SIZE + SMALL_IMG_OFFSET;
-	sl->items[nc]->y = idx[0] * TILE_SIZE + SMALL_IMG_OFFSET;
+	sl->items[nc]->x = idx[1] * TILE_SIZE + IMG_OFFSET;
+	sl->items[nc]->y = idx[0] * TILE_SIZE + IMG_OFFSET;
 	sl->items[nc]->id_img = id_img;
 	id_img++;
 	if (id_img == 6)

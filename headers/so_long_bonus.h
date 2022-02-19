@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 17:07:30 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 19:45:23 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define IDLE 0
 # define WALK 1
 # define ATTACK 2
+# define DIE 2
+# define WALK_DELTA 2
 
 // -------------------------- GAME STRUCTS ------------------------------ |
 
@@ -56,10 +58,12 @@ typedef struct s_player
 	int	id_floor;
 	int	x;
 	int	y;
-	int	walk_pos;
-	int	walk_final;
-	int	walk_init;
-	int	walk_size;
+	int	walk_pos_x;
+	int	walk_pos_y;
+	int	walk_final_x;
+	int	walk_final_y;
+	int	walk_init_x;
+	int	walk_init_y;
 }				t_player;
 
 typedef struct s_enemy
@@ -114,6 +118,14 @@ void	update_player_sprite(t_game *sl);
 
 void	sl_put_enemies(t_game *sl);
 void	sl_put_enemy(t_game *sl, t_enemy *e);
+void	update_enemy_sprite(t_game *sl, t_enemy *e);
+void	update_enemy_walk(t_game *sl, t_enemy *e);
+int		player_near();//(t_game *sl, t_enemy *e);
+
+int		player_dies_x(t_game *sl, t_enemy *e);
+int		player_dies_y(t_game *sl, t_enemy *e);
+void	set_player_to_die(t_game *sl, t_enemy *e);
+void	render_die(t_game *sl, t_enemy *e);
 
 void	load_sprite(t_game *sl, t_img *sprite, char *path, int type_size);
 void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y);

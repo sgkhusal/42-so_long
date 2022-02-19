@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/19 16:45:35 by coder            ###   ########.fr        #
+#    Updated: 2022/02/19 19:36:36 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,10 @@ SRC_BONUS_FILES =	1_so_long.c 2_map.c 3_check_map.c 4_game_bonus.c \
 						4_load_sprites_bonus.c \
 						5_render_map_bonus.c 6_render_collectibles.c \
 						7_render_player_bonus.c 8_hooks_bonus.c \
-						8_hooks_bonus_utils.c \
+						8_hooks_utils_bonus.c \
 						9_move_bonus.c 9_move_utils_bonus.c\
 						10_set_enemies_bonus.c 11_render_enemies_bonus.c \
+						12_enemy_move_bonus.c 13_player_dies_bonus.c \
 						so_long_utils_1_bonus.c so_long_utils_2_bonus.c \
 						clean.c clean_utils_bonus.c
 

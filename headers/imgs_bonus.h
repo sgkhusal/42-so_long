@@ -23,10 +23,9 @@
 # define PLAYER_SIZE_Y 20
 # define ENEMY_SIZE_X 32
 # define ENEMY_SIZE_Y 32
-# define SMALL_IMG_OFFSET 8
+# define IMG_OFFSET 8
 # define PLAYER_FRAMES 4
 # define ENEMY_FRAMES 8
-# define WALK_DELTA 2
 
 typedef struct s_img
 {
