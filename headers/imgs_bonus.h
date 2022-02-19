@@ -16,12 +16,15 @@
 # define TILE 1
 # define ITEM 2
 # define PLAYER_IMG 3
+# define ENEMY 4
 # define TILE_SIZE 32
 # define ITEM_SIZE 16
 # define PLAYER_SIZE_X 16
 # define PLAYER_SIZE_Y 20
-# define ENEMY_SIZE 32
+# define ENEMY_SIZE_X 22
+# define ENEMY_SIZE_Y 20
 # define SMALL_IMG_OFFSET 8
+# define ENEMY_IMG_OFFSET 5
 # define PLAYER_FRAMES 4
 # define ENEMY_FRAMES 8
 

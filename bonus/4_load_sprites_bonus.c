@@ -66,5 +66,5 @@ void	sl_load_sprites(t_game *sl)
 	load_sprite(sl, &sl->sprites.items.item4, "assets/images/item4.xpm", ITEM);
 	load_sprite(sl, &sl->sprites.items.item5, "assets/images/item5.xpm", ITEM);
 	sl_load_sprites_player(sl, &sl->sprites.player, PLAYER_IMG);
-	sl_load_sprites_enemy(sl, &sl->sprites.enemy, TILE);
+	sl_load_sprites_enemy(sl, &sl->sprites.enemy, ENEMY);
 }

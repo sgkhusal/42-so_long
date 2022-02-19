@@ -16,8 +16,8 @@ void	sl_init_enemy(t_enemy *e, int x, int y, int id_floor)
 {
 	e->status = RIGHT;
 	e->id_floor = id_floor;
-	e->x = x;
-	e->y = y;
+	e->x = x * TILE_SIZE + ENEMY_IMG_OFFSET;
+	e->y = y * TILE_SIZE + ENEMY_IMG_OFFSET;
 	e->frame = 0;
 }
 
@@ -73,8 +73,7 @@ void	sl_set_enemies(t_game *sl)
 		{
 			if (sl->map.map[i][j] == PLAYER)
 			{
-				sl_init_enemy(sl->enemies[ne], j * TILE_SIZE, i * TILE_SIZE,
-					id_floor % 2);
+				sl_init_enemy(sl->enemies[ne], j, i, id_floor % 2);
 				ne++;
 				id_floor++;
 			}
