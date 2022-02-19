@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 16:33:59 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:51:32 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # define BACK 1
 # define LEFT 2
 # define RIGHT 3
+# define IDLE 0
+# define WALK 1
+# define ATTACK 2
 
 // -------------------------- GAME STRUCTS ------------------------------ |
 
@@ -47,6 +50,7 @@ typedef struct s_item
 
 typedef struct s_player
 {
+	int	status;
 	int	view;
 	int	frame;
 	int	id_floor;
@@ -56,6 +60,7 @@ typedef struct s_player
 
 typedef struct s_enemy
 {
+	int	status;
 	int	view;
 	int	frame;
 	int	id_floor;
