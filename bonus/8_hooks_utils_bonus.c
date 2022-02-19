@@ -6,9 +6,12 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:44:48 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 16:45:42 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:53:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long_bonus.h"
 
+void	sl_render_new_positions(){
+	
+}

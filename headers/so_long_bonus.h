@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 16:51:32 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 17:07:30 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ typedef struct s_player
 	int	id_floor;
 	int	x;
 	int	y;
+	int	walk_pos;
+	int	walk_final;
+	int	walk_init;
+	int	walk_size;
 }				t_player;
 
 typedef struct s_enemy
