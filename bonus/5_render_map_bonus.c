@@ -22,7 +22,7 @@ static void	put_floor(t_game *sl, int i, int j, int id_floor)
 			i * TILE_SIZE);
 	if (sl->player_set == NOT_SET && sl->map.map[i][j] == PLAYER)
 		sl_init_player(sl, j * TILE_SIZE + IMG_OFFSET,
-			i * TILE_SIZE + IMG_OFFSET, id_floor % 2);
+			i * TILE_SIZE + PLAYER_Y_OFFSET, id_floor % 2);
 }
 
 static void	put_corner(t_game *sl, int i, int j)

@@ -24,7 +24,7 @@ void	sl_move_right(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE;
+		i = (sl->player.y - PLAYER_Y_OFFSET) / TILE_SIZE;
 		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE + 1;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
@@ -52,7 +52,7 @@ void	sl_move_left(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE;
+		i = (sl->player.y - PLAYER_Y_OFFSET) / TILE_SIZE;
 		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE - 1;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
@@ -80,7 +80,7 @@ void	sl_move_up(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE - 1;
+		i = (sl->player.y - PLAYER_Y_OFFSET) / TILE_SIZE - 1;
 		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);
@@ -108,7 +108,7 @@ void	sl_move_down(t_game *sl)
 	}
 	else
 	{
-		i = (sl->player.y - IMG_OFFSET) / TILE_SIZE + 1;
+		i = (sl->player.y - PLAYER_Y_OFFSET) / TILE_SIZE + 1;
 		j = (sl->player.x - IMG_OFFSET) / TILE_SIZE;
 		if (sl->map.map[i][j] == EXIT && sl->collected_items == sl->map.total_c)
 			sl_move_exit(sl);

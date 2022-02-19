@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:44:48 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 19:45:46 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 21:18:22 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,22 @@ static void	update_enemy_idle(t_game *sl, t_enemy *e)
 		e->status = WALK;
 }
 
-int	player_near()//(t_game *sl, t_enemy *e)
+int	player_near(t_game *sl, t_enemy *e)
 {
-	// verificar se a posição do player é próximo dele -> IDLE
-	/* if (sl->player.x == e->x + TILE_SIZE || sl->player.x == e->x - TILE_SIZE)
-		return (1);
-	else if (sl->player.y == e->y + TILE_SIZE)
-		return (1);
-	else if (sl->player.y == e->y - TILE_SIZE)
-		return (1); */
-	
-	ft_printf("Função ainda não feita");
+	if (sl->player.y - PLAYER_Y_OFFSET == e->y)
+	{
+		if (sl->player.x - IMG_OFFSET == e->x + TILE_SIZE)
+			return (1);
+		else if (sl->player.x - IMG_OFFSET == e->x - TILE_SIZE)
+			return (1);
+	}
+	else if (sl->player.x - IMG_OFFSET == e->x)
+	{
+		if (sl->player.y - PLAYER_Y_OFFSET == e->y + TILE_SIZE)
+			return (1);
+		else if (sl->player.y - PLAYER_Y_OFFSET == e->y - TILE_SIZE)
+			return (1);
+	}
 	return (0);
 }
 
@@ -49,9 +54,10 @@ void	update_enemy_sprite(t_game *sl, t_enemy *e)
 		set_player_to_die(sl, e);
 	else if (player_dies_y(sl, e))
 		set_player_to_die(sl, e);
-	if (player_near())//(sl, e))
+	if (player_near(sl, e))
 	{
 		e->status = IDLE;
+		ft_printf("player near\n");
 		if (sl->player.x < e->x)
 			e->view = LEFT;
 		else

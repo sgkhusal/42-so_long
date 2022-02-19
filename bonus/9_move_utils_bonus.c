@@ -46,5 +46,5 @@ void	put_floor_again(t_game *sl, int x, int y, int id_floor)
 void	put_floor_player(t_game *sl)
 {
 	put_floor_again(sl, sl->player.x - IMG_OFFSET,
-		sl->player.y - IMG_OFFSET, sl->player.id_floor % 2);
+		sl->player.y - PLAYER_Y_OFFSET, sl->player.id_floor % 2);
 }

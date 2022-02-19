@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 19:45:23 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 21:12:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	sl_put_enemies(t_game *sl);
 void	sl_put_enemy(t_game *sl, t_enemy *e);
 void	update_enemy_sprite(t_game *sl, t_enemy *e);
 void	update_enemy_walk(t_game *sl, t_enemy *e);
-int		player_near();//(t_game *sl, t_enemy *e);
+int		player_near(t_game *sl, t_enemy *e);
 
 int		player_dies_x(t_game *sl, t_enemy *e);
 int		player_dies_y(t_game *sl, t_enemy *e);

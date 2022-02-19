@@ -24,6 +24,7 @@
 # define ENEMY_SIZE_X 32
 # define ENEMY_SIZE_Y 32
 # define IMG_OFFSET 8
+# define PLAYER_Y_OFFSET 9
 # define PLAYER_FRAMES 4
 # define ENEMY_FRAMES 8
 
