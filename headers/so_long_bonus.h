@@ -15,7 +15,7 @@
 
 // -------------------------- GAME HEADERS ------------------------------ |
 # include "libs.h"
-# include "map.h"
+# include "map_bonus.h"
 # include "imgs_bonus.h"
 
 // ------------------------- GAME CONSTANTS ----------------------------- |
@@ -62,6 +62,9 @@ typedef struct s_enemy
 	int	x;
 	int	y;
 	int	walk_pos;
+	int	walk_final;
+	int	walk_init;
+	int	walk_size;
 }				t_enemy;
 
 typedef struct s_game
@@ -86,6 +89,7 @@ void	sl_check_map(t_game *sl);
 
 void	sl_game_init(t_game *sl);
 void	sl_set_collectibles(t_game *sl);
+void	sl_enemy_malloc(t_game *sl);
 void	sl_set_enemies(t_game *sl);
 void	sl_init_player(t_game *sl, int x, int y, int id_floor);
 void	sl_load_sprites(t_game *sl);
@@ -114,9 +118,9 @@ void	sl_move_exit(t_game *sl);
 
 void	print_move(t_game *sl);
 void	check_collectible(t_game *sl, int i, int j);
+void	check_enemy(t_game *sl, int i, int j);
 void	put_floor_player(t_game *sl);
 void	put_floor_again(t_game *sl, int x, int y, int id_floor);
-void	update_enemy_sprite(t_game *sl, t_enemy *e);
 
 int		sl_error(char *msg, t_game *sl);
 void	clean_game(t_game *sl);

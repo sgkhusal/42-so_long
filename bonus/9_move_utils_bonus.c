@@ -35,6 +35,24 @@ void	check_collectible(t_game *sl, int i, int j)
 	}
 }
 
+void	check_enemy(t_game *sl, int i, int j)
+{
+	int	ne;
+	
+	if (sl->map.map[i][j] == ENEMY)
+	{
+		ne = 0;
+		while (ne < sl->map.total_p - 1)
+		{
+			if (sl->enemies[ne]->x == sl->player.x) /////// correções!!!
+			{
+				ft_printf("\n\nYOU DIE!! TRY AGAIN...\n\n");
+				close_game(sl);
+			}
+		}
+	}
+}
+
 void	put_floor_again(t_game *sl, int x, int y, int id_floor)
 {
 	if (id_floor == 0)

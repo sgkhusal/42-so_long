@@ -36,6 +36,7 @@ void	sl_move_right(t_game *sl)
 			check_collectible(sl, i, j);
 			sl_put_player(sl);
 			print_move(sl);
+			check_enemy(sl, i, j);
 		}
 	}
 }

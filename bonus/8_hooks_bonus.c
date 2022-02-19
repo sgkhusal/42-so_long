@@ -20,23 +20,57 @@ int	close_game(t_game *sl)
 	exit(0);
 }
 
-/*static int	render_game_again(t_game *sl)
+void	put_floor_enemy_walk(t_game *sl, t_enemy *e)
 {
-	 static int	count;
+	int	i;
+	int	x;
+	int	id_floor;
 
-	count++;
-	if (count % 500 == 0)
+	i = 0;
+	x = e->walk_init;
+	id_floor = e->id_floor;
+	while (i < e->walk_size)
 	{
-		if (sl->mlx.win != NULL)
-		{
-			
-			mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
-		}
+		put_floor_again(sl, x, e->y - ENEMY_IMG_OFFSET, id_floor);
+		id_floor = (id_floor + 1) % 2;
+		x += TILE_SIZE;
+		i++;
 	}
-	else
-		sl_error("Not possible to render game. Mlx window is set as NULL.", sl);
-	return (0);
-}*/
+}
+
+void	update_enemies_sprites(t_game *sl)
+{
+	int	ne;
+
+	ne = 0;
+	while (ne < sl->map.total_p - 1)
+	{
+		put_floor_enemy_walk(sl, sl->enemies[ne]);
+		sl->enemies[ne]->frame++;
+		if (sl->enemies[ne]->frame == ENEMY_FRAMES)
+			sl->enemies[ne]->frame = 0;
+		if (sl->enemies[ne]->status == RIGHT)
+		{
+			sl->enemies[ne]->walk_pos += WALK_DELTA;
+			if (sl->enemies[ne]->walk_pos > sl->enemies[ne]->walk_final)
+			{
+				sl->enemies[ne]->status = LEFT;
+				sl->enemies[ne]->walk_pos = sl->enemies[ne]->walk_final;
+			}
+		}
+		else if (sl->enemies[ne]->status == LEFT)
+		{
+			sl->enemies[ne]->walk_pos -= WALK_DELTA;
+			if (sl->enemies[ne]->walk_pos < sl->enemies[ne]->walk_init)
+			{
+				sl->enemies[ne]->status = RIGHT;
+				sl->enemies[ne]->walk_pos = sl->enemies[ne]->walk_init;
+			}
+		}
+		sl_put_enemy(sl, sl->enemies[ne]);
+		ne++;
+	}
+}
 
 static int	render_game_again(t_game *sl)
 {
@@ -49,6 +83,7 @@ static int	render_game_again(t_game *sl)
 		if (sl->player.frame == PLAYER_FRAMES)
 			sl->player.frame = 0;
 		update_player_sprite(sl);
+		update_enemies_sprites(sl);
 	}
 	if (sl->mlx.win != NULL)
 		mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);

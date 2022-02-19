@@ -36,7 +36,7 @@ static void	set_sprite_size(t_img *sprite, int type)
 		sprite->height = PLAYER_SIZE_Y;//
 		sprite->width = PLAYER_SIZE_X;
 	}
-	else if (type == ENEMY)
+	else if (type == ENEMY_IMG)
 	{
 		sprite->height = ENEMY_SIZE_Y;//
 		sprite->width = ENEMY_SIZE_X;

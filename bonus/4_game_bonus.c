@@ -68,6 +68,9 @@ void	sl_game_init(t_game *sl)
 	sl_set_collectibles(sl);
 	ft_printf("enemies = %i\n", sl->map.total_p - 1);
 	if (sl->map.total_p > 1)
+	{
+		sl_enemy_malloc(sl);
 		sl_set_enemies(sl);
+	}
 	sl_render_game(sl);
 }

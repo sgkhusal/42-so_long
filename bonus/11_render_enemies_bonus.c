@@ -14,7 +14,7 @@
 
 void	put_enemy(t_game *sl, t_img *sprite, t_enemy *e)
 {
-	put_sprite_in_game_img(sl, sprite, e->x, e->y);
+	put_sprite_in_game_img(sl, sprite, e->walk_pos, e->y);
 }
 
 void	put_enemy_frame(t_game *sl, t_enemy *e, t_frames *frames)
@@ -40,15 +40,9 @@ void	put_enemy_frame(t_game *sl, t_enemy *e, t_frames *frames)
 void	sl_put_enemy(t_game *sl, t_enemy *e)
 {
 	if (e->status == LEFT)
-		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_left);
+		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right); /////////
 	else if (e->status == RIGHT)
 		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right);
-}
-
-void	update_enemy_sprite(t_game *sl, t_enemy *e)
-{
-	//put_floor_enemy(sl, e);
-	sl_put_enemy(sl, e);
 }
 
 void	sl_put_enemies(t_game *sl)

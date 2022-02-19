@@ -16,24 +16,34 @@ void	sl_init_enemy(t_enemy *e, int x, int y, int id_floor)
 {
 	e->status = RIGHT;
 	e->id_floor = id_floor;
-	e->x = x * TILE_SIZE + ENEMY_IMG_OFFSET;
+	e->x = x * TILE_SIZE;
 	e->y = y * TILE_SIZE + ENEMY_IMG_OFFSET;
 	e->frame = 0;
+	e->walk_pos = e->x;
+	e->walk_init = e->x;
+	e->walk_final = e->x + ENEMY_TILE_DELTA;
+	e->walk_size = 1;
 }
 
-int	sl_jump_player(t_game *sl, int *i, int *j)
+int	sl_jump_player(t_game *sl, int *i, int *j, int *id_floor)
 {
 	*i = 0;
-	while (*i < sl->map.total_lines - 1)
+	while (*i < sl->map.total_lines)
 	{
-		*j = 1;
-		while (*j < (int)sl->map.line_size - 1)
+		*j = 0;
+		while (*j < (int)sl->map.line_size)
 		{
 			if (sl->map.map[*i][*j] == PLAYER)
+			{
+				id_floor++;
 				return (1);
+			}
 			(*j)++;
+			id_floor++;
 		}
 		(*i)++;
+		if ((int)sl->map.line_size % 2 == 0)
+			id_floor++;
 	}
 	return (0);
 }
@@ -56,6 +66,44 @@ void	sl_enemy_malloc(t_game *sl)
 	sl->enemies[ne] = NULL;
 }
 
+void	sl_change_map(t_game *sl, t_enemy *e, int i, int j)
+{
+	sl->map.map[i][j] = ENEMY;
+	if (sl->map.map[i][j + 1] == EMPTY)
+	{
+		sl->map.map[i][j + 1] = ENEMY;
+		e->walk_final += TILE_SIZE;
+		e->walk_size++;
+		if (sl->map.map[i][j + 2] == EMPTY)
+		{
+			sl->map.map[i][j + 2] = ENEMY;
+			e->walk_final += TILE_SIZE;
+			e->walk_size++;
+		}
+		else if (sl->map.map[i][j - 1] == EMPTY)
+		{
+			sl->map.map[i][j - 1] = ENEMY;
+			e->walk_init -= TILE_SIZE;
+			e->walk_size++;
+			e->id_floor = (e->id_floor + 1) % 2;
+		}
+	}
+	else if (sl->map.map[i][j - 1] == EMPTY)
+	{
+		sl->map.map[i][j - 1] = ENEMY;
+		e->walk_init -= TILE_SIZE;
+		e->walk_size++;
+		e->id_floor = (e->id_floor + 1) % 2;
+		if (sl->map.map[i][j - 2] == EMPTY)
+		{
+			sl->map.map[i][j - 2] = ENEMY;
+			e->walk_init -= TILE_SIZE;
+			e->walk_size++;
+			e->id_floor = (e->id_floor + 1) % 2;
+		}
+	}
+}
+
 void	sl_set_enemies(t_game *sl)
 {
 	int	i;
@@ -63,22 +111,24 @@ void	sl_set_enemies(t_game *sl)
 	int	id_floor;
 	int	ne;
 
-	sl_enemy_malloc(sl);
 	ne = 0;
 	id_floor = 0;
-	sl_jump_player(sl, &i, &j);
-	while (i < sl->map.total_lines - 1 && ne < sl->map.total_p - 1)
+	sl_jump_player(sl, &i, &j, &id_floor);
+	while (i < sl->map.total_lines && ne < sl->map.total_p - 1)
 	{
-		while (++j < (int)sl->map.line_size - 1)
+		while (++j < (int)sl->map.line_size)
 		{
 			if (sl->map.map[i][j] == PLAYER)
 			{
 				sl_init_enemy(sl->enemies[ne], j, i, id_floor % 2);
+				sl_change_map(sl, sl->enemies[ne], i, j);
 				ne++;
-				id_floor++;
 			}
+			id_floor++;
 		}
-		j = 1;
+		j = 0;
 		i++;
+		if ((int)sl->map.line_size % 2 == 0)
+			id_floor++;
 	}
 }

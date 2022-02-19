@@ -16,7 +16,7 @@
 # define TILE 1
 # define ITEM 2
 # define PLAYER_IMG 3
-# define ENEMY 4
+# define ENEMY_IMG 4
 # define TILE_SIZE 32
 # define ITEM_SIZE 16
 # define PLAYER_SIZE_X 16
@@ -24,9 +24,11 @@
 # define ENEMY_SIZE_X 22
 # define ENEMY_SIZE_Y 20
 # define SMALL_IMG_OFFSET 8
-# define ENEMY_IMG_OFFSET 5
+# define ENEMY_IMG_OFFSET 6
 # define PLAYER_FRAMES 4
 # define ENEMY_FRAMES 8
+# define WALK_DELTA 2
+# define ENEMY_TILE_DELTA 10
 
 typedef struct s_img
 {
