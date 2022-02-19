@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:09:22 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 16:11:36 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:34:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,21 @@ void	update_enemies_sprites(t_game *sl)
 		sl->enemies[ne]->frame++;
 		if (sl->enemies[ne]->frame == ENEMY_FRAMES)
 			sl->enemies[ne]->frame = 0;
-		if (sl->enemies[ne]->status == RIGHT)
+		if (sl->enemies[ne]->view == RIGHT)
 		{
 			sl->enemies[ne]->walk_pos += WALK_DELTA;
 			if (sl->enemies[ne]->walk_pos > sl->enemies[ne]->walk_final)
 			{
-				sl->enemies[ne]->status = LEFT;
+				sl->enemies[ne]->view = LEFT;
 				sl->enemies[ne]->walk_pos = sl->enemies[ne]->walk_final;
 			}
 		}
-		else if (sl->enemies[ne]->status == LEFT)
+		else if (sl->enemies[ne]->view == LEFT)
 		{
 			sl->enemies[ne]->walk_pos -= WALK_DELTA;
 			if (sl->enemies[ne]->walk_pos < sl->enemies[ne]->walk_init)
 			{
-				sl->enemies[ne]->status = RIGHT;
+				sl->enemies[ne]->view = RIGHT;
 				sl->enemies[ne]->walk_pos = sl->enemies[ne]->walk_init;
 			}
 		}

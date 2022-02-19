@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 23:47:35 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 15:44:35 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:35:36 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	put_enemy_frame(t_game *sl, t_enemy *e, t_frames *frames)
 
 void	sl_put_enemy(t_game *sl, t_enemy *e)
 {
-	if (e->status == LEFT)
+	if (e->view == LEFT)
 		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_left);
-	else if (e->status == RIGHT)
+	else if (e->view == RIGHT)
 		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right);
 }
 

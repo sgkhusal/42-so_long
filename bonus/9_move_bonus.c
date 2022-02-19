@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 22:49:04 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:35:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sl_move_right(t_game *sl)
 	int	i;
 	int	j;
 
-	if (sl->player.status != RIGHT)
+	if (sl->player.view != RIGHT)
 	{
-		sl->player.status = RIGHT;
+		sl->player.view = RIGHT;
 		update_player_sprite(sl);
 	}
 	else
@@ -46,9 +46,9 @@ void	sl_move_left(t_game *sl)
 	int	i;
 	int	j;
 
-	if (sl->player.status != LEFT)
+	if (sl->player.view != LEFT)
 	{
-		sl->player.status = LEFT;
+		sl->player.view = LEFT;
 		update_player_sprite(sl);
 	}
 	else
@@ -74,9 +74,9 @@ void	sl_move_up(t_game *sl)
 	int	i;
 	int	j;
 
-	if (sl->player.status != BACK)
+	if (sl->player.view != BACK)
 	{
-		sl->player.status = BACK;
+		sl->player.view = BACK;
 		update_player_sprite(sl);
 	}
 	else
@@ -102,9 +102,9 @@ void	sl_move_down(t_game *sl)
 	int	i;
 	int	j;
 
-	if (sl->player.status != FRONT)
+	if (sl->player.view != FRONT)
 	{
-		sl->player.status = FRONT;
+		sl->player.view = FRONT;
 		update_player_sprite(sl);
 	}
 	else
