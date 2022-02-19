@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11_render_enemy_bonus.c                            :+:      :+:    :+:   */
+/*   11_render_enemies_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 23:47:35 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 03:29:04 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 15:44:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	put_enemy_frame(t_game *sl, t_enemy *e, t_frames *frames)
 void	sl_put_enemy(t_game *sl, t_enemy *e)
 {
 	if (e->status == LEFT)
-		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right); /////////
+		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_left);
 	else if (e->status == RIGHT)
 		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right);
 }

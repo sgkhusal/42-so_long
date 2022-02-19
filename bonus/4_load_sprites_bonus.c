@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 03:08:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 02:10:08 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 15:44:03 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static void	sl_load_sprites_enemy(t_game *sl, t_frames_enemy *ef, int e)
 	load_sprite(sl, &ef->walk_right.img5, "assets/images/walk_right06.xpm", e);
 	load_sprite(sl, &ef->walk_right.img6, "assets/images/walk_right07.xpm", e);
 	load_sprite(sl, &ef->walk_right.img7, "assets/images/walk_right08.xpm", e);
-	/* load_sprite(sl, &ef->walk_left.img0, "assets/images/walk_left01.xpm", e);
+	load_sprite(sl, &ef->walk_left.img0, "assets/images/walk_left01.xpm", e);
 	load_sprite(sl, &ef->walk_left.img1, "assets/images/walk_left02.xpm", e);
 	load_sprite(sl, &ef->walk_left.img2, "assets/images/walk_left03.xpm", e);
 	load_sprite(sl, &ef->walk_left.img3, "assets/images/walk_left04.xpm", e);
 	load_sprite(sl, &ef->walk_left.img4, "assets/images/walk_left05.xpm", e);
 	load_sprite(sl, &ef->walk_left.img5, "assets/images/walk_left06.xpm", e);
 	load_sprite(sl, &ef->walk_left.img6, "assets/images/walk_left07.xpm", e);
-	load_sprite(sl, &ef->walk_left.img7, "assets/images/walk_left08.xpm", e); */
+	load_sprite(sl, &ef->walk_left.img7, "assets/images/walk_left08.xpm", e);
 }
 
 static void	sl_load_sprites_player(t_game *sl, t_frames_player *pf, int p)

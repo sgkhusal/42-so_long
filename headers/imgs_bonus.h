@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:54:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 03:22:42 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 15:33:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ typedef struct s_frames_enemy
 {
 	t_frames	walk_left;
 	t_frames	walk_right;
-	//t_img	attack__left;
-	//t_img	attack__right;
+	t_frames	attack__left;
+	t_frames	attack__right;
 }				t_frames_enemy;
 
 typedef struct s_sprites
