@@ -44,6 +44,7 @@ SRC_BONUS_FILES =	1_so_long.c 2_map.c 3_check_map.c 4_game_bonus.c \
 						5_render_map_bonus.c 6_render_collectibles.c \
 						7_render_player_bonus.c 8_hooks_bonus.c \
 						9_move_bonus.c 9_move_utils_bonus.c\
+						10_set_enemies_bonus.c 11_render_enemies_bonus.c \
 						so_long_utils_1_bonus.c so_long_utils_2_bonus.c \
 						clean.c clean_utils_bonus.c
 

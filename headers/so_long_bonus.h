@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:48:33 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 03:28:25 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_enemy
 	int	id_floor;
 	int	x;
 	int	y;
+	int	walk_pos;
 }				t_enemy;
 
 typedef struct s_game
@@ -72,7 +73,7 @@ typedef struct s_game
 	t_map		map;
 	t_item		**items;
 	t_player	player;
-	t_enemy		enemy;
+	t_enemy		**enemies;
 	t_img		img;
 	t_tiles		tiles;
 	t_sprites	sprites;
@@ -85,6 +86,7 @@ void	sl_check_map(t_game *sl);
 
 void	sl_game_init(t_game *sl);
 void	sl_set_collectibles(t_game *sl);
+void	sl_set_enemies(t_game *sl);
 void	sl_init_player(t_game *sl, int x, int y, int id_floor);
 void	sl_load_sprites(t_game *sl);
 
@@ -96,6 +98,9 @@ void	sl_put_player(t_game *sl);
 
 void	put_player(t_game *sl, t_img *sprite);
 void	update_player_sprite(t_game *sl);
+
+void	sl_put_enemies(t_game *sl);
+void	sl_put_enemy(t_game *sl, t_enemy *e);
 
 void	load_sprite(t_game *sl, t_img *sprite, char *path, int type_size);
 void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y);
@@ -111,6 +116,7 @@ void	print_move(t_game *sl);
 void	check_collectible(t_game *sl, int i, int j);
 void	put_floor_player(t_game *sl);
 void	put_floor_again(t_game *sl, int x, int y, int id_floor);
+void	update_enemy_sprite(t_game *sl, t_enemy *e);
 
 int		sl_error(char *msg, t_game *sl);
 void	clean_game(t_game *sl);

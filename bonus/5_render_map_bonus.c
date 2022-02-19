@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:51:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:42:10 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/19 02:12:14 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ static void	put_floor(t_game *sl, int i, int j, int id_floor)
 	if (sl->player_set == NOT_SET && sl->map.map[i][j] == PLAYER)
 		sl_init_player(sl, j * TILE_SIZE + SMALL_IMG_OFFSET,
 			i * TILE_SIZE + SMALL_IMG_OFFSET, id_floor % 2);
-	//if (sl->player_set == SET && sl->map.map[i][j] == PLAYER)
-	// setar aqui os inimigos; init de inimigos
 }
 
 static void	put_corner(t_game *sl, int i, int j)
