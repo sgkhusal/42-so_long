@@ -40,8 +40,9 @@ static void enemy_walk_right(t_enemy *e)
 	{
 		e->view = LEFT;
 		e->walk_pos = e->walk_final;
-		//e->x = e->walk_pos - TILE_SIZE;
 	}
+	if (e->walk_pos % TILE_SIZE == TILE_SIZE / 2)
+		e->x = e->walk_pos + TILE_SIZE / 2;
 }
 
 static void enemy_walk_left(t_enemy *e)
@@ -51,8 +52,9 @@ static void enemy_walk_left(t_enemy *e)
 	{
 		e->view = RIGHT;
 		e->walk_pos = e->walk_init;
-		//e->x = e->walk_pos + TILE_SIZE;
 	}
+	if (e->walk_pos % TILE_SIZE == TILE_SIZE / 2)
+		e->x = e->walk_pos - TILE_SIZE / 2;
 }
 
 void	update_enemy_walk(t_game *sl, t_enemy *e)

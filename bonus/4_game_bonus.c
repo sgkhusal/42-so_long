@@ -65,9 +65,9 @@ static void	sl_mlx_init(t_game *sl)
 	if (sl->mlx.mlx == NULL)
 		sl_error("Mlx init error", sl);
 	sl->mlx.width = sl->map.line_size * TILE_SIZE;
-	sl->mlx.height = sl->map.total_lines * TILE_SIZE; ////// adicionar tamanho texto
+	sl->mlx.height = sl->map.total_lines * TILE_SIZE;
 	sl->mlx.win = mlx_new_window(sl->mlx.mlx, sl->mlx.width, sl->mlx.height,
-			"So_long"); ////// mudar nome
+			"So_long - Help the jawa get some cool stuffs to sell"); ////// mudar nome
 	if (sl->mlx.win == NULL)
 		sl_error("Mlx window error", sl);
 }

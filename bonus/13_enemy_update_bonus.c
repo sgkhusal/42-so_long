@@ -33,24 +33,9 @@ static int	player_near(t_game *sl, t_enemy *e)
 
 static void	update_enemy_idle(t_game *sl, t_enemy *e)
 {
-	/* if (e->walk_pos != e->relative_x)
-	{
-		if (e->walk_pos < e->relative_x)
-		{
-			e->walk_pos += WALK_DELTA;
-			if (e->walk_pos % TILE_SIZE != 0)
-				put_floor_again(sl, e->relative_x + TILE_SIZE, e->y,
-					(e->relative_id_floor + 1) % 2);
-		}
-		else
-		{
-			e->walk_pos -= WALK_DELTA;
-			if (e->walk_pos % TILE_SIZE != 0)
-				put_floor_again(sl, e->relative_x - TILE_SIZE, e->y,
-					(e->relative_id_floor + 1) % 2);
-		}
-	} */
-	put_floor_again(sl, e->x, e->y, e->id_floor % 2);
+	if (e->walk_pos != e->x)
+		e->walk_pos = e->x;
+	put_floor_again(sl, e->x, e->y, (e->id_floor + 1) % 2);
 	update_player(sl);
 	sl->player_set = PLAYER_RENDER;
 	sl_put_enemy(sl, e);

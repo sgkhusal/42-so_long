@@ -12,7 +12,7 @@
 
 #include "../headers/so_long_bonus.h"
 
-void	print_move(t_game *sl) ////// mudar aqui
+void	print_move(t_game *sl)
 {
 	char	*print;
 	

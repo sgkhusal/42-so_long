@@ -30,7 +30,7 @@ void	put_floor_player_die(t_game *sl)
 
 void	update_enemy_attack(t_game *sl, t_enemy *e)
 {
-	put_floor_again(sl, e->x, e->y, e->id_floor % 2); // verificar se usa o e->x ou outro param
+	put_floor_again(sl, e->x, e->y, (e->id_floor + 1) % 2);
 	if (e->frame != ENEMY_FRAMES)
 		update_player(sl);
 	else
@@ -46,49 +46,3 @@ void	update_enemy_attack(t_game *sl, t_enemy *e)
 		close_game(sl);
 	}
 }
-
-/* void	render_die(t_game *sl, t_enemy *e)
-{
-	//printa o chão do player e do inimigo
-	if (sl->player.view == RIGHT)
-	{
-		if (sl->player.walk_pos_x != sl->player.walk_final_x)
-		{
-			sl->player.walk_pos_x += WALK_DELTA;
-			//printa o player na nova posição
-		}
-		else
-			update_player_sprite(sl);
-	}
-	if (sl->player.view == LEFT)
-	{
-		if (sl->player.walk_pos_x != sl->player.walk_final_x)
-		{
-			sl->player.walk_pos_x -= WALK_DELTA;
-			//printa o player na nova posição
-		}
-		else
-			update_player_sprite(sl);
-	}
-	if (sl->player.view == FRONT)
-	{
-		if (sl->player.walk_pos_y != sl->player.walk_final_y)
-		{
-			sl->player.walk_pos_y += WALK_DELTA;
-			//printa o player na nova posição
-		}
-		else
-			update_player_sprite(sl);
-	}
-	if (sl->player.view == BACK)
-	{
-		if (sl->player.walk_pos_y != sl->player.walk_final_y)
-		{
-			sl->player.walk_pos_y -= WALK_DELTA;
-			//printa o player na nova posição
-		}
-		else
-			update_player_sprite(sl);
-	}
-	// printa o inimigo
-} */
