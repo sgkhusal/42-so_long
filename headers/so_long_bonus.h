@@ -32,7 +32,7 @@
 # define ATTACK 2
 # define DIE 2
 # define WALK_DELTA 2
-# define PLAYER_Y_DIE 12
+# define PLAYER_Y_DIE 20
 
 // -------------------------- GAME STRUCTS ------------------------------ |
 

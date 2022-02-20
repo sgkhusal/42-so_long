@@ -61,12 +61,16 @@ void	update_player(t_game *sl)
 	{
 		if (sl->player.view == RIGHT)
 			put_floor_again(sl, sl->player.x + (TILE_SIZE / 2), sl->player.y,
-				sl->player.id_floor);
+				(sl->player.id_floor + 1) % 2);
+		else if (sl->player.view == LEFT)
+			put_floor_again(sl, sl->player.x, sl->player.y,
+				(sl->player.id_floor + 1) % 2);
 		else if (sl->player.view == FRONT)
-			put_floor_again(sl, sl->player.x, sl->player.y - PLAYER_Y_DIE,
-				sl->player.id_floor);
-		else
-			put_floor_player(sl);
+			put_floor_again(sl, sl->player.x - (TILE_SIZE / 2),
+				sl->player.y - PLAYER_Y_DIE, (sl->player.id_floor + 1) % 2);
+		else if (sl->player.view == BACK)
+			put_floor_again(sl, sl->player.x - (TILE_SIZE / 2),
+				sl->player.y + (TILE_SIZE / 2), (sl->player.id_floor + 1) % 2);
 	}
 	else
 		put_floor_player(sl);

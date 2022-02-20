@@ -18,13 +18,20 @@ void	set_player_to_die(t_game *sl, t_enemy *e)
 	e->status = ATTACK;
 	e->frame = 0;
 	if (sl->player.view == RIGHT)
-		sl->player.x = e->x - (TILE_SIZE / 2); // floor não pode usar essa posição
+		sl->player.x = e->x - (TILE_SIZE / 2);
 	if (sl->player.view == LEFT)
 		sl->player.x = e->x + TILE_SIZE;
 	if (sl->player.view == FRONT)
-		sl->player.y = e->y - TILE_SIZE + PLAYER_Y_DIE; // floor não pode usar essa posição
+	{
+		sl->player.x = e->x + (TILE_SIZE / 2);
+		sl->player.y = e->y - TILE_SIZE + PLAYER_Y_DIE;
+	}
 	if (sl->player.view == BACK)
-		sl->player.y = e->y + TILE_SIZE;
+	{
+		sl->player.y = e->y + (TILE_SIZE / 2);
+		sl->player.x = e->x + (TILE_SIZE / 2);
+	}
+		
 }
 
 int	player_dies(t_game *sl, t_enemy *e)
