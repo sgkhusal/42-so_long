@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 22:02:57 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 02:24:32 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 16:36:18 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	print_move(t_game *sl) ////// mudar aqui
 {
-	sl->moves++;
-	ft_printf("Moves: %i\n", sl->moves);
+	char	*print;
+	
+	print = ft_strjoin("Moves: ", ft_itoa(sl->moves));
+	mlx_string_put(sl->mlx.mlx, sl->mlx.win, MOVE_X, MOVE_Y, 0x3B1D2D, print);
+	free(print);
 }
 
 void	sl_move_exit(t_game *sl)

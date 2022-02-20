@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils_2.c                                  :+:      :+:    :+:   */
+/*   so_long_utils_2_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:32:08 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:06:32 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 16:45:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,28 @@ void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y)
 		}
 		sprite_x = 0;
 		sprite_y++;
+	}
+}
+
+void	put_background_colors(t_img *img, int color, int thick, int frame)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < img->height)
+	{
+		x = 0;
+		while (x < img->width)
+		{
+			if (y < thick || y > img->height - 1 - thick)
+				put_pixel_color(img, x, y, frame);
+			else if (x < thick || x > img->width - 1 - thick)
+				put_pixel_color(img, x, y, frame);
+			else
+				put_pixel_color(img, x, y, color);
+			x++;
+		}
+		y++;
 	}
 }

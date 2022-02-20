@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   8_hooks_bonus.c                                    :+:      :+:    :+:   */
+/*   11_hooks_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:09:22 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 19:11:51 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 16:22:59 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ static int	render_game_again(t_game *sl)
 			update_player(sl);
 	}
 	if (sl->mlx.win != NULL)
+	{
 		mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
+		print_move(sl);
+	}
 	else
 		sl_error("Not possible to render game. Mlx window is set as NULL.", sl);
 	return (0);

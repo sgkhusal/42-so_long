@@ -6,11 +6,17 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 03:13:38 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 16:26:17 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long_bonus.h"
+
+static void	move_update(t_game *sl)
+{
+	sl->moves++;
+	print_move(sl);
+}
 
 void	sl_move_right(t_game *sl)
 {
@@ -35,7 +41,7 @@ void	sl_move_right(t_game *sl)
 			sl->player.x += 32;
 			check_collectible(sl, i, j);
 			sl_put_player(sl);
-			print_move(sl);
+			move_update(sl);
 		}
 	}
 }
@@ -63,7 +69,7 @@ void	sl_move_left(t_game *sl)
 			sl->player.x -= 32;
 			check_collectible(sl, i, j);
 			sl_put_player(sl);
-			print_move(sl);
+			move_update(sl);
 		}
 	}
 }
@@ -91,7 +97,7 @@ void	sl_move_up(t_game *sl)
 			sl->player.y -= 32;
 			check_collectible(sl, i, j);
 			sl_put_player(sl);
-			print_move(sl);
+			move_update(sl);
 		}
 	}
 }
@@ -119,7 +125,7 @@ void	sl_move_down(t_game *sl)
 			sl->player.y += 32;
 			check_collectible(sl, i, j);
 			sl_put_player(sl);
-			print_move(sl);
+			move_update(sl);
 		}
 	}
 }

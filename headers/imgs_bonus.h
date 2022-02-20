@@ -13,10 +13,13 @@
 #ifndef IMGS_BONUS_H
 # define IMGS_BONUS_H
 
+// sprites types
 # define TILE 1
 # define ITEM 2
 # define PLAYER_IMG 3
 # define ENEMY_IMG 4
+
+// sprites sizes
 # define TILE_SIZE 32
 # define ITEM_SIZE 16
 # define PLAYER_SIZE_X 16
@@ -24,8 +27,18 @@
 # define ENEMY_SIZE_X 32
 # define ENEMY_SIZE_Y 32
 # define IMG_OFFSET 8
+
+// animation
 # define PLAYER_FRAMES 4
 # define ENEMY_FRAMES 8
+
+// move image
+# define IMG_MOVE_WIDTH 72
+# define IMG_MOVE_HEIGHT 22
+# define IMG_MOVE_X 44
+# define IMG_MOVE_Y 4
+# define MOVE_X 50
+# define MOVE_Y 19
 
 typedef struct s_img
 {

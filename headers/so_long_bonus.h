@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 03:24:08 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 16:39:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,13 @@ typedef struct s_game
 	int			collected_items;
 	t_mlx		mlx;
 	t_map		map;
-	t_item		**items;
-	t_player	player;
-	t_enemy		**enemies;
 	t_img		img;
+	t_img		img_moves;
 	t_tiles		tiles;
 	t_sprites	sprites;
+	t_player	player;
+	t_item		**items;
+	t_enemy		**enemies;
 }				t_game;
 
 // ------------------------- GAME FUNCTIONS ----------------------------- |
@@ -143,6 +144,7 @@ void	set_player_to_die(t_game *sl, t_enemy *e);
 void	render_die(t_game *sl, t_enemy *e);
 
 void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y);
+void	put_background_colors(t_img *img, int color, int thick, int frame);
 int		sl_error(char *msg, t_game *sl);
 void	clean_game(t_game *sl);
 void	clean_imgs(t_game *sl);
