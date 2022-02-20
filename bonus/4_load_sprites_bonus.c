@@ -14,22 +14,22 @@
 
 static void	sl_load_sprites_enemy_at(t_game *sl, t_frames_enemy *ef, int e)
 {	
-	load_sprite(sl, &ef->attack_right.img0, "assets/images/attack_right01.xpm", e);
-	load_sprite(sl, &ef->attack_right.img1, "assets/images/attack_right02.xpm", e);
-	load_sprite(sl, &ef->attack_right.img2, "assets/images/attack_right03.xpm", e);
-	load_sprite(sl, &ef->attack_right.img3, "assets/images/attack_right04.xpm", e);
-  	load_sprite(sl, &ef->attack_right.img4, "assets/images/attack_right05.xpm", e);
-	load_sprite(sl, &ef->attack_right.img5, "assets/images/attack_right06.xpm", e);
-	load_sprite(sl, &ef->attack_right.img6, "assets/images/attack_right07.xpm", e);
-	load_sprite(sl, &ef->attack_right.img7, "assets/images/attack_right08.xpm", e);
-	/* load_sprite(sl, &ef->attack_left.img0, "assets/images/attack_left01.xpm", e);
-	load_sprite(sl, &ef->attack_left.img1, "assets/images/attack_left02.xpm", e);
-	load_sprite(sl, &ef->attack_left.img2, "assets/images/attack_left03.xpm", e);
-	load_sprite(sl, &ef->attack_left.img3, "assets/images/attack_left04.xpm", e);
-	load_sprite(sl, &ef->attack_left.img4, "assets/images/attack_left05.xpm", e);
-	load_sprite(sl, &ef->attack_left.img5, "assets/images/attack_left06.xpm", e);
-	load_sprite(sl, &ef->attack_left.img6, "assets/images/attack_left07.xpm", e);
-	load_sprite(sl, &ef->attack_left.img7, "assets/images/attack_left08.xpm", e); */
+	load_sprite(sl, &ef->attack_r.img0, "assets/images/attack_right01.xpm", e);
+	load_sprite(sl, &ef->attack_r.img1, "assets/images/attack_right02.xpm", e);
+	load_sprite(sl, &ef->attack_r.img2, "assets/images/attack_right03.xpm", e);
+	load_sprite(sl, &ef->attack_r.img3, "assets/images/attack_right04.xpm", e);
+  	load_sprite(sl, &ef->attack_r.img4, "assets/images/attack_right05.xpm", e);
+	load_sprite(sl, &ef->attack_r.img5, "assets/images/attack_right06.xpm", e);
+	load_sprite(sl, &ef->attack_r.img6, "assets/images/attack_right07.xpm", e);
+	load_sprite(sl, &ef->attack_r.img7, "assets/images/attack_right08.xpm", e);
+	/* load_sprite(sl, &ef->attack_l.img0, "assets/images/attack_left01.xpm", e);
+	load_sprite(sl, &ef->attack_l.img1, "assets/images/attack_left02.xpm", e);
+	load_sprite(sl, &ef->attack_l.img2, "assets/images/attack_left03.xpm", e);
+	load_sprite(sl, &ef->attack_l.img3, "assets/images/attack_left04.xpm", e);
+	load_sprite(sl, &ef->attack_l.img4, "assets/images/attack_left05.xpm", e);
+	load_sprite(sl, &ef->attack_l.img5, "assets/images/attack_left06.xpm", e);
+	load_sprite(sl, &ef->attack_l.img6, "assets/images/attack_left07.xpm", e);
+	load_sprite(sl, &ef->attack_l.img7, "assets/images/attack_left08.xpm", e); */
 }
 
 static void	sl_load_sprites_enemy_walk(t_game *sl, t_frames_enemy *ef, int e)
@@ -54,22 +54,19 @@ static void	sl_load_sprites_enemy_walk(t_game *sl, t_frames_enemy *ef, int e)
 
 static void	sl_load_sprites_player(t_game *sl, t_frames_player *pf, int p)
 {	
-	load_sprite(sl, &pf->idle_front.img0, "assets/images/player_front0.xpm", p);
-	load_sprite(sl, &pf->idle_front.img1, "assets/images/player_front1.xpm", p);
-	load_sprite(sl, &pf->idle_front.img2, "assets/images/player_front2.xpm", p);
-	load_sprite(sl, &pf->idle_front.img3, "assets/images/player_front1.xpm", p);
-  	load_sprite(sl, &pf->idle_back.img0, "assets/images/player_back0.xpm", p);
-	load_sprite(sl, &pf->idle_back.img1, "assets/images/player_back1.xpm", p);
-	load_sprite(sl, &pf->idle_back.img2, "assets/images/player_back2.xpm", p);
-	load_sprite(sl, &pf->idle_back.img3, "assets/images/player_back1.xpm", p);
-	load_sprite(sl, &pf->idle_right.img0, "assets/images/player_right0.xpm", p);
-	load_sprite(sl, &pf->idle_right.img1, "assets/images/player_right1.xpm", p);
-	load_sprite(sl, &pf->idle_right.img2, "assets/images/player_right2.xpm", p);
-	load_sprite(sl, &pf->idle_right.img3, "assets/images/player_right1.xpm", p);
-	load_sprite(sl, &pf->idle_left.img0, "assets/images/player_left0.xpm", p);
-	load_sprite(sl, &pf->idle_left.img1, "assets/images/player_left1.xpm", p);
-	load_sprite(sl, &pf->idle_left.img2, "assets/images/player_left2.xpm", p);
-	load_sprite(sl, &pf->idle_left.img3, "assets/images/player_left1.xpm", p);
+	load_sprite(sl, &pf->front.img0, "assets/images/player_front0.xpm", p);
+	load_sprite(sl, &pf->front.img1, "assets/images/player_front1.xpm", p);
+	load_sprite(sl, &pf->front.img2, "assets/images/player_front2.xpm", p);
+  	load_sprite(sl, &pf->back.img0, "assets/images/player_back0.xpm", p);
+	load_sprite(sl, &pf->back.img1, "assets/images/player_back1.xpm", p);
+	load_sprite(sl, &pf->back.img2, "assets/images/player_back2.xpm", p);
+	load_sprite(sl, &pf->right.img0, "assets/images/player_right0.xpm", p);
+	load_sprite(sl, &pf->right.img1, "assets/images/player_right1.xpm", p);
+	load_sprite(sl, &pf->right.img2, "assets/images/player_right2.xpm", p);
+	load_sprite(sl, &pf->left.img0, "assets/images/player_left0.xpm", p);
+	load_sprite(sl, &pf->left.img1, "assets/images/player_left1.xpm", p);
+	load_sprite(sl, &pf->left.img2, "assets/images/player_left2.xpm", p);
+	load_sprite(sl, &pf->left.img3, "assets/images/player_left1.xpm", p);
 }
 
 void	sl_load_sprites(t_game *sl)

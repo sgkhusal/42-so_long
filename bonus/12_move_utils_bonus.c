@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9_move_utils_bonus.c                               :+:      :+:    :+:   */
+/*   12_move_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 22:02:57 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 19:09:59 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 02:24:32 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	put_floor_again(t_game *sl, int x, int y, int id_floor)
 void	put_floor_player(t_game *sl)
 {
 	put_floor_again(sl, sl->player.x - IMG_OFFSET,
-		sl->player.y - PLAYER_Y_OFFSET, sl->player.id_floor % 2);
+		sl->player.y - IMG_OFFSET, sl->player.id_floor % 2);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_render_map_bonus.c                               :+:      :+:    :+:   */
+/*   7_render_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:51:34 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 19:37:36 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 02:23:30 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	put_floor(t_game *sl, int i, int j, int id_floor)
 	else
 		put_sprite_in_game_img(sl, &sl->tiles.floor1, j * TILE_SIZE,
 			i * TILE_SIZE);
-	if (sl->player_set == NOT_SET && sl->map.map[i][j] == PLAYER)
+	if (sl->map.map[i][j] == PLAYER)
 		sl_init_player(sl, j * TILE_SIZE + IMG_OFFSET,
-			i * TILE_SIZE + PLAYER_Y_OFFSET, id_floor % 2);
+			i * TILE_SIZE + IMG_OFFSET, id_floor % 2);
 }
 
 static void	put_corner(t_game *sl, int i, int j)

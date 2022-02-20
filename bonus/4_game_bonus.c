@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 03:27:10 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 00:40:41 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	sl_game_init(t_game *sl)
 {
 	sl->moves = 0;
 	sl->collected_items = 0;
-	sl->player_set = NOT_SET;
 	sl_mlx_init(sl);
 	sl->img.img = mlx_new_image(sl->mlx.mlx, sl->mlx.width, sl->mlx.height);
 	if (!sl->img.img)
@@ -66,7 +65,6 @@ void	sl_game_init(t_game *sl)
 			&sl->img.line_size, &sl->img.endian);
 	sl_load_sprites(sl);
 	sl_set_collectibles(sl);
-	ft_printf("enemies = %i\n", sl->map.total_p - 1);
 	if (sl->map.total_p > 1)
 	{
 		sl_enemy_malloc(sl);

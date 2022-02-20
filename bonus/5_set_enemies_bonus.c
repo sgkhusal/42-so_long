@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   10_set_enemies_bonus.c                             :+:      :+:    :+:   */
+/*   5_set_enemies_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:52:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 19:50:07 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 03:02:34 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,44 +65,6 @@ void	sl_enemy_malloc(t_game *sl)
 		ne++;
 	}
 	sl->enemies[ne] = NULL;
-}
-
-void	sl_change_map(t_game *sl, t_enemy *e, int i, int j)
-{
-	sl->map.map[i][j] = ENEMY;
-	if (sl->map.map[i][j + 1] == EMPTY)
-	{
-		sl->map.map[i][j + 1] = ENEMY;
-		e->walk_final += TILE_SIZE;
-		e->walk_size++;
-		if (sl->map.map[i][j + 2] == EMPTY)
-		{
-			sl->map.map[i][j + 2] = ENEMY;
-			e->walk_final += TILE_SIZE;
-			e->walk_size++;
-		}
-		else if (sl->map.map[i][j - 1] == EMPTY)
-		{
-			sl->map.map[i][j - 1] = ENEMY;
-			e->walk_init -= TILE_SIZE;
-			e->walk_size++;
-			e->id_floor = (e->id_floor + 1) % 2;
-		}
-	}
-	else if (sl->map.map[i][j - 1] == EMPTY)
-	{
-		sl->map.map[i][j - 1] = ENEMY;
-		e->walk_init -= TILE_SIZE;
-		e->walk_size++;
-		e->id_floor = (e->id_floor + 1) % 2;
-		if (sl->map.map[i][j - 2] == EMPTY)
-		{
-			sl->map.map[i][j - 2] = ENEMY;
-			e->walk_init -= TILE_SIZE;
-			e->walk_size++;
-			e->id_floor = (e->id_floor + 1) % 2;
-		}
-	}
 }
 
 void	sl_set_enemies(t_game *sl)

@@ -39,10 +39,20 @@ void	put_enemy_frame(t_game *sl, t_enemy *e, t_frames *frames)
 
 void	sl_put_enemy(t_game *sl, t_enemy *e)
 {
-	if (e->view == LEFT)
-		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_left);
-	else if (e->view == RIGHT)
-		put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right);
+	if (e->status == ATTACK)
+	{
+		if (e->view == LEFT)
+			put_enemy_frame(sl, e, &sl->sprites.enemy.attack_r); //////
+		else if (e->view == RIGHT)
+			put_enemy_frame(sl, e, &sl->sprites.enemy.attack_r);
+	}
+	else
+	{
+		if (e->view == LEFT)
+			put_enemy_frame(sl, e, &sl->sprites.enemy.walk_left);
+		else if (e->view == RIGHT)
+			put_enemy_frame(sl, e, &sl->sprites.enemy.walk_right);
+	}
 }
 
 void	sl_put_enemies(t_game *sl)

@@ -23,24 +23,14 @@ int	close_game(t_game *sl)
 static int	render_game_again(t_game *sl)
 {
 	static int	count;
-	int			ne;
 
 	count++;
 	if (count % 1000 == 0)
 	{
-		ne = 0;
-		sl->player.frame++;
-		if (sl->player.frame == PLAYER_FRAMES)
-			sl->player.frame = 0;
-		while (ne < sl->map.total_p - 1)
-		{
-			sl->enemies[ne]->frame++;
-			if (sl->enemies[ne]->frame == ENEMY_FRAMES && sl->enemies[ne]->status != ATTACK)
-				sl->enemies[ne]->frame = 0;
-			update_enemy_sprite(sl, sl->enemies[ne]);
-			ne++;
-		}
-		update_player_sprite(sl);
+		sl->player_set = PLAYER_NOT_RENDER;
+		update_enemies(sl);
+		if (sl->player_set == PLAYER_NOT_RENDER)
+			update_player(sl);
 	}
 	if (sl->mlx.win != NULL)
 		mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img, 0, 0);
@@ -54,13 +44,25 @@ static int	sl_key_press(int key, t_game *sl)
 	if (key == XK_Escape)
 		close_game(sl);
 	else if (key == XK_d || key == XK_Right)
-		sl_move_right(sl);
+	{
+		if (sl->player.status != DIE)
+			sl_move_right(sl);
+	}
 	else if (key == XK_a || key == XK_Left)
-		sl_move_left(sl);
+	{
+		if (sl->player.status != DIE)
+			sl_move_left(sl);
+	}
 	else if (key == XK_w || key == XK_Up)
-		sl_move_up(sl);
+	{
+		if (sl->player.status != DIE)
+			sl_move_up(sl);
+	}
 	else if (key == XK_s || key == XK_Down)
-		sl_move_down(sl);
+	{
+		if (sl->player.status != DIE)
+			sl_move_down(sl);
+	}
 	return (0);
 }
 
