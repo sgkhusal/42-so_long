@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:49:59 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 03:28:16 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:25:28 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	sl_init_player(t_game *sl, int x, int y, int id_floor)
 {
+	sl->player.status = IDLE;
 	sl->player.view = FRONT;
 	sl->player.id_floor = id_floor;
 	sl->player.x = x;
