@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:51:39 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 18:31:04 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 19:44:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # define COLLECTIBLE 'C'
 # define EXIT 'E'
 # define PLAYER 'P'
-# define ENEMY 'I'
+# define ENEMY0 'I'
+# define ENEMY1 'i'
 # define OPEN_ERROR -1
 # define GNL_ERROR -1
 # define GNL_EOF 0

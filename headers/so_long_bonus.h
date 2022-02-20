@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 16:39:11 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 19:55:54 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,7 @@ void	sl_load_sprites(t_game *sl);
 void	load_sprite(t_game *sl, t_img *sprite, char *path, int type_size);
 void	sl_set_collectibles(t_game *sl);
 void	sl_set_enemies(t_game *sl);
-void	sl_enemy_malloc(t_game *sl);
-void	sl_change_map(t_game *sl, t_enemy *e, int i, int j);
+void	sl_set_enemy_walk(t_game *sl, t_enemy *e, int i, int j);
 void	sl_init_player(t_game *sl, int x, int y, int id_floor);
 
 void	sl_render_game(t_game *sl);
@@ -129,6 +128,7 @@ void	check_collectible(t_game *sl, int i, int j);
 
 void	put_floor_player(t_game *sl);
 void	put_floor_again(t_game *sl, int x, int y, int id_floor);
+void	put_floor_enemies_walk(t_game *sl);
 
 void	update_player(t_game *sl);
 void	sl_put_player(t_game *sl);

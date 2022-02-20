@@ -28,6 +28,7 @@ static int	render_game_again(t_game *sl)
 	if (count % 1000 == 0)
 	{
 		sl->player_set = PLAYER_NOT_RENDER;
+		put_floor_enemies_walk(sl);
 		update_enemies(sl);
 		if (sl->player_set == PLAYER_NOT_RENDER)
 			update_player(sl);

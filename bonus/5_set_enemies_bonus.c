@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:52:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 19:39:15 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 19:50:05 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sl_set_enemies(t_game *sl)
 			if (sl->map.map[i][j] == PLAYER)
 			{
 				sl_init_enemy(sl->enemies[ne], j, i, id_floor % 2);
-				sl_change_map(sl, sl->enemies[ne], i, j);
+				sl_set_enemy_walk(sl, sl->enemies[ne], i, j);
 				ne++;
 			}
 			id_floor++;

@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/20 14:56:16 by coder            ###   ########.fr        #
+#    Updated: 2022/02/20 19:56:59 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ OBJ =				$(SRC:$(SRC_PATH)/%.c=$(OBJ_PATH)/%.o)
 
 SRC_BONUS_FILES =	1_so_long.c 2_map.c 3_check_map.c 4_game_bonus.c \
 						4_load_sprites_bonus.c 5_set_enemies_bonus.c\
-						6_change_map_bonus.c 7_render_map_bonus.c \
+						6_set_enemies_walk_bonus.c 7_render_map_bonus.c \
 						8_render_collectibles_bonus.c 9_render_player_bonus.c\
 						10_render_enemies_bonus.c \
 						11_hooks_bonus.c 12_move_bonus.c 12_move_utils_bonus.c\
