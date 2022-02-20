@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/20 03:03:10 by coder            ###   ########.fr        #
+#    Updated: 2022/02/20 14:56:16 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRC_BONUS_FILES =	1_so_long.c 2_map.c 3_check_map.c 4_game_bonus.c \
 						13_enemy_update_bonus.c 14_enemy_move_bonus.c \
 						15_enemy_attack_bonus.c 16_player_dies_bonus.c \
 						so_long_utils_1_bonus.c so_long_utils_2_bonus.c \
-						clean.c clean_utils_bonus.c
+						clean_bonus.c clean_utils_bonus.c
 
 SRC_BONUS =			$(addprefix $(SRC_BONUS_PATH)/, $(SRC_BONUS_FILES))
 OBJ_BONUS =			$(SRC_BONUS:$(SRC_BONUS_PATH)/%.c=$(OBJ_BONUS_PATH)/%.o)

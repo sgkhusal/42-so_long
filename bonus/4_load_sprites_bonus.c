@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 03:08:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 16:08:21 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:14:25 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static void	sl_load_sprites_enemy_at(t_game *sl, t_frames_enemy *ef, int e)
 	load_sprite(sl, &ef->attack_r.img5, "assets/images/attack_right06.xpm", e);
 	load_sprite(sl, &ef->attack_r.img6, "assets/images/attack_right07.xpm", e);
 	load_sprite(sl, &ef->attack_r.img7, "assets/images/attack_right08.xpm", e);
-	/* load_sprite(sl, &ef->attack_l.img0, "assets/images/attack_left01.xpm", e);
+	load_sprite(sl, &ef->attack_l.img0, "assets/images/attack_left01.xpm", e);
 	load_sprite(sl, &ef->attack_l.img1, "assets/images/attack_left02.xpm", e);
 	load_sprite(sl, &ef->attack_l.img2, "assets/images/attack_left03.xpm", e);
 	load_sprite(sl, &ef->attack_l.img3, "assets/images/attack_left04.xpm", e);
 	load_sprite(sl, &ef->attack_l.img4, "assets/images/attack_left05.xpm", e);
 	load_sprite(sl, &ef->attack_l.img5, "assets/images/attack_left06.xpm", e);
 	load_sprite(sl, &ef->attack_l.img6, "assets/images/attack_left07.xpm", e);
-	load_sprite(sl, &ef->attack_l.img7, "assets/images/attack_left08.xpm", e); */
+	load_sprite(sl, &ef->attack_l.img7, "assets/images/attack_left08.xpm", e);
 }
 
 static void	sl_load_sprites_enemy_walk(t_game *sl, t_frames_enemy *ef, int e)
@@ -66,7 +66,6 @@ static void	sl_load_sprites_player(t_game *sl, t_frames_player *pf, int p)
 	load_sprite(sl, &pf->left.img0, "assets/images/player_left0.xpm", p);
 	load_sprite(sl, &pf->left.img1, "assets/images/player_left1.xpm", p);
 	load_sprite(sl, &pf->left.img2, "assets/images/player_left2.xpm", p);
-	load_sprite(sl, &pf->left.img3, "assets/images/player_left1.xpm", p);
 }
 
 void	sl_load_sprites(t_game *sl)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   clean_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:30:03 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:06:25 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:06:49 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ static void	clean_map(t_game *sl)
 	}
 }
 
-static void	clean_items(t_game *sl)
+static void	clean_malloc(void **ptr)
 {
 	int	i;
 
 	i = 0;
-	while (sl->items[i])
+	while (ptr[i])
 	{
-		free(sl->items[i]);
-		sl->items[i] = NULL;
+		free(ptr[i]);
+		ptr[i] = NULL;
 		i++;
 	}
-	free(sl->items);
-	sl->items = NULL;
+	free(ptr);
+	ptr = NULL;
 }
 
 void	clean_mlx(t_game *sl)
@@ -60,7 +60,8 @@ void	clean_mlx(t_game *sl)
 void	clean_game(t_game *sl)
 {
 	clean_map(sl);
-	clean_items(sl);
+	clean_malloc((void **)sl->items);
+	clean_malloc((void **)sl->enemies);
 	clean_imgs(sl);
 	clean_mlx(sl);
 }

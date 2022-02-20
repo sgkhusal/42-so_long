@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:05:27 by coder             #+#    #+#             */
-/*   Updated: 2022/02/18 15:06:20 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:07:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,62 +28,35 @@ static void	clean_imgs_items(t_game *sl)
 		mlx_destroy_image(sl->mlx.mlx, sl->sprites.items.item5.img);
 }
 
-/* static void	clean_frames(t_game *sl, t_image **frames)
+static void	clean_player_frames(t_game *sl, t_frames *frames)
 {
-	int	i;
-	
-	if (frames)
-	{
-		i = 0;
-		while (frames[i])
-		{
-			if (frames[i]->img != NULL)
-				mlx_destroy_image(sl->mlx.mlx, frames[i]->img);
-			frames[i] = NULL;
-			i++;
-		}
-		free(frames);
-		frames = NULL;
-	}
+	if (frames->img0.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img0.img);
+	if (frames->img1.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img1.img);
+	if (frames->img2.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img2.img);
 }
- */
-/* static void	clean_imgs_player(t_game *sl)
+
+static void	clean_frames(t_game *sl, t_frames *frames)
 {
-	//clean_frames(sl,sl->player.sprites.idle_front[0]);
-	clean_frames(sl,sl->player.sprites.idle_back);
-	clean_frames(sl,sl->player.sprites.idle_right);
-	clean_frames(sl,sl->player.sprites.idle_left);
-	clean_frames(sl,sl->player.sprites.run_front);
-	clean_frames(sl,sl->player.sprites.run_back);
-	clean_frames(sl,sl->player.sprites.run_right);
-	clean_frames(sl,sl->player.sprites.run_left); */
-
-	/* while (frames[i])
-	{
-		if (sl->player.sprites.idle_front[i].img != NULL)
-			mlx_destroy_image(sl->player.sprites.idle_front[i].img);
-		i++;
-	}
-	i = -1;
-	while (sl->player.sprites.idle_back[++i])
-	{
-		if (sl->player.sprites.idle_back[i].img != NULL)
-			mlx_destroy_image(sl->player.sprites.idle_back[i].img);
-	}
-	i = -1;
-	while (sl->player.sprites.idle_right[++i])
-	{
-		if (sl->player.sprites.idle_right[i].img != NULL)
-			mlx_destroy_image(sl->player.sprites.idle_right[i].img);
-	}
-	i = -1;
-	while (sl->player.sprites.idle_left[++i])
-	{
-		if (sl->player.sprites.idle_left[i].img != NULL)
-			mlx_destroy_image(sl->player.sprites.idle_left[i].img);
-	} */
-
-//}
+	if (frames->img0.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img0.img);
+	if (frames->img1.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img1.img);
+	if (frames->img2.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img2.img);
+	if (frames->img3.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img3.img);
+	if (frames->img4.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img4.img);
+	if (frames->img5.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img5.img);
+	if (frames->img6.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img6.img);
+	if (frames->img7.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, frames->img7.img);
+}
 
 void	clean_imgs(t_game *sl)
 {
@@ -98,7 +71,14 @@ void	clean_imgs(t_game *sl)
 	if (sl->tiles.exit.img != NULL)
 		mlx_destroy_image(sl->mlx.mlx, sl->tiles.exit.img);
 	clean_imgs_items(sl);
-	//clean_imgs_player(sl);
+	clean_player_frames(sl, &sl->sprites.player.back);
+	clean_player_frames(sl, &sl->sprites.player.front);
+	clean_player_frames(sl, &sl->sprites.player.right);
+	clean_player_frames(sl, &sl->sprites.player.left);
+	clean_frames(sl, &sl->sprites.enemy.walk_left);
+	clean_frames(sl, &sl->sprites.enemy.walk_right);
+	clean_frames(sl, &sl->sprites.enemy.attack_l);
+	clean_frames(sl, &sl->sprites.enemy.attack_r);
 	if (sl->img.img != NULL)
 		mlx_destroy_image(sl->mlx.mlx, sl->img.img);
 }

@@ -42,7 +42,7 @@ void	sl_put_enemy(t_game *sl, t_enemy *e)
 	if (e->status == ATTACK)
 	{
 		if (e->view == LEFT)
-			put_enemy_frame(sl, e, &sl->sprites.enemy.attack_r); //////
+			put_enemy_frame(sl, e, &sl->sprites.enemy.attack_l);
 		else if (e->view == RIGHT)
 			put_enemy_frame(sl, e, &sl->sprites.enemy.attack_r);
 	}
