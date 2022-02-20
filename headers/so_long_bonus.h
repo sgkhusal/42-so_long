@@ -126,8 +126,9 @@ void	sl_move_exit(t_game *sl);
 void	print_move(t_game *sl);
 void	check_collectible(t_game *sl, int i, int j);
 
-void	put_floor_player(t_game *sl);
 void	put_floor_again(t_game *sl, int x, int y, int id_floor);
+void	put_floor_player(t_game *sl);
+void	put_floor_player_die(t_game *sl);
 void	put_floor_enemies_walk(t_game *sl);
 
 void	update_player(t_game *sl);

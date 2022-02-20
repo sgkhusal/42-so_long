@@ -20,7 +20,7 @@ static void	sl_change_map(t_game *sl, int id_floor, int i, int j)
 		sl->map.map[i][j] = ENEMY1;
 }
 
-static void	sl_change_map_part2(t_game *sl, t_enemy *e, int i, int j)
+static void	sl_set_enemy_walk_part2(t_game *sl, t_enemy *e, int i, int j)
 {
 	sl_change_map(sl, e->id_floor + 1, i, j - 1);
 	e->walk_init -= TILE_SIZE;
@@ -58,5 +58,5 @@ void	sl_set_enemy_walk(t_game *sl, t_enemy *e, int i, int j)
 		}
 	}
 	else if (sl->map.map[i][j - 1] == EMPTY)
-		sl_change_map_part2(sl, e, i, j);
+		sl_set_enemy_walk_part2(sl, e, i, j);
 }

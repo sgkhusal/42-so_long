@@ -58,20 +58,7 @@ void	update_player(t_game *sl)
 	if (sl->player.frame == PLAYER_FRAMES)
 		sl->player.frame = 0;
 	if (sl->player.status == DIE)
-	{
-		if (sl->player.view == RIGHT)
-			put_floor_again(sl, sl->player.x + (TILE_SIZE / 2), sl->player.y,
-				(sl->player.id_floor + 1) % 2);
-		else if (sl->player.view == LEFT)
-			put_floor_again(sl, sl->player.x, sl->player.y,
-				(sl->player.id_floor + 1) % 2);
-		else if (sl->player.view == FRONT)
-			put_floor_again(sl, sl->player.x - (TILE_SIZE / 2),
-				sl->player.y - PLAYER_Y_DIE, (sl->player.id_floor + 1) % 2);
-		else if (sl->player.view == BACK)
-			put_floor_again(sl, sl->player.x - (TILE_SIZE / 2),
-				sl->player.y + (TILE_SIZE / 2), (sl->player.id_floor + 1) % 2);
-	}
+		put_floor_player_die(sl);
 	else
 		put_floor_player(sl);
 	sl_put_player(sl);
