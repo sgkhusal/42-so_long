@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 00:37:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 16:42:49 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 19:39:25 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,6 @@ void	sl_game_init(t_game *sl)
 	sl_load_sprites(sl);
 	sl_set_collectibles(sl);
 	if (sl->map.total_p > 1)
-	{
-		sl_enemy_malloc(sl);
 		sl_set_enemies(sl);
-	}
 	sl_render_game(sl);
 }

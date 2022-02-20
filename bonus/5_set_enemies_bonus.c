@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:52:55 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 03:02:34 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/20 19:39:15 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long_bonus.h"
 
-void	sl_init_enemy(t_enemy *e, int x, int y, int id_floor)
+static void	sl_init_enemy(t_enemy *e, int x, int y, int id_floor)
 {
 	e->status = WALK;
 	e->view = RIGHT;
@@ -26,30 +26,7 @@ void	sl_init_enemy(t_enemy *e, int x, int y, int id_floor)
 	e->walk_size = 1;
 }
 
-int	sl_jump_player(t_game *sl, int *i, int *j, int *id_floor)
-{
-	*i = 0;
-	while (*i < sl->map.total_lines)
-	{
-		*j = 0;
-		while (*j < (int)sl->map.line_size)
-		{
-			if (sl->map.map[*i][*j] == PLAYER)
-			{
-				id_floor++;
-				return (1);
-			}
-			(*j)++;
-			id_floor++;
-		}
-		(*i)++;
-		if ((int)sl->map.line_size % 2 == 0)
-			id_floor++;
-	}
-	return (0);
-}
-
-void	sl_enemy_malloc(t_game *sl)
+static void	sl_enemy_malloc(t_game *sl)
 {
 	int	ne;
 
@@ -74,11 +51,13 @@ void	sl_set_enemies(t_game *sl)
 	int	id_floor;
 	int	ne;
 
+	sl_enemy_malloc(sl);
 	ne = 0;
 	id_floor = 0;
-	sl_jump_player(sl, &i, &j, &id_floor);
-	while (i < sl->map.total_lines && ne < sl->map.total_p - 1)
+	i = -1;
+	while (++i < sl->map.total_lines && ne < sl->map.total_p - 1)
 	{
+		j = -1;
 		while (++j < (int)sl->map.line_size)
 		{
 			if (sl->map.map[i][j] == PLAYER)
@@ -89,8 +68,6 @@ void	sl_set_enemies(t_game *sl)
 			}
 			id_floor++;
 		}
-		j = 0;
-		i++;
 		if ((int)sl->map.line_size % 2 == 0)
 			id_floor++;
 	}
