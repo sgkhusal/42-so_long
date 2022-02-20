@@ -40,7 +40,8 @@ void	sl_move_right(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.x += 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl);
+			if (sl->map.map[i][j] != ENEMY0 || sl->map.map[i][j] != ENEMY1)
+				sl_put_player(sl);
 			move_update(sl);
 		}
 	}
@@ -68,7 +69,8 @@ void	sl_move_left(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.x -= 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl);
+			if (sl->map.map[i][j] != ENEMY0 || sl->map.map[i][j] != ENEMY1)
+				sl_put_player(sl);
 			move_update(sl);
 		}
 	}
@@ -96,7 +98,8 @@ void	sl_move_up(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.y -= 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl);
+			if (sl->map.map[i][j] != ENEMY0 || sl->map.map[i][j] != ENEMY1)
+				sl_put_player(sl);
 			move_update(sl);
 		}
 	}
@@ -124,7 +127,8 @@ void	sl_move_down(t_game *sl)
 			sl->player.id_floor++;
 			sl->player.y += 32;
 			check_collectible(sl, i, j);
-			sl_put_player(sl);
+			if (sl->map.map[i][j] != ENEMY0 || sl->map.map[i][j] != ENEMY1)
+				sl_put_player(sl);
 			move_update(sl);
 		}
 	}
