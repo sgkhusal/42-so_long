@@ -21,7 +21,7 @@ void	print_move(t_game *sl) ////// mudar aqui
 void	sl_move_exit(t_game *sl)
 {
 	print_move(sl);
-	ft_printf("YOU WON!!\n");
+	ft_printf("\nYOU WON!!!!!!! CONGRATULATIONS =)\n\n");
 	close_game(sl);
 }
 
