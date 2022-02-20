@@ -31,7 +31,6 @@ void	set_player_to_die(t_game *sl, t_enemy *e)
 		sl->player.y = e->y + (TILE_SIZE / 2);
 		sl->player.x = e->x + (TILE_SIZE / 2);
 	}
-		
 }
 
 int	player_dies(t_game *sl, t_enemy *e)

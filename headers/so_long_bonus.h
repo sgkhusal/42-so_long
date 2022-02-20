@@ -59,12 +59,6 @@ typedef struct s_player
 	int	id_floor;
 	int	x;
 	int	y;
-	/* int	walk_pos_x;
-	int	walk_pos_y;
-	int	walk_final_x;
-	int	walk_final_y;
-	int	walk_init_x;
-	int	walk_init_y; */
 }				t_player;
 
 typedef struct s_enemy
@@ -72,14 +66,14 @@ typedef struct s_enemy
 	int	status;
 	int	view;
 	int	frame;
-	int	id_floor; // setar como o da pos do walk_init
+	int	id_floor;
 	int	x;
 	int	y;
 	int	walk_pos;
 	int	walk_final;
 	int	walk_init;
-	int	walk_size; // 1 a 3
-	int	walk_floor; // 1 a 3
+	int	walk_size;
+	int	walk_floor;
 }				t_enemy;
 
 typedef struct s_game

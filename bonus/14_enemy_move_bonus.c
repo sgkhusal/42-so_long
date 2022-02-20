@@ -33,7 +33,7 @@ void	put_floor_enemies_walk(t_game *sl)
 	}
 }
 
-static void enemy_walk_right(t_enemy *e)
+static void	enemy_walk_right(t_enemy *e)
 {
 	e->walk_pos += WALK_DELTA;
 	if (e->walk_pos > e->walk_final)
@@ -45,7 +45,7 @@ static void enemy_walk_right(t_enemy *e)
 		e->x = e->walk_pos + TILE_SIZE / 2;
 }
 
-static void enemy_walk_left(t_enemy *e)
+static void	enemy_walk_left(t_enemy *e)
 {
 	e->walk_pos -= WALK_DELTA;
 	if (e->walk_pos < e->walk_init)

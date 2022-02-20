@@ -43,4 +43,3 @@ void	update_player_sprite(t_game *sl)
 	put_floor_player(sl);
 	sl_put_player(sl);
 }
-

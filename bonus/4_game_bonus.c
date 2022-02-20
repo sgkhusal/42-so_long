@@ -51,11 +51,12 @@ static void	sl_init_imgs(t_game *sl)
 	sl->img_moves.width = IMG_MOVE_WIDTH;
 	sl->img_moves.height = IMG_MOVE_HEIGHT;
 	sl->img_moves.img = mlx_new_image(sl->mlx.mlx, sl->img_moves.width,
-		sl->img_moves.height);
+			sl->img_moves.height);
 	if (!sl->img_moves.img)
 		sl_error("Mlx error creating sl->img_moves.img", sl);
 	sl->img_moves.addr = mlx_get_data_addr(sl->img_moves.img,
-		&sl->img_moves.bpp, &sl->img_moves.line_size, &sl->img_moves.endian);
+			&sl->img_moves.bpp, &sl->img_moves.line_size,
+			&sl->img_moves.endian);
 	put_background_colors(&sl->img_moves, 0xDEDDA2, 2, 0x3B1D2D);
 }
 
@@ -67,7 +68,7 @@ static void	sl_mlx_init(t_game *sl)
 	sl->mlx.width = sl->map.line_size * TILE_SIZE;
 	sl->mlx.height = sl->map.total_lines * TILE_SIZE;
 	sl->mlx.win = mlx_new_window(sl->mlx.mlx, sl->mlx.width, sl->mlx.height,
-			"So_long - Help the jawa get some cool stuffs to sell"); ////// mudar nome
+			"So_long - Help the jawa get some cool stuffs to sell");
 	if (sl->mlx.win == NULL)
 		sl_error("Mlx window error", sl);
 }

@@ -15,7 +15,7 @@
 void	print_move(t_game *sl)
 {
 	char	*print;
-	
+
 	print = ft_strjoin("Moves: ", ft_itoa(sl->moves));
 	mlx_string_put(sl->mlx.mlx, sl->mlx.win, MOVE_X, MOVE_Y, 0x3B1D2D, print);
 	free(print);

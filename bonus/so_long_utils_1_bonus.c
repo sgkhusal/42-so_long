@@ -23,22 +23,22 @@ static void	set_sprite_size(t_img *sprite, int type)
 {
 	if (type == TILE)
 	{
-		sprite->height = TILE_SIZE;// talvez não precise...
+		sprite->height = TILE_SIZE;
 		sprite->width = TILE_SIZE;
 	}
 	else if (type == ITEM)
 	{
-		sprite->height = ITEM_SIZE;//
+		sprite->height = ITEM_SIZE;
 		sprite->width = ITEM_SIZE;
 	}
 	else if (type == PLAYER_IMG)
 	{
-		sprite->height = PLAYER_SIZE_Y;//
+		sprite->height = PLAYER_SIZE_Y;
 		sprite->width = PLAYER_SIZE_X;
 	}
 	else if (type == ENEMY_IMG)
 	{
-		sprite->height = ENEMY_SIZE_Y;//
+		sprite->height = ENEMY_SIZE_Y;
 		sprite->width = ENEMY_SIZE_X;
 	}
 }
