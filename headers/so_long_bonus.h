@@ -73,7 +73,6 @@ typedef struct s_enemy
 	int	walk_final;
 	int	walk_init;
 	int	walk_size;
-	int	walk_floor;
 }				t_enemy;
 
 typedef struct s_game

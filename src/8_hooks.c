@@ -14,7 +14,8 @@
 
 int	close_game(t_game *sl)
 {
-	mlx_destroy_window(sl->mlx.mlx, sl->mlx.win);
+	if (sl->mlx.win != NULL)
+		mlx_destroy_window(sl->mlx.mlx, sl->mlx.win);
 	sl->mlx.win = NULL;
 	clean_game(sl);
 	exit(0);

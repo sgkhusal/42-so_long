@@ -79,6 +79,8 @@ void	clean_imgs(t_game *sl)
 	clean_frames(sl, &sl->sprites.enemy.walk_right);
 	clean_frames(sl, &sl->sprites.enemy.attack_l);
 	clean_frames(sl, &sl->sprites.enemy.attack_r);
+	if (sl->img_moves.img != NULL)
+		mlx_destroy_image(sl->mlx.mlx, sl->img_moves.img);
 	if (sl->img.img != NULL)
 		mlx_destroy_image(sl->mlx.mlx, sl->img.img);
 }

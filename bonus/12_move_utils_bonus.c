@@ -14,16 +14,19 @@
 
 void	print_move(t_game *sl)
 {
-	char	*print;
+	char	*text;
+	char	*moves;
 
-	print = ft_strjoin("Moves: ", ft_itoa(sl->moves));
-	mlx_string_put(sl->mlx.mlx, sl->mlx.win, MOVE_X, MOVE_Y, 0x3B1D2D, print);
-	free(print);
+	moves = ft_itoa(sl->moves);
+	text = ft_strjoin("Moves: ", moves);
+	mlx_string_put(sl->mlx.mlx, sl->mlx.win, MOVE_X, MOVE_Y, 0x3B1D2D, text);
+	free(text);
+	free(moves);
 }
 
 void	sl_move_exit(t_game *sl)
 {
-	print_move(sl);
+	//print_move(sl);
 	ft_printf("\nYOU WON!!!!!!! CONGRATULATIONS =)\n\n");
 	close_game(sl);
 }
