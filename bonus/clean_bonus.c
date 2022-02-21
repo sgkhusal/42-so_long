@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:30:03 by coder             #+#    #+#             */
-/*   Updated: 2022/02/20 15:06:49 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/21 14:01:30 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long_bonus.h"
 
-static void	clean_map(t_game *sl)
+void	clean_map(t_game *sl)
 {
 	int	i;
 
@@ -36,14 +36,19 @@ static void	clean_malloc(void **ptr)
 	int	i;
 
 	i = 0;
-	while (ptr[i])
+	if (ptr == NULL && !(*ptr))
+		return ;
+	else
 	{
-		free(ptr[i]);
-		ptr[i] = NULL;
-		i++;
+		while (ptr[i])
+		{
+			free(ptr[i]);
+			ptr[i] = NULL;
+			i++;
+		}
+		free(ptr);
+		ptr = NULL;
 	}
-	free(ptr);
-	ptr = NULL;
 }
 
 void	clean_mlx(t_game *sl)

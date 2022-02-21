@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:01:49 by coder             #+#    #+#             */
-/*   Updated: 2022/02/19 16:39:19 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/21 14:22:28 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void	put_floor_player(t_game *sl);
 void	put_floor_again(t_game *sl, int x, int y, int id_floor);
 
 int		sl_error(char *msg, t_game *sl);
+void	sl_map_error(char *msg, t_game *sl);
+void	clean_map(t_game *sl);
 void	clean_game(t_game *sl);
 void	clean_imgs(t_game *sl);
 int		close_game(t_game *sl);

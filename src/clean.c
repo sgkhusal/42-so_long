@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:30:03 by coder             #+#    #+#             */
-/*   Updated: 2022/02/17 19:25:16 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/21 14:02:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-static void	clean_map(t_game *sl)
+void	clean_map(t_game *sl)
 {
 	int	i;
 
@@ -31,19 +31,24 @@ static void	clean_map(t_game *sl)
 	}
 }
 
-static void	clean_items(t_game *sl)
+static void	clean_malloc(void **ptr)
 {
 	int	i;
 
 	i = 0;
-	while (sl->items[i])
+	if (ptr == NULL && !(*ptr))
+		return ;
+	else
 	{
-		free(sl->items[i]);
-		sl->items[i] = NULL;
-		i++;
+		while (ptr[i])
+		{
+			free(ptr[i]);
+			ptr[i] = NULL;
+			i++;
+		}
+		free(ptr);
+		ptr = NULL;
 	}
-	free(sl->items);
-	sl->items = NULL;
 }
 
 void	clean_mlx(t_game *sl)
@@ -60,7 +65,7 @@ void	clean_mlx(t_game *sl)
 void	clean_game(t_game *sl)
 {
 	clean_map(sl);
-	clean_items(sl);
+	clean_malloc((void **)sl->items);
 	clean_imgs(sl);
 	clean_mlx(sl);
 }

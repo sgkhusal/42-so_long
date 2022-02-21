@@ -12,10 +12,17 @@
 
 #include "../headers/so_long_bonus.h"
 
+void	sl_map_error(char *msg, t_game *sl)
+{
+	clean_map(sl);
+	ft_printf("Error\n%s\n", msg);
+	exit(EXIT_FAILURE);
+}
+
 static void	sl_check_gnl_error(int gnl, t_game *sl)
 {
 	if (gnl == GNL_ERROR)
-		sl_error("Map read error.", sl);
+		sl_map_error("Map read error.", sl);
 }
 
 static void	sl_read_map(char *path, t_game *sl)
@@ -37,7 +44,7 @@ static void	sl_read_map(char *path, t_game *sl)
 				sl->map.line_size = ft_strlen(aux) - 1;
 			gnl_strjoin(&(sl->map.linear_map), aux);
 			if (sl->map.linear_map == NULL)
-				sl_error("Memory allocation error", sl);
+				sl_map_error("Memory allocation error", sl);
 		}
 		ft_clean(&aux);
 	}
@@ -51,7 +58,7 @@ static void	sl_map_init(t_game *sl)
 	sl->map.line_size = 0;
 	sl->map.linear_map = ft_strdup("");
 	if (sl->map.linear_map == NULL)
-		sl_error("Memory allocation error", sl);
+		sl_map_error("Memory allocation error", sl);
 	sl->map.map = NULL;
 	sl->map.total_c = 0;
 	sl->map.total_e = 0;
@@ -64,6 +71,6 @@ void	sl_map(char *path, t_game *sl)
 	sl_read_map(path, sl);
 	sl->map.map = ft_split(sl->map.linear_map, '\n');
 	if (sl->map.map == NULL)
-		sl_error("Map split error", sl);
+		sl_map_error("Map split error", sl);
 	sl_check_map(sl);
 }

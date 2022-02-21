@@ -140,7 +140,10 @@ void	render_die(t_game *sl, t_enemy *e);
 
 void	put_sprite_in_game_img(t_game *sl, t_img *sprite, int x, int y);
 void	put_background_colors(t_img *img, int color, int thick, int frame);
+
 int		sl_error(char *msg, t_game *sl);
+void	sl_map_error(char *msg, t_game *sl);
+void	clean_map(t_game *sl);
 void	clean_game(t_game *sl);
 void	clean_imgs(t_game *sl);
 int		close_game(t_game *sl);
