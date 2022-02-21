@@ -36,7 +36,7 @@ static void	clean_malloc(void **ptr)
 	int	i;
 
 	i = 0;
-	if (ptr == NULL && !(*ptr))
+ 	if (ptr == NULL && !(*ptr))
 		return ;
 	else
 	{
@@ -65,8 +65,10 @@ void	clean_mlx(t_game *sl)
 void	clean_game(t_game *sl)
 {
 	clean_map(sl);
-	clean_malloc((void **)sl->items);
-	clean_malloc((void **)sl->enemies);
+	if (sl->items != NULL)
+		clean_malloc((void **)sl->items);
+	if (sl->enemies != NULL)
+		clean_malloc((void **)sl->enemies);
 	clean_imgs(sl);
 	clean_mlx(sl);
 }
