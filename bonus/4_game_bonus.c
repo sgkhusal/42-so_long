@@ -77,6 +77,9 @@ void	sl_game_init(t_game *sl)
 {
 	sl->moves = 0;
 	sl->collected_items = 0;
+	sl->collected_items = 0;
+	sl->enemies = NULL;
+	sl->items = NULL;
 	sl_mlx_init(sl);
 	sl_init_imgs(sl);
 	sl_load_sprites(sl);
