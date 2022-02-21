@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 21:14:15 by coder             #+#    #+#              #
-#    Updated: 2022/02/20 19:56:59 by coder            ###   ########.fr        #
+#    Updated: 2022/02/21 16:36:43 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ OBJ_BONUS =			$(SRC_BONUS:$(SRC_BONUS_PATH)/%.c=$(OBJ_BONUS_PATH)/%.o)
 
 # compilation
 CC =		gcc
-CFLAGS =	-Wall -Werror -Wextra
+CFLAGS =	-Wall -Werror -Wextra #-fsanitize=leak
 GNLFLAGS =	-D BUFFER_SIZE=10
 MLXFLAGS =	-lmlx -lXext -lX11
 
@@ -74,23 +74,35 @@ bonus:	$(BONUS)
 
 $(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c
 	@mkdir -p $(OBJ_PATH)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_BONUS_PATH)/%.o:	$(SRC_BONUS_PATH)/%.c
 	@mkdir -p $(OBJ_BONUS_PATH)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	$(LIBFT) $(PRINTF) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) $(PRINTF) $(LIBFT) -o $@
+	$(CC) $(CFLAGS) -o $@ $(OBJ) $(PRINTF) $(LIBFT) $(MLXFLAGS)
+	@echo "\033[1;32m"
+	@echo "************************************"
+	@echo "           so_long created"
+	@echo "************************************"
+	@echo "\033[0m"
 
 $(BONUS):	$(LIBFT) $(PRINTF) $(OBJ_BONUS)
-	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(MLXFLAGS) $(PRINTF) $(LIBFT) -o $@
+	$(CC) $(CFLAGS) -o $@ $(OBJ_BONUS) $(PRINTF) $(LIBFT) $(MLXFLAGS)
+	@echo "\033[1;32m"
+	@echo "************************************"
+	@echo "        so_long_bonus created"
+	@echo "************************************"
+	@echo "\033[0m"
 
 $(LIBFT):
-	@cd $(LIBFT_PATH) && $(MAKE)
+	cd $(LIBFT_PATH) && $(MAKE)
+	@echo "libft.a created"
 
 $(PRINTF):
-	@cd $(PRINTF_PATH) && $(MAKE)
+	cd $(PRINTF_PATH) && $(MAKE)
+	@echo "libftprintf.a created"
 
 clean:
 		@$(RM_DIR) $(OBJ_PATH)
