@@ -27,6 +27,6 @@ The game only accepts a map in the \*ber format and the characters:
 * E for exit
 * P for player
 
-When there is more than one player position the subsequent 'P's are set as enemies.
+When there is more than one player position the last 'P' is set as the initial player position and the other 'P's are set as enemies.
 
 Enjoy and have fun!
