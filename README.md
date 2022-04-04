@@ -19,7 +19,7 @@ If you are using Workspaces just
 * run ```make bonus```
 * run ```./so_long_bonus map.ber``` with the specific map of your choose
 
-Map files are provided in ``assets/maps`` folder but you can create your own maps
+Map files are provided in ``assets/maps`` folder but you can create your own maps. 
 The game only accepts a map in the \*ber format and the characters:
 * 1 for walls
 * 0 for empty space
