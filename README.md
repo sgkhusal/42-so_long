@@ -30,3 +30,11 @@ The game only accepts a map in the \*ber format and the characters:
 When there is more than one player position the last 'P' is set as the initial player position and the other 'P's are set as enemies.
 
 Enjoy and have fun!
+
+## Sprites references
+
+* Player: [cyberrumor](https://cyberrumor.itch.io/)
+* Walls: [Kronbits](https://kronbits.itch.io/)
+* Floor and exit: [O_LOBSTER](https://o-lobster.itch.io/)
+* Collectibles: [Alex's Assets](https://alexs-assets.itch.io/) and [shubibubi.itch.io](https://shubibubi.itch.io/)
+* Enemy: [Szadi art](https://szadiart.itch.io)
