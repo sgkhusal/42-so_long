@@ -2,6 +2,8 @@
 
 A small 2D game
 
+![so_long3](https://user-images.githubusercontent.com/75377067/163036327-339132f0-9cf7-4cf3-af5f-f94e9696392c.gif)
+
 ## Game rules
 
 * The player’s goal is to collect every collectible present on the map, then escape chosing the shortest possible route.
