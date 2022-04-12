@@ -36,5 +36,5 @@ Enjoy and have fun!
 * Player: [cyberrumor](https://cyberrumor.itch.io/)
 * Walls: [Kronbits](https://kronbits.itch.io/)
 * Floor and exit: [O_LOBSTER](https://o-lobster.itch.io/)
-* Collectibles: [Alex's Assets](https://alexs-assets.itch.io/) and [shubibubi.itch.io](https://shubibubi.itch.io/)
+* Collectibles: [Alex's Assets](https://alexs-assets.itch.io/) and [shubibubi](https://shubibubi.itch.io/)
 * Enemy: [Szadi art](https://szadiart.itch.io)
