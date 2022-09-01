@@ -2,6 +2,8 @@
 
 A small 2D game
 
+![so_long3](https://user-images.githubusercontent.com/75377067/163036327-339132f0-9cf7-4cf3-af5f-f94e9696392c.gif)
+
 ## Game rules
 
 * The player’s goal is to collect every collectible present on the map, then escape chosing the shortest possible route.
@@ -19,7 +21,7 @@ If you are using Workspaces just
 * run ```make bonus```
 * run ```./so_long_bonus map.ber``` with the specific map of your choose
 
-Map files are provided in ``assets/maps`` folder but you can create your own maps
+Map files are provided in ``assets/maps`` folder but you can create your own maps. 
 The game only accepts a map in the \*ber format and the characters:
 * 1 for walls
 * 0 for empty space
@@ -27,6 +29,14 @@ The game only accepts a map in the \*ber format and the characters:
 * E for exit
 * P for player
 
-When there is more than one player position the subsequent 'P's are set as enemies.
+When there is more than one player position the last 'P' is set as the initial player position and the other 'P's are set as enemies.
 
 Enjoy and have fun!
+
+## Sprites references
+
+* Player: [cyberrumor](https://cyberrumor.itch.io/)
+* Walls: [Kronbits](https://kronbits.itch.io/)
+* Floor and exit: [O_LOBSTER](https://o-lobster.itch.io/)
+* Collectibles: [Alex's Assets](https://alexs-assets.itch.io/) and [shubibubi](https://shubibubi.itch.io/)
+* Enemy: [Szadi art](https://szadiart.itch.io)
