@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 22:02:57 by coder             #+#    #+#             */
-/*   Updated: 2022/04/01 20:12:17 by sguilher         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:49:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_move(t_game *sl)
 void	sl_move_exit(t_game *sl)
 {
 	print_move(sl);
-	ft_printf("YOU WON!!\n");
+	ft_printf("YOU WON!!!!!!! CONGRATULATIONS =)\n");
 	close_game(sl);
 }
 

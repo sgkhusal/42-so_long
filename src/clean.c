@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:30:03 by coder             #+#    #+#             */
-/*   Updated: 2022/04/01 20:12:20 by sguilher         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:34:02 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	clean_game(t_game *sl)
 	clean_map(sl);
 	if (sl->items != NULL)
 		clean_malloc((void **)sl->items);
-	clean_imgs(sl);
-	clean_mlx(sl);
+	if (sl->mlx.mlx != NULL)
+	{
+		clean_imgs(sl);
+		clean_mlx(sl);
+	}
 }

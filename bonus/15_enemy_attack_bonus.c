@@ -6,7 +6,7 @@
 /*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 02:03:56 by coder             #+#    #+#             */
-/*   Updated: 2022/04/01 20:13:31 by sguilher         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:50:41 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	update_enemy_attack(t_game *sl, t_enemy *e)
 		if (sl->mlx.win != NULL)
 			mlx_put_image_to_window(sl->mlx.mlx, sl->mlx.win, sl->img.img,
 				0, 0);
-		ft_printf("\n\nYOU DIE!! TRY AGAIN...\n\n");
+		ft_printf("\n\nYOU DIED!! TRY AGAIN...\n\n");
 		close_game(sl);
 	}
 }
